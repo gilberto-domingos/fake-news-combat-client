@@ -1,11 +1,43 @@
-.example-spacer {
-  flex: 1 1 auto;
-}
-
 mat-toolbar {
   background-color: rgb(174, 23, 3);
-}
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
 
-.logo {
-  padding-top: 5px;
+  .logo {
+    padding-top: 2px;
+    height: 40px;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px black;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #ffffff;
+      color: rgb(174, 23, 3);
+      text-shadow: 1px 1px 1 #000;
+    }
+
+    mat-icon {
+      font-size: 24px;
+    }
+
+    &.menu-button {
+      padding: 0 9px;
+    }
+  }
+
+  .menu-text {
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
