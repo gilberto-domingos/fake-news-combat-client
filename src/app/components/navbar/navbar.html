@@ -1,10 +1,31 @@
 <mat-toolbar>
-  <span><img src="assets/logo.svg" alt="b1010code logo" class="logo" /> </span>
-  <span class="example-spacer"></span>
-  <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+  <!-- Logo -->
+  <img src="assets/logo.svg" alt="b1010code logo" class="logo" />
+
+  <span class="spacer"></span>
+
+  <!-- Botão Menu (ícone + texto) -->
+  <button mat-button [matMenuTriggerFor]="menu" class="menu-button" aria-label="Menu">
     <mat-icon>menu</mat-icon>
+    <span class="menu-text">Menu</span>
   </button>
-  <button matIconButton class="example-icon" aria-label="Example icon-button with share icon">
+
+  <!-- Botão Login (ícone + texto) -->
+  <button mat-icon-button class="account" aria-label="Login">
+    <mat-icon>account_circle</mat-icon>
+    <span class="menu-text">Entrar</span>
+  </button>
+
+  <!-- Ícone de share -->
+  <button mat-icon-button aria-label="Share">
     <mat-icon>share</mat-icon>
   </button>
+
+  <!-- Menu de links -->
+  <mat-menu #menu="matMenu" panelClass="custom-menu">
+    <button mat-menu-item routerLink="/home">Home</button>
+    <button mat-menu-item routerLink="/resgister">Cadastro</button>
+    <button mat-menu-item routerLink="/projects">Projects</button>
+    <button mat-menu-item routerLink="/contact">Contact</button>
+  </mat-menu>
 </mat-toolbar>
