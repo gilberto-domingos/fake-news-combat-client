@@ -58,17 +58,18 @@ body {
 
 /* Texto */
 .item p {
-  margin: 0;
+  margin: 0px 0px 20px 0px;
   font-size: clamp(0.85rem, 1.5vw + 0.4rem, 1.1rem);
   color: #3f3f3f;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      'one one'
-      'two three'
-      'four five';
+      'one  one'
+      'two  three'
+      'five five'
+      'four four';
   }
 }
