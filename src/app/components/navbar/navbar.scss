@@ -3,6 +3,11 @@ mat-toolbar {
   display: flex;
   align-items: center;
   padding: 0 16px;
+  height: clamp(50px, 6vw, 72px);
+
+  .logo {
+    height: clamp(28px, 3vw, 40px);
+  }
 
   .logo {
     height: clamp(28px, 3vw, 40px);
