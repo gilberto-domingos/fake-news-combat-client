@@ -5,8 +5,10 @@ mat-toolbar {
   padding: 0 16px;
 
   .logo {
-    padding-top: 2px;
-    height: 40px;
+    height: clamp(28px, 3vw, 40px);
+    width: auto;
+    object-fit: contain;
+    display: block;
   }
 
   .spacer {
@@ -23,7 +25,7 @@ mat-toolbar {
   button {
     display: flex;
     align-items: center;
-    gap: 0.5px; // ligeiro aumento melhora respiração visual
+    gap: 0.5px;
     color: #ffffff;
     text-shadow: 1px 1px 1px black;
     transition: 0.3s;
