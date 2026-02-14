@@ -3,41 +3,59 @@ mat-toolbar {
   display: flex;
   align-items: center;
   padding: 0 16px;
+  height: clamp(50px, 6vw, 72px);
 
   .logo {
-    padding-top: 2px;
-    height: 40px;
+    height: clamp(28px, 3vw, 40px);
+  }
+
+  .logo {
+    height: clamp(28px, 3vw, 40px);
+    width: auto;
+    object-fit: contain;
+    display: block;
   }
 
   .spacer {
     flex: 1 1 auto;
   }
 
-  button {
+  .left,
+  .right {
     display: flex;
     align-items: center;
     gap: 4px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5px;
     color: #ffffff;
     text-shadow: 1px 1px 1px black;
     transition: 0.3s;
+    border-radius: 4px;
 
     &:hover {
       background-color: #ffffff;
       color: #ae1703;
-      text-shadow: 1px 1px 1 #000;
+      text-shadow: 1px 1px 1px #000;
     }
 
     mat-icon {
-      font-size: 24px;
-    }
-
-    &.menu-button {
-      padding: 0 9px;
+      font-size: 22px;
+      width: 22px;
+      height: 1px;
+      line-height: 20px;
     }
   }
 
+  .menu-button {
+    padding: 0 12px;
+  }
+
   .menu-text {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
   }
 }
