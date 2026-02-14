@@ -13,31 +13,42 @@ mat-toolbar {
     flex: 1 1 auto;
   }
 
-  button {
+  .left,
+  .right {
     display: flex;
     align-items: center;
     gap: 4px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5px; // ligeiro aumento melhora respiração visual
     color: #ffffff;
     text-shadow: 1px 1px 1px black;
     transition: 0.3s;
+    border-radius: 4px;
 
     &:hover {
       background-color: #ffffff;
       color: #ae1703;
-      text-shadow: 1px 1px 1 #000;
+      text-shadow: 1px 1px 1px #000;
     }
 
     mat-icon {
-      font-size: 24px;
-    }
-
-    &.menu-button {
-      padding: 0 9px;
+      font-size: 22px;
+      width: 22px;
+      height: 1px;
+      line-height: 20px;
     }
   }
 
+  .menu-button {
+    padding: 0 12px;
+  }
+
   .menu-text {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
   }
 }
