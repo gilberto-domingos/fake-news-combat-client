@@ -1,0 +1,67 @@
+<mat-card class="sigin-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Entrar na sua conta </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form class="sigin-form">
+      <mat-form-field class="input-full">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          [formControl]="emailFormControl"
+          [errorStateMatcher]="matcher"
+        />
+        <mat-hint>Se houver erro o sistema avisa</mat-hint>
+
+        @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+          <mat-error>Please enter a valid email address</mat-error>
+        }
+
+        @if (emailFormControl.hasError('required')) {
+          <mat-error>Email is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="input-full">
+        <mat-label>Senha</mat-label>
+
+        <input
+          [type]="hidePassword ? 'password' : 'text'"
+          matInput
+          [formControl]="passwordFormControl"
+          [errorStateMatcher]="matcher"
+        />
+
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+          <mat-icon>
+            {{ hidePassword ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+        </button>
+
+        <mat-hint>Mínimo de 8 caracteres</mat-hint>
+
+        @if (
+          passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')
+        ) {
+          <mat-error>A senha deve ter pelo menos 8 caracteres</mat-error>
+        }
+
+        @if (passwordFormControl.hasError('required')) {
+          <mat-error>Senha é <strong>obrigatória</strong></mat-error>
+        }
+      </mat-form-field>
+    </form>
+    <p class="forget">Esqueceu sua senha ?</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="login" matButton="filled">Fazer login</button>
+  </mat-card-actions>
+  <mat-card-actions>
+    <p class="orcame">Ou entre com</p>
+  </mat-card-actions>
+  <mat-card-actions>
+    <div id="googleBtn" class="google-btn"></div>
+  </mat-card-actions>
+</mat-card>
