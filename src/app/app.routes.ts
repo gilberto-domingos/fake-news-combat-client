@@ -6,7 +6,11 @@ export const routes: Routes = [
     loadComponent: () => import('./components/home/home').then((m) => m.Home),
   },
   {
-    path: 'register',
-    loadComponent: () => import('./components/register/register').then((m) => m.Register),
+    path: 'sigup',
+    loadComponent: () => import('./components/sigup/sigup').then((m) => m.Sigup),
+  },
+  {
+    path: 'sigin',
+    loadComponent: () => import('./components/sigin/sigin').then((m) => m.Sigin),
   },
 ];
