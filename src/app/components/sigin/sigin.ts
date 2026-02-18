@@ -97,4 +97,8 @@ export class Sigin implements ErrorStateMatcher, AfterViewInit {
   goToPrivacy() {
     this.router.navigate(['/privacy']);
   }
+
+  goSignUp() {
+    this.router.navigate(['/signup']);
+  }
 }
