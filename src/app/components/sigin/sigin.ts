@@ -14,6 +14,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
 
 declare const google: any;
 
@@ -41,6 +42,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sigin implements ErrorStateMatcher, AfterViewInit {
+  constructor(private router: Router) {}
+
   hidePassword = true;
   matcher = new MyErrorStateMatcher();
 
@@ -75,7 +78,6 @@ export class Sigin implements ErrorStateMatcher, AfterViewInit {
 
     console.log('Google Token:', idToken);
 
-    // aqui você envia para o FastAPI
     // this.http.post('/auth/google', { token: idToken }).subscribe();
   }
 
@@ -85,6 +87,14 @@ export class Sigin implements ErrorStateMatcher, AfterViewInit {
       callback: (response: any) => this.handleGoogleLogin(response),
     });
 
-    google.accounts.id.prompt(); // abre popup / one tap
+    google.accounts.id.prompt();
+  }
+
+  goToConditions() {
+    this.router.navigate(['/conditions']);
+  }
+
+  goToPrivacy() {
+    this.router.navigate(['/privacy']);
   }
 }
