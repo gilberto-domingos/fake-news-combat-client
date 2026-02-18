@@ -1,1 +1,71 @@
-<p>signup works!</p>
+<mat-card class="signup-card">
+  <h2>Criar conta</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <!-- Nome -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nome completo</mat-label>
+      <input matInput formControlName="name" />
+      @if (form.controls.full_name.hasError('required')) {
+        <mat-error> Nome é obrigatório </mat-error>
+      }
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="form.controls.email.hasError('email')"> Email inválido </mat-error>
+    </mat-form-field>
+
+    <!-- Senha -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Senha</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+      <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="form.controls.password.hasError('minlength')">
+        Mínimo 8 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Confirmar senha -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Confirmar senha</mat-label>
+      <input
+        matInput
+        [type]="hideConfirmPassword ? 'password' : 'text'"
+        formControlName="confirmPassword"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        (click)="hideConfirmPassword = !hideConfirmPassword"
+      >
+        <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Erro senhas -->
+    <mat-error> As senhas não coincidem </mat-error>
+
+    <!-- Termos -->
+    <mat-checkbox formControlName="terms">
+      Aceito os Termos e a Política de Privacidade
+    </mat-checkbox>
+
+    <!-- Botão -->
+    <button mat-flat-button color="primary" class="full-width" type="submit">Criar conta</button>
+  </form>
+
+  <div class="divider">
+    <span>OU</span>
+  </div>
+
+  <!-- Google -->
+  <div id="googleBtn"></div>
+
+  <button mat-button (click)="goToLogin()">Já tenho conta</button>
+</mat-card>

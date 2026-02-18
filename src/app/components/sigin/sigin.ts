@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import {
   FormControl,
@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 declare const google: any;
 
@@ -42,7 +43,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sigin implements ErrorStateMatcher, AfterViewInit {
-  constructor(private router: Router) {}
+  private router = inject(Router);
+  private authService = inject(AuthService);
 
   hidePassword = true;
   matcher = new MyErrorStateMatcher();
@@ -73,12 +75,30 @@ export class Sigin implements ErrorStateMatcher, AfterViewInit {
     }
   }
 
+  submit() {
+    if (this.emailFormControl.invalid || this.passwordFormControl.invalid) return;
+
+    this.authService
+      .login(this.emailFormControl.value!, this.passwordFormControl.value!)
+      .subscribe({
+        next: (res) => {
+          console.log('Login OK', res);
+          this.router.navigate(['/home']);
+        },
+        error: (err) => console.error('Erro login', err),
+      });
+  }
+
   handleGoogleLogin(response: any) {
     const idToken = response.credential;
 
-    console.log('Google Token:', idToken);
-
-    // this.http.post('/auth/google', { token: idToken }).subscribe();
+    this.authService.googleLogin(idToken).subscribe({
+      next: (res) => {
+        console.log('Google login OK', res);
+        this.router.navigate(['/home']);
+      },
+      error: (err) => console.error('Erro Google login', err),
+    });
   }
 
   loginWithGoogle(): void {

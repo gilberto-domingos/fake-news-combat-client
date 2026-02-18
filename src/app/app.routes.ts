@@ -10,12 +10,17 @@ export const routes: Routes = [
     loadComponent: () => import('./components/home/home').then((m) => m.Home),
   },
   {
-    path: 'sigup',
-    loadComponent: () => import('./components/sigup/sigup').then((m) => m.Sigup),
+    path: 'signup',
+    loadComponent: () => import('./components/signup/signup').then((m) => m.Signup),
   },
   {
     path: 'sigin',
     loadComponent: () => import('./components/sigin/sigin').then((m) => m.Sigin),
+  },
+  {
+    path: 'external',
+    loadComponent: () =>
+      import('./components/externallogin/externallogin').then((m) => m.Externallogin),
   },
   {
     path: 'conditions',
