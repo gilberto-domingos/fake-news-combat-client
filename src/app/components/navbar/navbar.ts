@@ -33,8 +33,8 @@ export class Navbar {
     this.router.navigate(['/sigin']);
   }
 
-  goProjects() {
-    this.router.navigate(['/projects']);
+  goSignUp() {
+    this.router.navigate(['/signup']);
   }
 
   goContact() {

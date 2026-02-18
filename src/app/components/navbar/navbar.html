@@ -33,7 +33,7 @@
         <span>Entrar</span>
       </button>
 
-      <button mat-menu-item routerLink="/sigup">
+      <button mat-menu-item (click)="goSignUp()">
         <mat-icon>assignment ind</mat-icon>
         <span>Cadastre-se</span>
       </button>
@@ -51,7 +51,7 @@
 
     <!-- Desktop -->
     @if (!isMobile) {
-      <button mat-menu-item routerLink="/resgister">
+      <button mat-menu-item (click)="goSignUp()">
         <mat-icon>assignment ind</mat-icon>
         <span>Cadastre-se</span>
       </button>
