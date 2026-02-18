@@ -13,7 +13,7 @@
 
     <!-- Desktop -->
     @if (!isMobile) {
-      <button mat-button aria-label="Login">
+      <button mat-button (click)="goSigin()" aria-label="Login">
         <mat-icon>account_circle</mat-icon>
         <span class="menu-text">Entrar</span>
       </button>
@@ -28,12 +28,12 @@
   <mat-menu #menu="matMenu">
     <!-- Mobile -->
     @if (isMobile) {
-      <button mat-menu-item aria-label="Login">
+      <button mat-menu-item (click)="goSigin()" aria-label="Sigin">
         <mat-icon>account_circle</mat-icon>
         <span>Entrar</span>
       </button>
 
-      <button mat-menu-item routerLink="/resgister">
+      <button mat-menu-item routerLink="/sigup">
         <mat-icon>assignment ind</mat-icon>
         <span>Cadastre-se</span>
       </button>
@@ -44,7 +44,7 @@
       </button>
     }
 
-    <button mat-menu-item routerLink="/home">
+    <button mat-menu-item (click)="goHome()">
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </button>
