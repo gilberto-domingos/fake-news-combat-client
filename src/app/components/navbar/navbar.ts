@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -15,9 +16,36 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class Navbar {
   isMobile = false;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(
+    private router: Router,
+    private breakpointObserver: BreakpointObserver,
+  ) {
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe((result) => {
       this.isMobile = result.matches;
     });
+  }
+
+  goHome() {
+    this.router.navigate(['/home']);
+  }
+
+  goSigin() {
+    this.router.navigate(['/sigin']);
+  }
+
+  goProjects() {
+    this.router.navigate(['/projects']);
+  }
+
+  goContact() {
+    this.router.navigate(['/contact']);
+  }
+
+  goLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  goShare() {
+    console.log('Compartilhar...');
   }
 }
