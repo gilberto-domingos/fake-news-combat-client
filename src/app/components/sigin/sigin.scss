@@ -1,15 +1,18 @@
+@use '../../../styles' as *;
+
 .sigin-card {
   max-width: 80%;
   height: auto;
   margin: 5% auto 0;
+  border-radius: 12px 12px 0 0;
 }
 
 mat-card-header {
   display: flex;
   justify-content: center;
   border-radius: 12px 12px 0 0;
-  background-color: #f3dde1ff;
-  color: #006eff;
+  background-color: $card-bg-forms;
+  color: $card-bg-forms-contrast;
   text-shadow: 0.5px 0.5px 0.5px #000;
   padding-bottom: 20px;
 }
@@ -26,11 +29,12 @@ mat-card-header {
 
 .forget {
   margin-left: 20px;
-  color: blueviolet;
+  color: var(--color-accent);
 }
 
 .login {
-  background-color: #ae1703;
+  background-color: $card-bg-forms;
+  color: $card-bg-forms-contrast;
   margin: 0 auto;
 }
 
@@ -51,5 +55,5 @@ mat-card-header {
 }
 
 .privacy span {
-  color: rgb(34, 34, 255);
+  color: var(--color-primary);
 }

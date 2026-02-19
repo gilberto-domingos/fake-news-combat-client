@@ -1,35 +1,298 @@
-// layout color #ae1703;
 @use '@angular/material' as mat;
+@use 'sass:map';
 
-html {
-  height: 100%;
-  @include mat.theme(
-    (
-      color: (
-        primary: mat.$rose-palette,
-        tertiary: mat.$red-palette,
-      ),
-      typography: Roboto,
-      density: 0,
-    )
-  );
+$my-primary: mat.m2-define-palette(mat.$m2-indigo-palette, 500);
+$my-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
+$my-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+$my-theme: mat.m2-define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+    typography: mat.m2-define-typography-config(),
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($my-theme);
+
+:root {
+  --color-primary: #006eff;
+  --color-accent: #8a2be2;
+  --color-warn: #fff316;
+
+  --color-danger: #ae1703;
+  --color-success: #2e7d32;
+  --color-info: #0288d1;
+  --color-warning: #ed6c02;
+  --color-neutral: #6b7280;
+  --color-bg-alt: #f5f5f5;
 }
 
+// button {
+//   background-color: var(--color-primary);
+//   color: var(--color-warn);
+// }
+
+//  (#006eff)
+$brand-blue: (
+  50: #e3f0ff,
+  100: #b9d6ff,
+  200: #8ec0ff,
+  300: #63a9ff,
+  400: #3f96ff,
+  500: #006eff,
+  600: #0066f5,
+  700: #005be0,
+  800: #0051cc,
+  900: #003bb0,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+// Example
+// $card-bg: map.get($brand-blue, 200);
+
+// .card {
+//   background-color: $card-bg;
+// }
+
+// or
+
+// .card {
+//   background-color: $blue-200;
+// }
+
+// Nomenclature examples :
+// $color-card-bg
+// $spacing-md
+// $radius-lg
+// $shadow-sm
+// $btn-primary-bg
+// $header-bg
+// $form-border
+
+//  (#8A2BE2)
+$brand-purple: (
+  50: #f2e7fb,
+  100: #d6c4f3,
+  200: #b89eea,
+  300: #9a78e1,
+  400: #865ce0,
+  500: #8a2be2,
+  600: #7d27d6,
+  700: #6c21c5,
+  800: #5c1bb5,
+  900: #3f118f,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$purple-200: map.get($brand-purple, 200);
+$purple-500: map.get($brand-purple, 500);
+
+//  (#FFF316)
+$brand-yellow: (
+  50: #fffde7,
+  100: #fff9c4,
+  200: #fff59d,
+  300: #fff176,
+  400: #ffee58,
+  500: #fff316,
+  600: #fdd835,
+  700: #fbc02d,
+  800: #f9a825,
+  900: #f57f17,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: black,
+    500: black,
+    600: black,
+    700: black,
+    800: black,
+    900: white,
+  ),
+);
+
+$yellow-200: map.get($brand-yellow, 200);
+$yellow-500: map.get($brand-yellow, 500);
+
+//  (#ed6c02)
+$brand-orange: (
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ed6c02,
+  600: #f57c00,
+  700: #ef6c00,
+  800: #e65100,
+  900: #bf360c,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: black,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$orange-200: map.get($brand-orange, 200);
+$orange-500: map.get($brand-orange, 500);
+
+//  (#ae1703)
+$brand-red: (
+  50: #fceae8,
+  100: #f7c2bc,
+  200: #f39a91,
+  300: #ef7265,
+  400: #ec4d3e,
+  500: #ae1703,
+  600: #a51502,
+  700: #8f1202,
+  800: #790f01,
+  900: #560a01,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$card-bg-forms: map.get($brand-red, 500);
+$brand-red: (
+  50: #fceae8,
+  100: #f7c2bc,
+  200: #f39a91,
+  300: #ef7265,
+  400: #ec4d3e,
+  500: #ae1703,
+  600: #a51502,
+  700: #8f1202,
+  800: #790f01,
+  900: #560a01,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$card-bg-forms: map.get($brand-red, 400);
+$card-bg-forms-contrast: map.get(map.get($brand-red, contrast), 500);
+
+// Example
+// $card-bg: map.get($brand-blue, 200);
+
+// .card {
+//   background-color: $card-bg;
+// }
+
+//  (#2e7d32)
+$brand-green: (
+  50: #e8f5e9,
+  100: #c8e6c9,
+  200: #a5d6a7,
+  300: #81c784,
+  400: #66bb6a,
+  500: #2e7d32,
+  600: #388e3c,
+  700: #2e7d32,
+  800: #1b5e20,
+  900: #0d3d11,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: black,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$green-200: map.get($brand-green, 200);
+$green-500: map.get($brand-green, 500);
+
+//  (#6b7280)
+$brand-gray: (
+  50: #f9fafb,
+  100: #f3f4f6,
+  200: #e5e7eb,
+  300: #d1d5db,
+  400: #9ca3af,
+  500: #6b7280,
+  600: #4b5563,
+  700: #374151,
+  800: #1f2937,
+  900: #111827,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: black,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$gray-200: map.get($brand-gray, 200);
+$gray-500: map.get($brand-gray, 500);
+
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
   margin: 0;
   height: 100%;
 }
-/* You can add global styles to this file, and also import other style files */

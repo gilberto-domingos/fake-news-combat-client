@@ -1,5 +1,5 @@
 mat-toolbar {
-  background-color: rgb(174, 23, 3);
+  background-color: var(--color-danger);
   display: flex;
   align-items: center;
   padding: 0 16px;
@@ -31,14 +31,14 @@ mat-toolbar {
     display: flex;
     align-items: center;
     gap: 0.5px;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px black;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
     transition: 0.3s;
     border-radius: 4px;
 
     &:hover {
-      background-color: #ffffff;
-      color: #ae1703;
+      background-color: var(--color-bg-alt);
+      color: var(--color-danger);
       text-shadow: 1px 1px 1px #000;
     }
 
