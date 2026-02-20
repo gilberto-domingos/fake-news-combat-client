@@ -1,71 +1,113 @@
 <mat-card class="signup-card">
-  <h2>Criar conta</h2>
+  <mat-card-header>
+    <mat-card-title>Criar conta</mat-card-title>
+  </mat-card-header>
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <!-- Nome -->
-    <mat-form-field appearance="outline" class="full-width">
+  <form class="signup-form" [formGroup]="form" (ngSubmit)="submit()">
+    <!-- Nome completo -->
+    <mat-form-field class="input-full">
       <mat-label>Nome completo</mat-label>
-      <input matInput formControlName="name" />
-      @if (form.controls.full_name.hasError('required')) {
-        <mat-error> Nome é obrigatório </mat-error>
+      <input matInput formControlName="full_name" />
+
+      @if (f.full_name.touched && f.full_name.hasError('required')) {
+        <mat-error>Nome é obrigatório</mat-error>
       }
     </mat-form-field>
 
     <!-- Email -->
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field class="input-full">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" />
-      <mat-error *ngIf="form.controls.email.hasError('email')"> Email inválido </mat-error>
+      <input matInput type="email" formControlName="email" [errorStateMatcher]="matcher" />
+
+      <mat-hint>Digite um email válido</mat-hint>
+
+      @if (f.email.touched && f.email.hasError('required')) {
+        <mat-error>Email é obrigatório</mat-error>
+      }
+
+      @if (f.email.touched && f.email.hasError('email')) {
+        <mat-error>Email inválido</mat-error>
+      }
     </mat-form-field>
 
     <!-- Senha -->
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field class="input-full">
       <mat-label>Senha</mat-label>
-      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+
+      <input
+        matInput
+        [type]="hidePassword ? 'password' : 'text'"
+        formControlName="password"
+        [errorStateMatcher]="matcher"
+      />
+
       <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
-        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <mat-icon>
+          {{ hidePassword ? 'visibility_off' : 'visibility' }}
+        </mat-icon>
       </button>
-      <mat-error *ngIf="form.controls.password.hasError('minlength')">
-        Mínimo 8 caracteres
-      </mat-error>
+
+      <mat-hint>Mínimo de 8 caracteres</mat-hint>
+
+      @if (f.password.touched && f.password.hasError('required')) {
+        <mat-error>Senha é obrigatória</mat-error>
+      }
+
+      @if (f.password.touched && f.password.hasError('minlength')) {
+        <mat-error>A senha deve ter pelo menos 8 caracteres</mat-error>
+      }
     </mat-form-field>
 
     <!-- Confirmar senha -->
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field class="input-full">
       <mat-label>Confirmar senha</mat-label>
+
       <input
         matInput
         [type]="hideConfirmPassword ? 'password' : 'text'"
         formControlName="confirmPassword"
       />
+
       <button
         mat-icon-button
         matSuffix
         type="button"
         (click)="hideConfirmPassword = !hideConfirmPassword"
       >
-        <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <mat-icon>
+          {{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}
+        </mat-icon>
       </button>
+
+      @if (f.confirmPassword.touched && f.confirmPassword.hasError('required')) {
+        <mat-error>Confirmação obrigatória</mat-error>
+      }
     </mat-form-field>
 
-    <!-- Erro senhas -->
-    <mat-error> As senhas não coincidem </mat-error>
+    <!-- Erro mismatch -->
+    @if (form.touched && form.hasError('mismatch')) {
+      <mat-error>As senhas não coincidem</mat-error>
+    }
 
     <!-- Termos -->
     <mat-checkbox formControlName="terms">
       Aceito os Termos e a Política de Privacidade
     </mat-checkbox>
 
-    <!-- Botão -->
-    <button mat-flat-button color="primary" class="full-width" type="submit">Criar conta</button>
-  </form>
+    @if (f.terms.touched && f.terms.hasError('required')) {
+      <mat-error>Você deve aceitar os termos</mat-error>
+    }
 
-  <div class="divider">
-    <span>OU</span>
-  </div>
+    <!-- Botão [disabled]="form.invalid" -->
+    <button mat-flat-button class="account" type="submit" [disabled]="form.invalid">
+      Criar conta
+    </button>
+  </form>
 
   <!-- Google -->
   <div id="googleBtn"></div>
 
-  <button mat-button (click)="goToLogin()">Já tenho conta</button>
+  <p class="has-account" (click)="goToLogin()">Já tenho conta</p>
 </mat-card>
+
+<!-- <p class="privacy">novo usuario? <span (click)="goSignUp()">Cadastre-se</span></p> -->

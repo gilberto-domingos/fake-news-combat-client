@@ -1,27 +1,29 @@
-import { CommonModule } from '@angular/common'; // ✅
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   AbstractControl,
-  FormControl,
-  FormGroup,
+  NonNullableFormBuilder,
   ReactiveFormsModule,
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { MyErrorStateMatcher } from '../sigin/sigin';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [
-    CommonModule, // ✅ necessário para *ngIf
+    CommonModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
@@ -37,40 +39,48 @@ import { AuthService } from '../../services/auth.service';
 export class Signup {
   private router = inject(Router);
   private authService = inject(AuthService);
+  private fb = inject(NonNullableFormBuilder);
 
   hidePassword = true;
   hideConfirmPassword = true;
+  matcher = new MyErrorStateMatcher();
 
   passwordMatchValidator: ValidatorFn = (control: AbstractControl) => {
     const password = control.get('password')?.value;
-    const confirm = control.get('confirmPassword')?.value;
+    const confirmPassword = control.get('confirmPassword')?.value;
 
-    return password === confirm ? null : { mismatch: true };
+    return password === confirmPassword ? null : { mismatch: true };
   };
 
-  form = new FormGroup(
+  form = this.fb.group(
     {
-      full_name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)]),
-      confirmPassword: new FormControl('', [Validators.required]),
-      terms: new FormControl(false, [Validators.requiredTrue]),
+      full_name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', Validators.required],
+      terms: [false, Validators.requiredTrue],
     },
     { validators: this.passwordMatchValidator },
   );
 
+  /** Getter limpo para template */
+  get f() {
+    return this.form.controls;
+  }
+
   submit() {
     if (this.form.invalid) return;
 
-    const { full_name, email, password } = this.form.value;
+    const { full_name, email, password } = this.form.getRawValue();
 
-    this.authService.signup(full_name!, email!, password!).subscribe({
+    this.authService.signup(full_name, email, password).subscribe({
       next: () => this.router.navigate(['/login']),
-      error: (err) => console.error(err),
+      error: (err) => console.error('Signup error:', err),
     });
   }
 
   goToLogin() {
-    this.router.navigate(['/login']);
+    alert('testando !!!');
+    this.router.navigate(['/signin']);
   }
 }
