@@ -10,11 +10,12 @@ export class AuthService {
     return this.http.post(`${this.api}/login`, { email, password });
   }
 
-  signup(full_name: string, email: string, password: string) {
+  signup(full_name: string, email: string, password: string, captchaToken: string) {
     return this.http.post(`${this.api}/signup`, {
       full_name,
       email,
       password,
+      captchaToken,
     });
   }
 
