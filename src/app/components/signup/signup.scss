@@ -1,19 +1,29 @@
 @use '../../../styles' as *;
 
 .signup-card {
-  max-width: 80%;
+  max-width: 85%;
   height: auto;
   margin: 5% auto 0;
+  margin-bottom: 100px;
+  padding-bottom: 30px;
+  border-radius: 12px 12px 0 0;
 }
 
 mat-card-header {
   display: flex;
+  min-height: auto;
   justify-content: center;
   border-radius: 12px 12px 0 0;
-  background-color: $card-bg-forms;
+  background-color: var(--color-danger);
   color: $card-bg-forms-contrast;
-  text-shadow: 0.5px 0.5px 0.5px #000;
-  padding-bottom: 20px;
+  padding: 8px 16px;
+}
+
+mat-card-title {
+  color: $card-bg-forms-contrast;
+  text-align: center;
+  min-height: auto;
+  line-height: 1.2;
 }
 
 .signup-form {
@@ -31,17 +41,34 @@ mat-card-header {
 }
 
 .account {
-  background-color: $card-bg-forms;
+  background-color: var(--color-danger);
   color: $card-bg-forms-contrast;
   margin: 0 auto;
 }
 
 .has-account {
   margin-left: 5%;
-  color: var(--color-primary);
+  color: var(--color-accent);
   font-size: large;
   text-decoration: underline;
 }
 
-//       color="primary"
-//       class="input-full"
+.privacy {
+  margin: 0 auto;
+  color: var(--color-primary) !important;
+  text-decoration: underline !important;
+}
+
+mat-card-footer {
+  width: 300px;
+  height: auto;
+}
+
+mat-hint {
+  display: block;
+  margin: 8px 0 16px;
+}
+
+// submit() {
+//   if (this.form.invalid || !this.captchaToken) return;
+// }

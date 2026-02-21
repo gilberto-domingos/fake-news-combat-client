@@ -7,6 +7,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -17,13 +18,14 @@ import { MatInputModule } from '@angular/material/input';
 
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { MyErrorStateMatcher } from '../sigin/sigin';
+import { MyErrorStateMatcher } from '../signin/signin';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [
     CommonModule,
+    RecaptchaModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
@@ -32,11 +34,13 @@ import { MyErrorStateMatcher } from '../sigin/sigin';
     MatIconModule,
     MatCheckboxModule,
   ],
+  providers: [],
   templateUrl: './signup.html',
   styleUrl: './signup.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Signup {
+  siteKey = '6Lf-lXIsAAAAAIgPn-2Eg6vZNywBbx7thWNv8u1l';
   private router = inject(Router);
   private authService = inject(AuthService);
   private fb = inject(NonNullableFormBuilder);
@@ -59,11 +63,11 @@ export class Signup {
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
       terms: [false, Validators.requiredTrue],
+      recaptcha: ['', Validators.required],
     },
     { validators: this.passwordMatchValidator },
   );
 
-  /** Getter limpo para template */
   get f() {
     return this.form.controls;
   }
@@ -71,16 +75,36 @@ export class Signup {
   submit() {
     if (this.form.invalid) return;
 
-    const { full_name, email, password } = this.form.getRawValue();
+    const { full_name, email, password, recaptcha } = this.form.getRawValue();
 
-    this.authService.signup(full_name, email, password).subscribe({
+    this.authService.signup(full_name, email, password, recaptcha).subscribe({
       next: () => this.router.navigate(['/login']),
       error: (err) => console.error('Signup error:', err),
     });
   }
 
+  onCaptchaResolved(token: string | null) {
+    this.form.controls['recaptcha'].setValue(token || '');
+    this.form.controls['recaptcha'].markAsTouched();
+  }
+
   goToLogin() {
-    alert('testando !!!');
     this.router.navigate(['/signin']);
+  }
+
+  goPrivacy() {
+    this.router.navigate(['/privacy']);
+  }
+
+  goConditions() {
+    this.router.navigate(['/conditions']);
+  }
+
+  googlePrivacy() {
+    window.location.href = 'https://policies.google.com/privacy';
+  }
+
+  googleTerms() {
+    window.location.href = 'https://policies.google.com/terms';
   }
 }
