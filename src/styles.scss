@@ -224,7 +224,7 @@ $brand-red: (
   ),
 );
 
-$card-bg-forms: map.get($brand-red, 400);
+$card-bg-forms: map.get($brand-red, 500);
 $card-bg-forms-contrast: map.get(map.get($brand-red, contrast), 500);
 
 // Example
