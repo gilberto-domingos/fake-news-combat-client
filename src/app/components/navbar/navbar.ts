@@ -29,8 +29,8 @@ export class Navbar {
     this.router.navigate(['/home']);
   }
 
-  goSigin() {
-    this.router.navigate(['/sigin']);
+  goSignin() {
+    this.router.navigate(['/signin']);
   }
 
   goSignUp() {
