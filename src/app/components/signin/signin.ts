@@ -28,7 +28,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-sigin',
+  selector: 'app-signin',
   imports: [
     MatButtonModule,
     MatCardModule,
@@ -38,11 +38,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     ReactiveFormsModule,
     MatIconModule,
   ],
-  templateUrl: './sigin.html',
-  styleUrl: './sigin.scss',
+  templateUrl: './signin.html',
+  styleUrl: './signin.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Sigin implements ErrorStateMatcher, AfterViewInit {
+export class Signin implements ErrorStateMatcher, AfterViewInit {
   private router = inject(Router);
   private authService = inject(AuthService);
 

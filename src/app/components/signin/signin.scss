@@ -14,7 +14,12 @@ mat-card-header {
   background-color: $card-bg-forms;
   color: $card-bg-forms-contrast;
   text-shadow: 0.5px 0.5px 0.5px #000;
-  padding-bottom: 20px;
+  padding: 8px 16px;
+}
+
+mat-card-title {
+  min-height: auto;
+  line-height: 1.2;
 }
 
 .sigin-form {
@@ -56,4 +61,5 @@ mat-card-header {
 
 .privacy span {
   color: var(--color-primary);
+  text-decoration: underline;
 }
