@@ -83,12 +83,7 @@
       <mat-error> Você deve aceitar os termos </mat-error>
     }
 
-    <re-captcha
-      formControlName="recaptcha"
-      [siteKey]="siteKey"
-      (resolved)="onCaptchaResolved($event)"
-    >
-    </re-captcha>
+    <re-captcha [siteKey]="siteKey" (resolved)="onCaptchaResolved($event)"> </re-captcha>
     @if (form.get('recaptcha')?.touched && form.get('recaptcha')?.invalid) {
       <div class="error">Confirme que você não é um robô</div>
     }
