@@ -69,6 +69,26 @@ mat-hint {
   margin: 8px 0 16px;
 }
 
-// submit() {
-//   if (this.form.invalid || !this.captchaToken) return;
-// }
+.date-field {
+  width: 100%;
+  height: auto;
+}
+
+.row {
+  width: 95%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#date {
+  width: 100%;
+  margin: 15px 0px 0px 100px;
+  text-align: left;
+}
+
+#confirm {
+  margin-top: 15px;
+  text-align: left;
+}

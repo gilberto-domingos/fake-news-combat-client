@@ -5,10 +5,18 @@
 
   <form class="signup-form" [formGroup]="form" (ngSubmit)="submit()">
     <mat-form-field class="input-full">
-      <mat-label>Nome completo</mat-label>
-      <input matInput formControlName="full_name" />
-      @if (form.get('full_name')?.touched && form.get('full_name')?.hasError('required')) {
+      <mat-label>Nome </mat-label>
+      <input matInput formControlName="name" />
+      @if (form.get('name')?.touched && form.get('name')?.hasError('required')) {
         <mat-error> Nome é obrigatório </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="input-full">
+      <mat-label>Sobrenome</mat-label>
+      <input matInput formControlName="last_name" />
+      @if (form.get('last_name')?.touched && form.get('last_name')?.hasError('required')) {
+        <mat-error> Sobrenome é obrigatório </mat-error>
       }
     </mat-form-field>
 
@@ -22,6 +30,79 @@
       }
       @if (form.get('email')?.touched && form.get('email')?.hasError('email')) {
         <mat-error> Email inválido </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-label id="date">Data de nascimento</mat-label>
+    <div class="row">
+      <mat-form-field class="date-field" appearance="fill">
+        <mat-label>Dia</mat-label>
+        <mat-select formControlName="day">
+          @for (day of days; track day) {
+            <mat-option [value]="day">{{ day }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="date-field" appearance="fill">
+        <mat-label>Mês</mat-label>
+        <mat-select formControlName="month">
+          @for (month of months; track month.value) {
+            <mat-option [value]="month.value">{{ month.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="date-field" appearance="fill">
+        <mat-label>Ano</mat-label>
+        <mat-select formControlName="year">
+          @for (year of years; track year) {
+            <mat-option [value]="year">{{ year }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="input-full" appearance="fill">
+      <mat-label>Gênero</mat-label>
+      <mat-select formControlName="gender">
+        @for (gender of genders; track gender.value) {
+          <mat-option [value]="gender.value">{{ gender.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="input-full" appearance="fill">
+      <mat-label>Profissão</mat-label>
+
+      <mat-select formControlName="profession">
+        @for (role of professions; track role.value) {
+          <mat-option [value]="role.value">
+            {{ role.label }}
+          </mat-option>
+        }
+      </mat-select>
+
+      @if (form.get('profession')?.invalid && form.get('profession')?.touched) {
+        <mat-error>Selecione uma profissão</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="input-full" appearance="fill">
+      <mat-label>Celular</mat-label>
+      <input
+        pInputText
+        type="tel"
+        matInput
+        formControlName="phone"
+        pInputMask="(99) 99999-9999"
+        placeholder="(11) 91234-5678"
+      />
+
+      <mat-icon matSuffix>mode_edit</mat-icon>
+
+      @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
+        <mat-error> Informe um celular válido </mat-error>
       }
     </mat-form-field>
 
@@ -46,7 +127,7 @@
       }
     </mat-form-field>
 
-    <mat-form-field class="input-full">
+    <mat-form-field id="confirm" class="input-full">
       <mat-label>Confirmar senha</mat-label>
       <input
         matInput
@@ -83,9 +164,10 @@
       <mat-error> Você deve aceitar os termos </mat-error>
     }
 
-    <re-captcha [siteKey]="siteKey" (resolved)="onCaptchaResolved($event)"> </re-captcha>
-    @if (form.get('recaptcha')?.touched && form.get('recaptcha')?.invalid) {
-      <div class="error">Confirme que você não é um robô</div>
+    <div #captchaContainer id="recaptcha-container" class="recaptcha-box"></div>
+
+    @if (f.recaptcha.touched && f.recaptcha.invalid) {
+      <mat-error>Confirme que você não é um robô</mat-error>
     }
 
     <mat-card-footer>
