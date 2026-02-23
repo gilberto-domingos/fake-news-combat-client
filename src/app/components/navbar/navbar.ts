@@ -46,6 +46,11 @@ export class Navbar {
   }
 
   goShare() {
-    console.log('Compartilhar...');
+    const message = 'Sistema de combate a fake news ! Usem e divulguem : ';
+    const url = window.location.href;
+
+    const text = encodeURIComponent(message + url);
+
+    window.open(`https://wa.me/?text=${text}`, '_blank');
   }
 }

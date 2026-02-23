@@ -18,7 +18,7 @@
         <span class="menu-text">Entrar</span>
       </button>
 
-      <button mat-button aria-label="Share">
+      <button mat-button (click)="goShare()" aria-label="Share">
         <mat-icon>share</mat-icon>
         <span class="menu-text">Share</span>
       </button>
@@ -38,7 +38,7 @@
         <span>Cadastre-se</span>
       </button>
 
-      <button mat-menu-item aria-label="Share">
+      <button mat-menu-item (click)="goShare()" aria-label="Share">
         <mat-icon>share</mat-icon>
         <span>Compartilhar</span>
       </button>
