@@ -14,7 +14,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { Months } from './../../shared/types/months.type';
+import { MonthLabels } from './../../shared/types/month-labels.const';
 
 import { RecaptchaLoaderService } from '../../services/recaptcha-loader-service';
 import { RecaptchaService } from '../../services/recaptcha-service';
@@ -37,8 +37,8 @@ import { FormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { Gender, Genders } from '../../shared/types/genders.type';
+import { Month, Months } from '../../shared/types/months.type';
 import { Profession, Professionals } from '../../shared/types/professions.type';
-import { Month } from './../../shared/types/months.type';
 
 @Component({
   selector: 'app-signup',
@@ -66,6 +66,7 @@ export class Signup implements AfterViewInit {
   protected readonly AllGenders = Object.values(Genders) as Gender[];
   protected readonly AllProfessionals = Object.values(Professionals) as Profession[];
   protected readonly AllMonths = Object.values(Months) as Month[];
+  protected readonly MonthLabels = MonthLabels;
 
   @ViewChild('captchaContainer') captchaRef!: ElementRef<HTMLDivElement>;
 
