@@ -47,8 +47,8 @@
       <mat-form-field class="date-field" appearance="fill">
         <mat-label>Mês</mat-label>
         <mat-select formControlName="month">
-          @for (month of months; track month.value) {
-            <mat-option [value]="month.value">{{ month.label }}</mat-option>
+          @for (month of AllMonths; track month) {
+            <mat-option [value]="month">{{ month }}</mat-option>
           }
         </mat-select>
       </mat-form-field>
@@ -66,8 +66,8 @@
     <mat-form-field class="input-full" appearance="fill">
       <mat-label>Gênero</mat-label>
       <mat-select formControlName="gender">
-        @for (gender of genders; track gender.value) {
-          <mat-option [value]="gender.value">{{ gender.label }}</mat-option>
+        @for (gender of AllGenders; track gender) {
+          <mat-option [value]="gender">{{ gender | titlecase }}</mat-option>
         }
       </mat-select>
     </mat-form-field>
@@ -76,10 +76,8 @@
       <mat-label>Profissão</mat-label>
 
       <mat-select formControlName="profession">
-        @for (role of professions; track role.value) {
-          <mat-option [value]="role.value">
-            {{ role.label }}
-          </mat-option>
+        @for (prof of AllProfessionals; track prof) {
+          <mat-option [value]="prof">{{ prof | titlecase }}</mat-option>
         }
       </mat-select>
 

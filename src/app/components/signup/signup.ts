@@ -14,6 +14,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Months } from './../../shared/types/months.type';
 
 import { RecaptchaLoaderService } from '../../services/recaptcha-loader-service';
 import { RecaptchaService } from '../../services/recaptcha-service';
@@ -35,6 +36,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
+import { Gender, Genders } from '../../shared/types/genders.type';
+import { Profession, Professionals } from '../../shared/types/professions.type';
+import { Month } from './../../shared/types/months.type';
 
 @Component({
   selector: 'app-signup',
@@ -59,6 +63,10 @@ import { InputTextModule } from 'primeng/inputtext';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Signup implements AfterViewInit {
+  protected readonly AllGenders = Object.values(Genders) as Gender[];
+  protected readonly AllProfessionals = Object.values(Professionals) as Profession[];
+  protected readonly AllMonths = Object.values(Months) as Month[];
+
   @ViewChild('captchaContainer') captchaRef!: ElementRef<HTMLDivElement>;
 
   ngAfterViewInit(): void {
@@ -108,40 +116,8 @@ export class Signup implements AfterViewInit {
 
   days = Array.from({ length: 31 }, (_, i) => i + 1);
 
-  months = [
-    { value: 1, label: 'Janeiro' },
-    { value: 2, label: 'Fevereiro' },
-    { value: 3, label: 'Março' },
-    { value: 4, label: 'Abril' },
-    { value: 5, label: 'Maio' },
-    { value: 6, label: 'Junho' },
-    { value: 7, label: 'Julho' },
-    { value: 8, label: 'Agosto' },
-    { value: 9, label: 'Setembro' },
-    { value: 10, label: 'Outubro' },
-    { value: 11, label: 'Novembro' },
-    { value: 12, label: 'Dezembro' },
-  ];
-
   currentYear = new Date().getFullYear();
   years = Array.from({ length: 100 }, (_, i) => this.currentYear - i);
-
-  genders = [
-    { value: 'male', label: 'Masculino' },
-    { value: 'female', label: 'Feminino' },
-    { value: 'gay', label: 'Gay' },
-    { value: 'trans', label: 'Transgênero' },
-  ];
-
-  professions = [
-    { value: 'business', label: 'Empresário' },
-    { value: 'journalist', label: 'Jornalista' },
-    { value: 'celebrity', label: 'Celebridade' },
-    { value: 'authority', label: 'Autoridade' },
-    { value: 'investigator', label: 'Investigador' },
-    { value: 'police', label: 'Policial' },
-    { value: 'private', label: 'Particular' },
-  ];
 
   get f() {
     return this.form.controls;
