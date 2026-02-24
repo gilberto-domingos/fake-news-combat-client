@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://b1010code.com.br',
+  apiUrl: 'http://localhost:4200',
 };
