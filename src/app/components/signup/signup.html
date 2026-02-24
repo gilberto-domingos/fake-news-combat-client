@@ -47,8 +47,10 @@
       <mat-form-field class="date-field" appearance="fill">
         <mat-label>Mês</mat-label>
         <mat-select formControlName="month">
-          @for (month of AllMonths; track month) {
-            <mat-option [value]="month">{{ month }}</mat-option>
+          @for (month of AllMonths; track month.value) {
+            <mat-option [value]="month.value">
+              {{ month.label }}
+            </mat-option>
           }
         </mat-select>
       </mat-form-field>
