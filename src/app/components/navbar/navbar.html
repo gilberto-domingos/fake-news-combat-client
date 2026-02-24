@@ -33,6 +33,11 @@
         <span>Entrar</span>
       </button>
 
+      <button mat-menu-item (click)="goHome()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+
       <button mat-menu-item (click)="goSignUp()">
         <mat-icon>assignment ind</mat-icon>
         <span>Cadastre-se</span>
@@ -44,11 +49,6 @@
       </button>
     }
 
-    <button mat-menu-item (click)="goHome()">
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
-    </button>
-
     <!-- Desktop -->
     @if (!isMobile) {
       <button mat-menu-item (click)="goSignUp()">
@@ -56,8 +56,5 @@
         <span>Cadastre-se</span>
       </button>
     }
-
-    <button mat-menu-item routerLink="/projects">Projects</button>
-    <button mat-menu-item routerLink="/contact">Contact</button>
   </mat-menu>
 </mat-toolbar>
