@@ -65,8 +65,10 @@ import { Profession, Professionals } from '../../shared/types/professions.type';
 export class Signup implements AfterViewInit {
   protected readonly AllGenders = Object.values(Genders) as Gender[];
   protected readonly AllProfessionals = Object.values(Professionals) as Profession[];
-  protected readonly AllMonths = Object.values(Months) as Month[];
-  protected readonly MonthLabels = MonthLabels;
+  protected readonly AllMonths = (Object.values(Months) as Month[]).map((month) => ({
+    value: month,
+    label: MonthLabels[month],
+  }));
 
   @ViewChild('captchaContainer') captchaRef!: ElementRef<HTMLDivElement>;
 
