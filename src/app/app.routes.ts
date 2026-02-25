@@ -18,11 +18,6 @@ export const routes: Routes = [
     loadComponent: () => import('./features/auth/signin/signin').then((m) => m.Signin),
   },
   {
-    path: 'external',
-    loadComponent: () =>
-      import('./shared/ui/external-login/external-login').then((m) => m.ExternalLogin),
-  },
-  {
     path: 'conditions',
     loadComponent: () =>
       import('./features/auth/terms-conditions/terms-conditions').then((m) => m.TermsConditions),
