@@ -3,33 +3,33 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./components/home/home').then((m) => m.Home),
+    loadComponent: () => import('./features/home/home').then((m) => m.Home),
   },
   {
     path: 'home',
-    loadComponent: () => import('./components/home/home').then((m) => m.Home),
+    loadComponent: () => import('./features/home/home').then((m) => m.Home),
   },
   {
     path: 'signup',
-    loadComponent: () => import('./components/signup/signup').then((m) => m.Signup),
+    loadComponent: () => import('./features/auth/signup/signup').then((m) => m.Signup),
   },
   {
     path: 'signin',
-    loadComponent: () => import('./components/signin/signin').then((m) => m.Signin),
+    loadComponent: () => import('./features/auth/signin/signin').then((m) => m.Signin),
   },
   {
     path: 'external',
     loadComponent: () =>
-      import('./components/externallogin/externallogin').then((m) => m.Externallogin),
+      import('./shared/ui/external-login/external-login').then((m) => m.ExternalLogin),
   },
   {
     path: 'conditions',
     loadComponent: () =>
-      import('./components/termsconditions/termsconditions').then((m) => m.Termsconditions),
+      import('./features/auth/terms-conditions/terms-conditions').then((m) => m.TermsConditions),
   },
   {
     path: 'privacy',
     loadComponent: () =>
-      import('./components/privacynotice/privacynotice').then((m) => m.Privacynotice),
+      import('./features/auth/privacy-notice/privacy-notice').then((m) => m.PrivacyNotice),
   },
 ];
