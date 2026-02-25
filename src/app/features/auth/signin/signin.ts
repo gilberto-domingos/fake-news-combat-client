@@ -1,5 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, inject } from '@angular/core';
-
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroupDirective,
@@ -15,9 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { ExternalLogin } from '../../../shared/ui/external-login/external-login';
 import { AuthService } from '../auth.service';
-
-declare const google: any;
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -36,12 +34,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatInputModule,
     ReactiveFormsModule,
     MatIconModule,
+    ExternalLogin,
   ],
   templateUrl: './signin.html',
-  styleUrl: './signin.scss',
+  styleUrls: ['./signin.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Signin implements ErrorStateMatcher, AfterViewInit {
+export class Signin implements ErrorStateMatcher {
   private router = inject(Router);
   private authService = inject(AuthService);
 
@@ -49,29 +48,11 @@ export class Signin implements ErrorStateMatcher, AfterViewInit {
   matcher = new MyErrorStateMatcher();
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = !!(form && form.submitted);
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-
-  ngAfterViewInit(): void {
-    if (typeof google !== 'undefined') {
-      google.accounts.id.initialize({
-        client_id: 'SEU_CLIENT_ID_AQUI',
-        callback: (response: any) => this.handleGoogleLogin(response),
-      });
-
-      google.accounts.id.renderButton(document.getElementById('googleBtn'), {
-        theme: 'outline',
-        size: 'large',
-        shape: 'rectangular',
-        text: 'signin_with',
-        width: 280,
-      });
-    }
   }
 
   submit() {
@@ -86,27 +67,6 @@ export class Signin implements ErrorStateMatcher, AfterViewInit {
         },
         error: (err) => console.error('Erro login', err),
       });
-  }
-
-  handleGoogleLogin(response: any) {
-    const idToken = response.credential;
-
-    this.authService.googleLogin(idToken).subscribe({
-      next: (res) => {
-        console.log('Google login OK', res);
-        this.router.navigate(['/home']);
-      },
-      error: (err) => console.error('Erro Google login', err),
-    });
-  }
-
-  loginWithGoogle(): void {
-    google.accounts.id.initialize({
-      client_id: 'SEU_CLIENT_ID',
-      callback: (response: any) => this.handleGoogleLogin(response),
-    });
-
-    google.accounts.id.prompt();
   }
 
   goToConditions() {
