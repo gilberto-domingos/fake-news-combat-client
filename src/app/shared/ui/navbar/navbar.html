@@ -1,0 +1,64 @@
+<mat-toolbar>
+  <div class="left">
+    <img src="assets/logo.svg" alt="logo" class="logo" />
+  </div>
+
+  <span class="spacer"></span>
+
+  <div class="right">
+    <button mat-button [matMenuTriggerFor]="menu" aria-label="Menu">
+      <mat-icon>menu</mat-icon>
+      <span class="menu-text">Menu</span>
+    </button>
+
+    <!-- Desktop -->
+    @if (!isMobile) {
+      <button mat-button (click)="goSignin()" aria-label="Login">
+        <mat-icon>account_circle</mat-icon>
+        <span class="menu-text">Entrar</span>
+      </button>
+
+      <button mat-button (click)="goShare()" aria-label="Share">
+        <mat-icon>share</mat-icon>
+        <span class="menu-text">Share</span>
+      </button>
+    }
+  </div>
+
+  <mat-menu #menu="matMenu">
+    <!-- Mobile -->
+    @if (isMobile) {
+      <button mat-menu-item (click)="goSignin()" aria-label="Signin">
+        <mat-icon>account_circle</mat-icon>
+        <span>Entrar</span>
+      </button>
+
+      <button mat-menu-item (click)="goHome()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+
+      <button mat-menu-item (click)="goSignUp()">
+        <mat-icon>assignment ind</mat-icon>
+        <span>Cadastre-se</span>
+      </button>
+
+      <button mat-menu-item (click)="goShare()" aria-label="Share">
+        <mat-icon>share</mat-icon>
+        <span>Compartilhar</span>
+      </button>
+    }
+
+    <!-- Desktop -->
+    @if (!isMobile) {
+      <button mat-menu-item (click)="goHome()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item (click)="goSignUp()">
+        <mat-icon>assignment ind</mat-icon>
+        <span>Cadastre-se</span>
+      </button>
+    }
+  </mat-menu>
+</mat-toolbar>
