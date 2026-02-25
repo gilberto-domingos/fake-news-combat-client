@@ -25,27 +25,27 @@ export class Navbar {
     });
   }
 
-  goHome() {
+  goToHome() {
     this.router.navigate(['/home']);
   }
 
-  goSignin() {
+  goToSignin() {
     this.router.navigate(['/signin']);
   }
 
-  goSignUp() {
+  goToSignUp() {
     this.router.navigate(['/signup']);
   }
 
-  goContact() {
+  goToContact() {
     this.router.navigate(['/contact']);
   }
 
-  goLogin() {
+  goToLogin() {
     this.router.navigate(['/login']);
   }
 
-  goShare() {
+  goToShare() {
     const message = 'Sistema de combate a fake news ! Usem e divulguem : ';
     const url = window.location.href;
 
