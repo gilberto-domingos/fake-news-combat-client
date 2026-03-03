@@ -12,18 +12,12 @@ export class UserService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/users`;
 
-  getAll(params?: {
-    page?: number;
-    pageSize?: number;
-    search?: string;
-    active?: boolean;
-  }): Observable<ResUserDto[]> {
+  getAll(params?: { page?: number; pageSize?: number; search?: string }): Observable<ResUserDto[]> {
     let httpParams = new HttpParams();
 
     if (params?.page) httpParams = httpParams.set('page', params.page);
     if (params?.pageSize) httpParams = httpParams.set('pageSize', params.pageSize);
     if (params?.search) httpParams = httpParams.set('search', params.search);
-    if (params?.active !== undefined) httpParams = httpParams.set('active', params.active);
 
     return this.http
       .get<ResUserDto[]>(this.apiUrl, { params: httpParams })
