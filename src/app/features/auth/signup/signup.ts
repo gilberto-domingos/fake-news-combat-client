@@ -96,7 +96,7 @@ export class Signup implements OnInit {
   form = this.fb.group(
     {
       name: ['', Validators.required],
-      last_name: ['', Validators.required],
+      lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       day: ['', Validators.required],
       month: ['', Validators.required],
@@ -144,11 +144,11 @@ export class Signup implements OnInit {
 
     const { day, month, year } = formValue;
 
-    const birth_date = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const birthdate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
-    const { name, last_name, email, password, recaptcha } = formValue;
+    const { name, lastname, email, password, recaptcha } = formValue;
 
-    this.authService.signup(name, last_name, email, password, recaptcha).subscribe({
+    this.authService.signup(name, lastname, email, password, recaptcha).subscribe({
       next: () => {
         this.recaptchaService.reset(this.widgetId);
         this.router.navigate(['/login']);
