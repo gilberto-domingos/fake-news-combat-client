@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  OnInit,
   ViewChild,
   inject,
 } from '@angular/core';
@@ -11,10 +11,10 @@ import {
   AbstractControl,
   NonNullableFormBuilder,
   ReactiveFormsModule,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { MonthLabels } from '../../../shared/types/month-labels.const';
+import { Month } from './../../../shared/types/months.type';
 
 import { RecaptchaLoaderService } from '../recaptcha-loader-service';
 import { RecaptchaService } from '../recaptcha-service';
@@ -37,7 +37,7 @@ import { FormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { Gender, Genders } from '../../../shared/types/genders.type';
-import { Month, Months } from '../../../shared/types/months.type';
+import { Months } from '../../../shared/types/months.type';
 import { Profession, Professionals } from '../../../shared/types/professions.type';
 
 @Component({
@@ -62,7 +62,7 @@ import { Profession, Professionals } from '../../../shared/types/professions.typ
   styleUrl: './signup.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Signup implements AfterViewInit {
+export class Signup implements OnInit {
   protected readonly AllGenders = Object.values(Genders) as Gender[];
   protected readonly AllProfessionals = Object.values(Professionals) as Profession[];
   protected readonly AllMonths = (Object.values(Months) as Month[]).map((month) => ({
@@ -71,12 +71,6 @@ export class Signup implements AfterViewInit {
   }));
 
   @ViewChild('captchaContainer') captchaRef!: ElementRef<HTMLDivElement>;
-
-  ngAfterViewInit(): void {
-    this.loader.load().then(() => {
-      this.renderCaptcha();
-    });
-  }
 
   siteKey = '6Lf-lXIsAAAAAIgPn-2Eg6vZNywBbx7thWNv8u1l';
 
@@ -92,11 +86,12 @@ export class Signup implements AfterViewInit {
 
   widgetId?: number;
 
-  passwordMatchValidator: ValidatorFn = (control: AbstractControl) => {
-    const password = control.get('password')?.value;
-    const confirmPassword = control.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { mismatch: true };
-  };
+  passwordMatchValidator(group: AbstractControl) {
+    const password = group.get('password')?.value;
+    const confirm = group.get('confirmPassword')?.value;
+
+    return password === confirm ? null : { mismatch: true };
+  }
 
   form = this.fb.group(
     {
@@ -111,7 +106,7 @@ export class Signup implements AfterViewInit {
       phone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\)\s9\d{4}-\d{4}$/)]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
-      terms: [false, Validators.requiredTrue],
+      terms: ['', Validators.requiredTrue],
       recaptcha: ['', Validators.required],
     },
     { validators: this.passwordMatchValidator },
@@ -145,7 +140,13 @@ export class Signup implements AfterViewInit {
   submit() {
     if (this.form.invalid) return;
 
-    const { name, last_name, email, password, recaptcha } = this.form.getRawValue();
+    const formValue = this.form.getRawValue();
+
+    const { day, month, year } = formValue;
+
+    const birth_date = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+    const { name, last_name, email, password, recaptcha } = formValue;
 
     this.authService.signup(name, last_name, email, password, recaptcha).subscribe({
       next: () => {
