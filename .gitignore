@@ -20,6 +20,8 @@ yarn-error.log*
 # Environment files
 .env
 .env.*
+src/environments/environment.ts
+src/environments/environment.prod.ts
 
 # Coverage
 /coverage

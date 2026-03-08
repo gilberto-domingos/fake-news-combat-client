@@ -1,18 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "cli": {
-    "packageManager": "npm"
-  },
+  "cli": { "packageManager": "npm" },
   "newProjectRoot": "projects",
   "projects": {
     "frontend": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": { "@schematics/angular:component": { "style": "scss" } },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -20,19 +14,14 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/fake-news-combat-client",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
-              }
+              { "glob": "**/*", "input": "public" },
+              { "glob": "**/*", "input": "src/assets", "output": "assets" },
+              { "glob": "404.html", "input": "src", "output": "/" }
             ],
             "styles": [
               "src/styles.scss",
@@ -42,53 +31,36 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/fake-news-combat-client",
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
+                { "type": "initial", "maximumWarning": "1MB", "maximumError": "2MB" },
+                { "type": "anyComponentStyle", "maximumWarning": "100kB", "maximumError": "150kB" }
               ],
               "outputHashing": "all"
             },
-
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
+                  "with": "src/environments/environment.prod.ts"
                 }
               ]
             }
           },
           "defaultConfiguration": "production"
         },
-
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "frontend:build:production"
-            },
-            "development": {
-              "buildTarget": "frontend:build:development"
-            }
+            "production": { "buildTarget": "frontend:build:production" },
+            "development": { "buildTarget": "frontend:build:development" }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
-
-        "test": {
-          "builder": "@angular/build:unit-test"
-        }
+        "test": { "builder": "@angular/build:unit-test" }
       }
     }
   }
