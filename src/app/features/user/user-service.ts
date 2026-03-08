@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { environment } from '../../../environments/environments';
+import { environment } from 'src/environments/environment';
 import { CrtUserDto } from './crt-user-dto';
 import { ResUserDto } from './res-user-dto';
 

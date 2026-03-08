@@ -13,8 +13,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+
 import { MonthLabels } from '../../../shared/types/month-labels.const';
-import { Month } from './../../../shared/types/months.type';
+import { Month } from '../../../shared/types/months.type';
 
 import { RecaptchaLoaderService } from '../recaptcha-loader-service';
 import { RecaptchaService } from '../recaptcha-service';
@@ -31,6 +32,8 @@ import { MatOption, MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
+
+import { environment } from 'environments/environment';
 import { Gender, Genders } from '../../../shared/types/genders.type';
 import { Months } from '../../../shared/types/months.type';
 import { Profession, Professionals } from '../../../shared/types/professions.type';
@@ -61,6 +64,22 @@ import { MyErrorStateMatcher } from '../signin/signin';
 })
 export class Signup implements OnInit {
   private cdr = inject(ChangeDetectorRef);
+  private router = inject(Router);
+  private authService = inject(AuthService);
+  private fb = inject(NonNullableFormBuilder);
+  private loader = inject(RecaptchaLoaderService);
+  private recaptchaService = inject(RecaptchaService);
+
+  @ViewChild('captchaContainer') captchaRef!: ElementRef<HTMLDivElement>;
+
+  siteKey = environment.recaptchaSiteKey;
+  apiUrl = environment.apiUrl;
+
+  hidePassword = true;
+  hideConfirmPassword = true;
+  matcher = new MyErrorStateMatcher();
+  widgetId?: number;
+
   protected readonly AllGenders = Object.values(Genders) as Gender[];
   protected readonly AllProfessionals = Object.values(Professionals) as Profession[];
   protected readonly AllMonths = (Object.values(Months) as Month[]).map((month) => ({
@@ -68,28 +87,9 @@ export class Signup implements OnInit {
     label: MonthLabels[month],
   }));
 
-  @ViewChild('captchaContainer') captchaRef!: ElementRef<HTMLDivElement>;
-
-  siteKey = '6Lf-lXIsAAAAAIgPn-2Eg6vZNywBbx7thWNv8u1l';
-
-  private router = inject(Router);
-  private authService = inject(AuthService);
-  private fb = inject(NonNullableFormBuilder);
-  private loader = inject(RecaptchaLoaderService);
-  private recaptchaService = inject(RecaptchaService);
-
-  hidePassword = true;
-  hideConfirmPassword = true;
-  matcher = new MyErrorStateMatcher();
-
-  widgetId?: number;
-
-  passwordMatchValidator(group: AbstractControl) {
-    const password = group.get('password')?.value;
-    const confirm = group.get('confirmPassword')?.value;
-
-    return password === confirm ? null : { mismatch: true };
-  }
+  days = Array.from({ length: 31 }, (_, i) => i + 1);
+  currentYear = new Date().getFullYear();
+  years = Array.from({ length: 100 }, (_, i) => this.currentYear - i);
 
   form = this.fb.group(
     {
@@ -110,11 +110,6 @@ export class Signup implements OnInit {
     { validators: this.passwordMatchValidator },
   );
 
-  days = Array.from({ length: 31 }, (_, i) => i + 1);
-
-  currentYear = new Date().getFullYear();
-  years = Array.from({ length: 100 }, (_, i) => this.currentYear - i);
-
   get f() {
     return this.form.controls;
   }
@@ -126,10 +121,15 @@ export class Signup implements OnInit {
     });
   }
 
-  renderCaptcha() {
-    const element = this.captchaRef.nativeElement;
+  private passwordMatchValidator(group: AbstractControl) {
+    const password = group.get('password')?.value;
+    const confirm = group.get('confirmPassword')?.value;
+    return password === confirm ? null : { mismatch: true };
+  }
 
-    this.widgetId = this.recaptchaService.render(element, this.siteKey, {
+  renderCaptcha() {
+    if (!this.captchaRef) return;
+    this.widgetId = this.recaptchaService.render(this.captchaRef.nativeElement, this.siteKey, {
       success: (token: string) => this.onCaptchaResolved(token),
       expired: () => this.form.controls.recaptcha.setValue(''),
       error: () => console.error('Erro no captcha'),
@@ -139,13 +139,9 @@ export class Signup implements OnInit {
   submit() {
     if (this.form.invalid) return;
 
-    const formValue = this.form.getRawValue();
-
-    const { day, month, year } = formValue;
-
+    const { day, month, year, name, lastname, email, password, recaptcha } =
+      this.form.getRawValue();
     const birthdate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-
-    const { name, lastname, email, password, recaptcha } = formValue;
 
     this.authService.signup(name, lastname, email, password, recaptcha).subscribe({
       next: () => {
