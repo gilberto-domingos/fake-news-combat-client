@@ -19,26 +19,23 @@ import { Month } from './../../../shared/types/months.type';
 import { RecaptchaLoaderService } from '../recaptcha-loader-service';
 import { RecaptchaService } from '../recaptcha-service';
 
+import { ChangeDetectorRef } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-
-import { MatOption } from '@angular/material/select';
+import { MatOption, MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { MyErrorStateMatcher } from '../signin/signin';
-
-import { MatSelectModule } from '@angular/material/select';
-
-import { FormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { Gender, Genders } from '../../../shared/types/genders.type';
 import { Months } from '../../../shared/types/months.type';
 import { Profession, Professionals } from '../../../shared/types/professions.type';
+import { AuthService } from '../auth.service';
+import { MyErrorStateMatcher } from '../signin/signin';
 
 @Component({
   selector: 'app-signup',
@@ -63,6 +60,7 @@ import { Profession, Professionals } from '../../../shared/types/professions.typ
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Signup implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
   protected readonly AllGenders = Object.values(Genders) as Gender[];
   protected readonly AllProfessionals = Object.values(Professionals) as Profession[];
   protected readonly AllMonths = (Object.values(Months) as Month[]).map((month) => ({
@@ -124,6 +122,7 @@ export class Signup implements OnInit {
   ngOnInit(): void {
     this.loader.load().then(() => {
       this.renderCaptcha();
+      this.cdr.detectChanges();
     });
   }
 
