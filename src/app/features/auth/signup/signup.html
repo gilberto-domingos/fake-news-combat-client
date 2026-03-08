@@ -14,7 +14,7 @@
 
     <mat-form-field class="input-full">
       <mat-label>Sobrenome</mat-label>
-      <input matInput formControlName="last_name" />
+      <input matInput formControlName="lastname" />
       @if (form.get('last_name')?.touched && form.get('last_name')?.hasError('required')) {
         <mat-error> Sobrenome é obrigatório </mat-error>
       }
