@@ -1,0 +1,1 @@
+import{Qb as a,Ya as i,tb as c,ub as o}from"./chunk-CDAVPRDO.js";var n=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=i({type:t,selectors:[["app-privacy-notice"]],decls:2,vars:0,template:function(e,p){e&1&&(c(0,"p"),a(1,"privacy-notice works!"),o())},encapsulation:2})};export{n as PrivacyNotice};
