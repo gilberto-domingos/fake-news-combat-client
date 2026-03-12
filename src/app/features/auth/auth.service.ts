@@ -10,14 +10,18 @@ export class AuthService {
     return this.http.post(`${this.api}/login`, { email, password });
   }
 
-  signup(name: string, last_name: string, email: string, password: string, captchaToken: string) {
-    return this.http.post(`${this.api}/signup`, {
-      name,
-      last_name,
-      email,
-      password,
-      captchaToken,
-    });
+  signup(payload: {
+    name: string;
+    last_name: string;
+    email: string;
+    password: string;
+    captchaToken: string;
+    gender: string;
+    profession: string;
+    phone: string;
+    birthdate: string;
+  }) {
+    return this.http.post(`${this.api}/signup`, payload);
   }
 
   googleLogin(idToken: string) {

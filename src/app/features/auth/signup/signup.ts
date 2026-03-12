@@ -39,7 +39,6 @@ import { Months } from '../../../shared/types/months.type';
 import { Profession, Professionals } from '../../../shared/types/professions.type';
 import { AuthService } from '../auth.service';
 import { MyErrorStateMatcher } from '../signin/signin';
-
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -139,11 +138,38 @@ export class Signup implements OnInit {
   submit() {
     if (this.form.invalid) return;
 
-    const { day, month, year, name, lastname, email, password, recaptcha } =
-      this.form.getRawValue();
+    const {
+      day,
+      month,
+      year,
+      name,
+      lastname,
+      email,
+      password,
+      recaptcha,
+      gender,
+      profession,
+      phone,
+    } = this.form.getRawValue();
+
     const birthdate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
-    this.authService.signup(name, lastname, email, password, recaptcha).subscribe({
+    const payload = {
+      name,
+      last_name: lastname,
+      email,
+      password,
+      captchaToken: recaptcha,
+      gender,
+      profession,
+      phone,
+      birthdate,
+    };
+
+    console.log('Token do reCAPTCHA:', recaptcha);
+    //console.log('Payload do signup:', payload);
+
+    this.authService.signup(payload).subscribe({
       next: () => {
         this.recaptchaService.reset(this.widgetId);
         this.router.navigate(['/login']);
