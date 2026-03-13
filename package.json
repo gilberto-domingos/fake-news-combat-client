@@ -8,8 +8,8 @@
     "build:dev": "npm run generate-env && ng build --configuration development",
     "build:local": "npm run generate-env && ng build --configuration production --base-href /fake-news-combat-client/",
     "build:dom": "npm run generate-env && ng build --configuration production --base-href /",
-    "deploy:local": "$DEPLOY_LOCAL",
-    "deploy:domain": "$DEPLOY_DOMAIN",
+    "deploy:local": "sh -c \"$DEPLOY_LOCAL\"",
+    "deploy:domain": "sh -c \"$DEPLOY_DOMAIN\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
