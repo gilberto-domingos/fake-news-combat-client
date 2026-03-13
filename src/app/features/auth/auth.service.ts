@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { environment } from 'environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
-  private api = 'http://localhost:8000/auth';
+  private api = `${environment.apiUrl}/auth`;
 
   login(email: string, password: string) {
     return this.http.post(`${this.api}/login`, { email, password });
@@ -12,14 +13,15 @@ export class AuthService {
 
   signup(payload: {
     name: string;
-    last_name: string;
+    lastname: string;
     email: string;
-    password: string;
-    captchaToken: string;
+    birthdate: string;
     gender: string;
     profession: string;
     phone: string;
-    birthdate: string;
+    password: string;
+    termsAccepted: boolean;
+    captchaToken: string;
   }) {
     return this.http.post(`${this.api}/signup`, payload);
   }

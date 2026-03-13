@@ -15,7 +15,7 @@
     <mat-form-field class="input-full">
       <mat-label>Sobrenome</mat-label>
       <input matInput formControlName="lastname" />
-      @if (form.get('last_name')?.touched && form.get('last_name')?.hasError('required')) {
+      @if (form.get('lastname')?.touched && form.get('lastname')?.hasError('required')) {
         <mat-error> Sobrenome é obrigatório </mat-error>
       }
     </mat-form-field>
@@ -154,19 +154,19 @@
       <mat-error> As senhas não coincidem </mat-error>
     }
 
-    <mat-checkbox formControlName="terms">
+    <mat-checkbox formControlName="termsAccepted">
       Aceito os
       <span class="privacy" (click)="goConditions()">Termos</span>
       e a
       <span class="privacy" (click)="goPrivacy()">Política de Privacidade</span>
     </mat-checkbox>
-    @if (form.get('terms')?.touched && form.get('terms')?.hasError('required')) {
+    @if (form.get('termsAccepted')?.touched && form.get('terms')?.hasError('requiredTrue')) {
       <mat-error> Você deve aceitar os termos </mat-error>
     }
 
     <div #captchaContainer id="recaptcha-container" class="recaptcha-box"></div>
 
-    @if (f.recaptcha.touched && f.recaptcha.invalid) {
+    @if (f.captchaToken.touched && f.captchaToken.invalid) {
       <mat-error>Confirme que você não é um robô</mat-error>
     }
 
