@@ -7,5 +7,6 @@ export interface User {
   gender: string;
   profession: string;
   phone: string;
-  createdat: Date;
+  terms: boolean;
+  password: string;
 }

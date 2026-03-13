@@ -103,8 +103,8 @@ export class Signup implements OnInit {
       phone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\)\s9\d{4}-\d{4}$/)]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
-      terms: ['', Validators.requiredTrue],
-      recaptcha: ['', Validators.required],
+      termsAccepted: [false, Validators.requiredTrue],
+      captchaToken: ['', Validators.required],
     },
     { validators: this.passwordMatchValidator },
   );
@@ -130,7 +130,7 @@ export class Signup implements OnInit {
     if (!this.captchaRef) return;
     this.widgetId = this.recaptchaService.render(this.captchaRef.nativeElement, this.siteKey, {
       success: (token: string) => this.onCaptchaResolved(token),
-      expired: () => this.form.controls.recaptcha.setValue(''),
+      expired: () => this.form.controls.captchaToken.setValue(''),
       error: () => console.error('Erro no captcha'),
     });
   }
@@ -139,35 +139,37 @@ export class Signup implements OnInit {
     if (this.form.invalid) return;
 
     const {
-      day,
-      month,
-      year,
       name,
       lastname,
       email,
-      password,
-      recaptcha,
+      day,
+      month,
+      year,
       gender,
       profession,
       phone,
+      password,
+      termsAccepted,
+      captchaToken,
     } = this.form.getRawValue();
 
     const birthdate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
     const payload = {
       name,
-      last_name: lastname,
+      lastname,
       email,
-      password,
-      captchaToken: recaptcha,
+      birthdate,
       gender,
       profession,
       phone,
-      birthdate,
+      password,
+      termsAccepted,
+      captchaToken,
     };
 
-    console.log('Token do reCAPTCHA:', recaptcha);
-    //console.log('Payload do signup:', payload);
+    // console.log('Token do reCAPTCHA:', captchaToken);
+    // console.log('Payload do signup:', payload);
 
     this.authService.signup(payload).subscribe({
       next: () => {
@@ -182,8 +184,8 @@ export class Signup implements OnInit {
   }
 
   onCaptchaResolved(token: string | null) {
-    this.form.controls.recaptcha.setValue(token || '');
-    this.form.controls.recaptcha.markAsTouched();
+    this.form.controls.captchaToken.setValue(token || '');
+    this.form.controls.captchaToken.markAsTouched();
   }
 
   goToLogin() {
