@@ -136,8 +136,25 @@ export class Signup implements OnInit {
   }
 
   submit() {
-    if (this.form.invalid) return;
+    console.log('Tentativa de submit iniciada');
 
+    // Verifica se o form é inválido
+    if (this.form.invalid) {
+      console.warn('Form inválido! Veja os valores atuais:');
+      console.table(this.form.getRawValue()); // mostra todos os campos do form
+      // Mostra quais campos estão inválidos
+      type FormKeys = keyof typeof this.form.controls;
+
+      Object.keys(this.form.controls).forEach((key) => {
+        const control = this.form.controls[key as keyof typeof this.form.controls];
+        if (control.invalid) {
+          console.warn(`Campo inválido: ${key}`, control.errors);
+        }
+      });
+      return;
+    }
+
+    // Extrai valores do form
     const {
       name,
       lastname,
@@ -152,6 +169,12 @@ export class Signup implements OnInit {
       termsAccepted,
       captchaToken,
     } = this.form.getRawValue();
+
+    // Garante que o captcha foi preenchido
+    if (!captchaToken) {
+      console.warn('Captcha não resolvido!');
+      return;
+    }
 
     const birthdate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
@@ -168,22 +191,23 @@ export class Signup implements OnInit {
       captchaToken,
     };
 
-    // console.log('Token do reCAPTCHA:', captchaToken);
-    // console.log('Payload do signup:', payload);
+    console.log('Payload pronto para envio:', payload);
 
     this.authService.signup(payload).subscribe({
       next: () => {
+        console.log('Signup enviado com sucesso!');
         this.recaptchaService.reset(this.widgetId);
         this.router.navigate(['/login']);
       },
       error: (err) => {
-        console.error('Signup error:', err);
+        console.error('Erro no signup:', err);
         this.recaptchaService.reset(this.widgetId);
       },
     });
   }
 
   onCaptchaResolved(token: string | null) {
+    console.log('Captcha resolvido com token:', token);
     this.form.controls.captchaToken.setValue(token || '');
     this.form.controls.captchaToken.markAsTouched();
   }
