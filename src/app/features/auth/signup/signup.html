@@ -160,7 +160,9 @@
       e a
       <span class="privacy" (click)="goPrivacy()">Política de Privacidade</span>
     </mat-checkbox>
-    @if (form.get('termsAccepted')?.touched && form.get('terms')?.hasError('requiredTrue')) {
+    @if (
+      form.get('termsAccepted')?.touched && form.get('termsAccepted')?.hasError('requiredTrue')
+    ) {
       <mat-error> Você deve aceitar os termos </mat-error>
     }
 

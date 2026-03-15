@@ -23,7 +23,7 @@ export class AuthService {
     termsAccepted: boolean;
     captchaToken: string;
   }) {
-    return this.http.post(`${this.api}/signup`, payload);
+    return this.http.post(`${this.api}/signup/`, payload);
   }
 
   googleLogin(idToken: string) {

@@ -7,6 +7,6 @@ export interface CrtUserDto {
   gender: string;
   profession: string;
   phone: string;
-  terms: boolean;
+  termsAccepted: boolean;
   captchaToken: string;
 }

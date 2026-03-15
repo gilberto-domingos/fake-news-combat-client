@@ -138,11 +138,9 @@ export class Signup implements OnInit {
   submit() {
     console.log('Tentativa de submit iniciada');
 
-    // Verifica se o form é inválido
     if (this.form.invalid) {
       console.warn('Form inválido! Veja os valores atuais:');
       console.table(this.form.getRawValue()); // mostra todos os campos do form
-      // Mostra quais campos estão inválidos
       type FormKeys = keyof typeof this.form.controls;
 
       Object.keys(this.form.controls).forEach((key) => {
@@ -154,7 +152,6 @@ export class Signup implements OnInit {
       return;
     }
 
-    // Extrai valores do form
     const {
       name,
       lastname,
@@ -170,7 +167,6 @@ export class Signup implements OnInit {
       captchaToken,
     } = this.form.getRawValue();
 
-    // Garante que o captcha foi preenchido
     if (!captchaToken) {
       console.warn('Captcha não resolvido!');
       return;

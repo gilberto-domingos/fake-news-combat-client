@@ -6,5 +6,5 @@ export interface ResUserDto {
   gender: string;
   profession: string;
   phone: string;
-  terms: boolean;
+  termsAccepted: boolean;
 }
