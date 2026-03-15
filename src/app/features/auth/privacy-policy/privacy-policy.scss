@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  width: 100%;
+  background-color: #fff;
+}
+
+mat-card {
+  width: 100%;
+  height: auto;
+  padding-left: 5%;
+  background-color: #fff;
+}
