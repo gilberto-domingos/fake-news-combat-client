@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { API_ROUTES } from 'app/shared/constants/api-routes';
 import { environment } from 'environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -23,7 +24,7 @@ export class AuthService {
     termsAccepted: boolean;
     captchaToken: string;
   }) {
-    return this.http.post(`${this.api}/signup/`, payload);
+    return this.http.post(`${this.api}${API_ROUTES.auth.signup}`, payload);
   }
 
   googleLogin(idToken: string) {

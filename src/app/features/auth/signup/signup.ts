@@ -136,8 +136,6 @@ export class Signup implements OnInit {
   }
 
   submit() {
-    console.log('Tentativa de submit iniciada');
-
     if (this.form.invalid) {
       console.warn('Form inválido! Veja os valores atuais:');
       console.table(this.form.getRawValue()); // mostra todos os campos do form
@@ -187,11 +185,8 @@ export class Signup implements OnInit {
       captchaToken,
     };
 
-    console.log('Payload pronto para envio:', payload);
-
     this.authService.signup(payload).subscribe({
       next: () => {
-        console.log('Signup enviado com sucesso!');
         this.recaptchaService.reset(this.widgetId);
         this.router.navigate(['/login']);
       },
@@ -203,7 +198,6 @@ export class Signup implements OnInit {
   }
 
   onCaptchaResolved(token: string | null) {
-    console.log('Captcha resolvido com token:', token);
     this.form.controls.captchaToken.setValue(token || '');
     this.form.controls.captchaToken.markAsTouched();
   }

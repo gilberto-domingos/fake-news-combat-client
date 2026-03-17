@@ -27,13 +27,4 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/auth/privacy-notice/privacy-notice').then((m) => m.PrivacyNotice),
   },
-  {
-    path: 'privacy-policy',
-    loadComponent: () =>
-      import('./features/auth/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
-  },
-  {
-    path: 'support',
-    loadComponent: () => import('./features/auth/support/support').then((m) => m.Support),
-  },
 ];
