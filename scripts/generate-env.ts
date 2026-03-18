@@ -8,33 +8,37 @@ if (!fs.existsSync(envDir)) {
   fs.mkdirSync(envDir, { recursive: true });
 }
 
-const targetPathDev = path.join(process.cwd(), 'src/environments/environment.ts');
-const targetPathProd = path.join(process.cwd(), 'src/environments/environment.prod.ts');
+const targetPathDev = path.join(envDir, 'environment.ts');
+const targetPathProd = path.join(envDir, 'environment.prod.ts');
 
-function env(name: string, fallback = ''): string {
+function requiredEnv(name: string): string {
   const value = process.env[name];
 
   if (!value) {
-    console.warn(`Variável ${name} não definida. Usando fallback: "${fallback}"`);
-    return fallback;
+    console.error(`Variável obrigatória não definida: ${name}`);
+    process.exit(1); // quebra o build
   }
 
   return value;
 }
 
+function optionalEnv(name: string, fallback = ''): string {
+  return process.env[name] || fallback;
+}
+
 const devFile = `
-export const environment: { production: boolean; apiUrl: string; recaptchaSiteKey: string } = {
+export const environment = {
   production: false,
-  apiUrl: '${env('DEV_API_URL')}',
-  recaptchaSiteKey: '${env('VITE_RECAPTCHA_SITE_KEY')}'
+  apiUrl: '${optionalEnv('DEV_API_URL', 'http://localhost:8000')}',
+  recaptchaSiteKey: '${optionalEnv('RECAPTCHA_SITE_KEY', '')}'
 };
 `;
 
 const prodFile = `
-export const environment: { production: boolean; apiUrl: string; recaptchaSiteKey: string } = {
+export const environment = {
   production: true,
-  apiUrl: '${env('PROD_API_URL') || env('PROD_API_SITE_URL')}',
-  recaptchaSiteKey: '${env('VITE_RECAPTCHA_SITE_KEY')}'
+  apiUrl: '${requiredEnv('PROD_API_URL')}',
+  recaptchaSiteKey: '${requiredEnv('RECAPTCHA_SITE_KEY')}'
 };
 `;
 
