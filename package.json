@@ -5,11 +5,9 @@
     "ng": "ng",
     "generate-env": "tsx scripts/generate-env.ts",
     "start": "npm run generate-env && ng serve",
+    "build": "npm run generate-env && ng build --configuration production",
     "build:dev": "npm run generate-env && ng build --configuration development",
-    "build:local": "npm run generate-env && ng build --configuration production --base-href /fake-news-combat-client/",
-    "build:dom": "ng build --configuration production --base-href /",
-    "deploy:local": "sh -c \"$DEPLOY_LOCAL\"",
-    "deploy:domain": "sh -c \"$DEPLOY_DOMAIN\"",
+    "build:dom": "npm run generate-env && ng build --configuration production --base-href /",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

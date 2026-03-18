@@ -10,6 +10,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/home/home').then((m) => m.Home),
   },
   {
+    path: 'recaptcha',
+    loadComponent: () =>
+      import('./shared/render-captcha/render-captcha').then((m) => m.RenderCaptcha),
+  },
+  {
     path: 'signup',
     loadComponent: () => import('./features/auth/signup/signup').then((m) => m.Signup),
   },

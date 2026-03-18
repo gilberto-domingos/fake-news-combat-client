@@ -1,26 +1,13 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import {
   AbstractControl,
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Months } from './../../../shared/types/months.type';
 
-import { MonthLabels } from '../../../shared/types/month-labels.const';
-import { Month } from '../../../shared/types/months.type';
-
-import { RecaptchaLoaderService } from '../recaptcha-loader-service';
-import { RecaptchaService } from '../recaptcha-service';
-
-import { ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -32,13 +19,16 @@ import { MatOption, MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
+import { MonthLabels } from '../../../shared/types/month-labels.const';
+import { Month } from '../../../shared/types/months.type';
 
 import { environment } from 'environments/environment';
+import { RenderCaptcha } from '../../../shared/render-captcha/render-captcha';
 import { Gender, Genders } from '../../../shared/types/genders.type';
-import { Months } from '../../../shared/types/months.type';
 import { Profession, Professionals } from '../../../shared/types/professions.type';
 import { AuthService } from '../auth.service';
 import { MyErrorStateMatcher } from '../signin/signin';
+
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -56,28 +46,22 @@ import { MyErrorStateMatcher } from '../signin/signin';
     FormsModule,
     InputMaskModule,
     InputTextModule,
+    RenderCaptcha,
   ],
   templateUrl: './signup.html',
-  styleUrl: './signup.scss',
+  styleUrls: ['./signup.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Signup implements OnInit {
-  private cdr = inject(ChangeDetectorRef);
+  isProduction = environment.production;
+
   private router = inject(Router);
   private authService = inject(AuthService);
   private fb = inject(NonNullableFormBuilder);
-  private loader = inject(RecaptchaLoaderService);
-  private recaptchaService = inject(RecaptchaService);
-
-  @ViewChild('captchaContainer') captchaRef!: ElementRef<HTMLDivElement>;
-
-  siteKey = environment.recaptchaSiteKey;
-  apiUrl = environment.apiUrl;
 
   hidePassword = true;
   hideConfirmPassword = true;
   matcher = new MyErrorStateMatcher();
-  widgetId?: number;
 
   protected readonly AllGenders = Object.values(Genders) as Gender[];
   protected readonly AllProfessionals = Object.values(Professionals) as Profession[];
@@ -92,19 +76,27 @@ export class Signup implements OnInit {
 
   form = this.fb.group(
     {
-      name: ['', Validators.required],
-      lastname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      day: ['', Validators.required],
-      month: ['', Validators.required],
-      year: ['', Validators.required],
-      gender: ['', Validators.required],
-      profession: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\)\s9\d{4}-\d{4}$/)]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required],
-      termsAccepted: [false, Validators.requiredTrue],
-      captchaToken: ['', Validators.required],
+      name: this.fb.control('', Validators.required),
+      lastname: this.fb.control('', Validators.required),
+      email: this.fb.control('', [Validators.required, Validators.email]),
+
+      day: this.fb.control<number | null>(null, Validators.required),
+      month: this.fb.control<number | null>(null, Validators.required),
+      year: this.fb.control<number | null>(null, Validators.required),
+
+      gender: this.fb.control('', Validators.required),
+      profession: this.fb.control('', Validators.required),
+
+      phone: this.fb.control('', [
+        Validators.required,
+        Validators.pattern(/^\(\d{2}\)\s9\d{4}-\d{4}$/),
+      ]),
+
+      password: this.fb.control('', [Validators.required, Validators.minLength(8)]),
+      confirmPassword: this.fb.control('', Validators.required),
+
+      termsAccepted: this.fb.control(false, Validators.requiredTrue),
+      captchaToken: this.fb.control('', Validators.required),
     },
     { validators: this.passwordMatchValidator },
   );
@@ -113,40 +105,21 @@ export class Signup implements OnInit {
     return this.form.controls;
   }
 
-  ngOnInit(): void {
-    this.loader.load().then(() => {
-      this.renderCaptcha();
-      this.cdr.detectChanges();
-    });
-  }
-
   private passwordMatchValidator(group: AbstractControl) {
     const password = group.get('password')?.value;
     const confirm = group.get('confirmPassword')?.value;
     return password === confirm ? null : { mismatch: true };
   }
 
-  renderCaptcha() {
-    if (!this.captchaRef) return;
-    this.widgetId = this.recaptchaService.render(this.captchaRef.nativeElement, this.siteKey, {
-      success: (token: string) => this.onCaptchaResolved(token),
-      expired: () => this.form.controls.captchaToken.setValue(''),
-      error: () => console.error('Erro no captcha'),
-    });
+  onCaptchaResolved(token: string) {
+    this.form.controls.captchaToken.setValue(token);
+    this.form.controls.captchaToken.markAsTouched();
   }
 
   submit() {
     if (this.form.invalid) {
       console.warn('Form inválido! Veja os valores atuais:');
-      console.table(this.form.getRawValue()); // mostra todos os campos do form
-      type FormKeys = keyof typeof this.form.controls;
-
-      Object.keys(this.form.controls).forEach((key) => {
-        const control = this.form.controls[key as keyof typeof this.form.controls];
-        if (control.invalid) {
-          console.warn(`Campo inválido: ${key}`, control.errors);
-        }
-      });
+      console.table(this.form.getRawValue());
       return;
     }
 
@@ -187,19 +160,38 @@ export class Signup implements OnInit {
 
     this.authService.signup(payload).subscribe({
       next: () => {
-        this.recaptchaService.reset(this.widgetId);
         this.router.navigate(['/login']);
       },
       error: (err) => {
         console.error('Erro no signup:', err);
-        this.recaptchaService.reset(this.widgetId);
       },
     });
   }
 
-  onCaptchaResolved(token: string | null) {
-    this.form.controls.captchaToken.setValue(token || '');
-    this.form.controls.captchaToken.markAsTouched();
+  ngOnInit(): void {
+    if (!environment.production) {
+      this.fillMockData();
+    }
+  }
+
+  fillMockData(): void {
+    this.form.patchValue({
+      name: 'Gilberto',
+      lastname: 'Domingos',
+      email: 'test@gmail.com',
+      day: this.days[11],
+      month: this.AllMonths[8].value,
+      year: this.years[0],
+      gender: this.AllGenders[0],
+      profession: this.AllProfessionals[0],
+      phone: '(11) 99999-9999',
+      password: '12345678',
+      confirmPassword: '12345678',
+      termsAccepted: true,
+    });
+
+    this.form.markAllAsTouched();
+    this.form.updateValueAndValidity();
   }
 
   goToLogin() {

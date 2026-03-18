@@ -14,7 +14,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/fake-news-combat-client",
+            "outputPath": "dist/fake-news-combat-client/browser",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
