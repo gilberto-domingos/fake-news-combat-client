@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://fake-news-combat-agency.onrender.com/:path*"
+    }
+  ]
+}

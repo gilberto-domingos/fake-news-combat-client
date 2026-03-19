@@ -169,9 +169,9 @@ export class Signup implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!environment.production) {
-      this.fillMockData();
-    }
+    // if (environment.production) {
+    //   this.fillMockData();
+    // }
   }
 
   fillMockData(): void {
