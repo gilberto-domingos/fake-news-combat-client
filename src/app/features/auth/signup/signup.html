@@ -166,7 +166,14 @@
       <mat-error> Você deve aceitar os termos </mat-error>
     }
 
-    <app-render-captcha (resolved)="onCaptchaResolved($event)"></app-render-captcha>
+    <!-- <div
+  #captchaContainer
+  [style.pointer-events]="isDisabled ? 'none' : 'auto'"
+  [style.opacity]="isDisabled ? 0.5 : 1"
+></div> -->
+
+    <!-- [class.disabled]="isDisabled" -->
+    <app-render-captcha formControlName="captchaToken"></app-render-captcha>
 
     @if (f.captchaToken.touched && f.captchaToken.invalid) {
       <mat-error>Confirme que você não é um robô</mat-error>
@@ -179,21 +186,25 @@
         <span class="privacy" (click)="googleTerms()">Termos de Uso</span>.
       </p>
     </mat-card-footer>
-    <!-- [disabled]="form.invalid" -->
+
+    <!-- <button
+  mat-raised-button
+  color="primary"
+  type="submit"
+  [disabled]="form.invalid || isLoading"
+>
+  {{ isLoading ? 'Criando conta...' : 'Criar conta' }}
+</button> add propeties on button-->
+
     <mat-card-actions>
+      <!-- [disabled]="form.invalid" -->
       <button mat-raised-button color="primary" type="submit">Criar conta</button>
     </mat-card-actions>
   </form>
 
-  <button
-    *ngIf="isProduction"
-    mat-stroked-button
-    color="accent"
-    type="button"
-    (click)="fillMockData()"
-  >
+  <button mat-stroked-button color="accent" type="button" (click)="fillMockData()">
     Preencher automático
   </button>
 
-  <p class="has-account" (click)="goToLogin()">Já tenho conta</p>
+  <p class="has-account" (click)="goToSignin()">Já tenho conta</p>
 </mat-card>

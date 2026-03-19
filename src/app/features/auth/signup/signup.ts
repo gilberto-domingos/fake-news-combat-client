@@ -2,13 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import {
   AbstractControl,
+  FormsModule,
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Months } from './../../../shared/types/months.type';
-
-import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -21,8 +19,8 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { MonthLabels } from '../../../shared/types/month-labels.const';
 import { Month } from '../../../shared/types/months.type';
+import { Months } from './../../../shared/types/months.type';
 
-import { environment } from 'environments/environment';
 import { RenderCaptcha } from '../../../shared/render-captcha/render-captcha';
 import { Gender, Genders } from '../../../shared/types/genders.type';
 import { Profession, Professionals } from '../../../shared/types/professions.type';
@@ -53,8 +51,8 @@ import { MyErrorStateMatcher } from '../signin/signin';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Signup implements OnInit {
-  isProduction = environment.production;
-
+  isLoading = false;
+  errorMessage = '';
   private router = inject(Router);
   private authService = inject(AuthService);
   private fb = inject(NonNullableFormBuilder);
@@ -100,6 +98,7 @@ export class Signup implements OnInit {
     },
     { validators: this.passwordMatchValidator },
   );
+  isDisabled: any;
 
   get f() {
     return this.form.controls;
@@ -111,18 +110,38 @@ export class Signup implements OnInit {
     return password === confirm ? null : { mismatch: true };
   }
 
-  onCaptchaResolved(token: string) {
-    this.form.controls.captchaToken.setValue(token);
-    this.form.controls.captchaToken.markAsTouched();
-  }
-
   submit() {
     if (this.form.invalid) {
-      console.warn('Form inválido! Veja os valores atuais:');
-      console.table(this.form.getRawValue());
+      this.form.markAllAsTouched();
       return;
     }
 
+    this.isLoading = true;
+    this.errorMessage = '';
+    this.form.disable();
+
+    const payload = this.buildPayload();
+
+    this.authService.signup(payload).subscribe({
+      next: () => {
+        this.router.navigate(['/signin']);
+      },
+      error: (err) => {
+        console.error('Erro no signup:', err);
+
+        this.errorMessage =
+          err?.error?.detail || 'Não foi possível criar sua conta. Tente novamente.';
+
+        this.form.enable();
+        this.isLoading = false;
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
+    });
+  }
+
+  private buildPayload() {
     const {
       name,
       lastname,
@@ -138,14 +157,9 @@ export class Signup implements OnInit {
       captchaToken,
     } = this.form.getRawValue();
 
-    if (!captchaToken) {
-      console.warn('Captcha não resolvido!');
-      return;
-    }
-
     const birthdate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
-    const payload = {
+    return {
       name,
       lastname,
       email,
@@ -157,22 +171,9 @@ export class Signup implements OnInit {
       termsAccepted,
       captchaToken,
     };
-
-    this.authService.signup(payload).subscribe({
-      next: () => {
-        this.router.navigate(['/login']);
-      },
-      error: (err) => {
-        console.error('Erro no signup:', err);
-      },
-    });
   }
 
-  ngOnInit(): void {
-    // if (environment.production) {
-    //   this.fillMockData();
-    // }
-  }
+  ngOnInit(): void {}
 
   fillMockData(): void {
     this.form.patchValue({
@@ -187,14 +188,10 @@ export class Signup implements OnInit {
       phone: '(11) 99999-9999',
       password: '12345678',
       confirmPassword: '12345678',
-      termsAccepted: true,
     });
-
-    this.form.markAllAsTouched();
-    this.form.updateValueAndValidity();
   }
 
-  goToLogin() {
+  goToSignin() {
     this.router.navigate(['/signin']);
   }
 

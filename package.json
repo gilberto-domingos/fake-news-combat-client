@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "generate-env": "tsx scripts/generate-env.ts",
-    "start": "npm run generate-env && ng serve",
+    "start": "ng serve",
+    "dev": "npm run generate-env && ng serve",
     "build": "npm run generate-env && ng build --configuration production",
     "build:dev": "npm run generate-env && ng build --configuration development",
     "build:dom": "npm run generate-env && ng build --configuration production --base-href /",

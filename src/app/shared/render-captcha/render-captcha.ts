@@ -4,12 +4,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
+  forwardRef,
   inject,
-  Output,
   ViewChild,
 } from '@angular/core';
 
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { environment } from 'environments/environment';
 import { RecaptchaLoaderService } from '../../features/auth/recaptcha-loader-service';
 import { RecaptchaService } from '../../features/auth/recaptcha-service';
@@ -21,8 +21,16 @@ import { RecaptchaService } from '../../features/auth/recaptcha-service';
   styleUrls: ['./render-captcha.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => RenderCaptcha),
+      multi: true,
+    },
+  ],
 })
 export class RenderCaptcha implements AfterViewInit {
+  isDisabled = false;
   private loader = inject(RecaptchaLoaderService);
   private recaptchaService = inject(RecaptchaService);
 
@@ -32,7 +40,10 @@ export class RenderCaptcha implements AfterViewInit {
   widgetId?: number;
   captchaToken: string = '';
 
-  @Output() resolved = new EventEmitter<string>();
+  private value: string = '';
+
+  private onChange: (value: string) => void = () => {};
+  private onTouched: () => void = () => {};
 
   ngAfterViewInit(): void {
     this.loader.load().then(() => {
@@ -44,42 +55,79 @@ export class RenderCaptcha implements AfterViewInit {
     if (!this.captchaRef) return;
 
     this.widgetId = this.recaptchaService.render(this.captchaRef.nativeElement, this.siteKey, {
-      success: (token: string) => this.onCaptchaResolved(token),
-      expired: () => (this.captchaToken = ''),
+      success: (token: string) => this.handleSuccess(token),
+      expired: () => this.handleExpired(),
       error: () => console.error('Erro no CAPTCHA'),
     });
   }
 
-  onCaptchaResolved(token: string | null) {
-    this.captchaToken = token || '';
-    console.log('Captcha resolvido:', this.captchaToken);
+  private handleSuccess(token: string) {
+    this.value = token;
+
+    this.onChange(token);
+    this.onTouched();
+
+    console.log('Captcha OK (CVA):', token);
+  }
+
+  private handleExpired() {
+    this.value = '';
+
+    this.onChange('');
+
+    console.warn('Captcha expirado');
+  }
+
+  writeValue(value: string): void {
+    this.value = value || '';
+  }
+
+  registerOnChange(fn: (value: string) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
+
+    if (this.widgetId !== undefined && window.grecaptcha) {
+      if (isDisabled) {
+        window.grecaptcha.reset(this.widgetId);
+      }
+    }
   }
 }
 
 ///////////// For other components /////////////
 
-//imports: [CommonModule, RecaptchaComponent],
+// // imports: [CommonModule, ReactiveFormsModule, RenderCaptcha]
 
-// <form (ngSubmit)="submit()">
-//   <!-- outros campos do form -->
+// form = this.fb.group({
+//   captchaToken: this.fb.control('', Validators.required),
+// });
 
-//   <app-recaptcha (resolved)="onCaptchaResolved($event)"></app-recaptcha>
+// // <form [formGroup]="form" (ngSubmit)="submit()">
 
-//   <button type="submit">Enviar</button>
-// </form>
+// //   <app-render-captcha formControlName="captchaToken"></app-render-captcha>
 
-// captchaToken: string = '';
-
-// onCaptchaResolved(token: string) {
-//   this.captchaToken = token;
-// }
+// //   <button type="submit">Enviar</button>
+// // </form>
 
 // submit() {
-//   if (!this.captchaToken) {
+//   if (this.form.invalid) {
+//     console.warn('Form inválido!');
+//     return;
+//   }
+
+//   const { captchaToken } = this.form.getRawValue();
+
+//   if (!captchaToken) {
 //     console.warn('Captcha não resolvido!');
 //     return;
 //   }
 
-//   console.log('Enviando formulário com token:', this.captchaToken);
-
+//   console.log('Enviando formulário com token:', captchaToken);
 // }
