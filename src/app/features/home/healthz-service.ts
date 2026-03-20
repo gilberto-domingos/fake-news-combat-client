@@ -22,15 +22,6 @@ export class HealthzService {
     );
   }
 
-  // checkHealthz() {
-  //   return this.http.get(this.healthzUrl).pipe(
-  //     catchError((err) => {
-  //       console.error('Error wakeup server', err);
-  //       return of(null);
-  //     }),
-  //   );
-  // }
-
   healthzCheckIfNeeded() {
     const now = Date.now();
     const lastHealthzCheck = Number(localStorage.getItem(this.STORAGE_KEY));
