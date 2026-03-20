@@ -10,5 +10,5 @@ import { Navbar } from './shared/ui/navbar/navbar';
   styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('b1010code');
+  protected readonly title = signal('Fake News Combat');
 }
