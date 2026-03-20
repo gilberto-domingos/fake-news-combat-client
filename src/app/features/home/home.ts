@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { PingService } from './ping-service';
+import { HealthzService } from './healthz-service';
 
 export interface Tile {
   color: string;
@@ -19,21 +19,22 @@ export interface Tile {
   styleUrl: './home.scss',
 })
 export class Home implements OnInit {
-  constructor(private pingService: PingService) {}
+  constructor(private healthzService: HealthzService) {}
 
   ngOnInit(): void {
     const start = performance.now();
-    // this.pingService.pingBackend().subscribe({
-    //   next: () => {
-    //     console.log('Backend Wake Up');
-    //     const duration = performance.now() - start;
-    //     console.log(`Time to wake up backend: ${duration} ms`);
-    //   },
-    //   error: () => {
-    //     console.warn('Back-end not awake, Warning !');
-    //     const duration = performance.now() - start;
-    //     console.warn(`Error waking up backend after ${duration} ms`);
-    //   },
-    // });
+
+    this.healthzService.checkHealthz().subscribe({
+      next: () => {
+        console.log('Healthz backend :');
+        const duration = performance.now() - start;
+        console.log(`Time to check healthz OK :', ${duration}ms`);
+      },
+      error: () => {
+        console.warn('Check healthz backend is no wakeup, Warning !');
+        const duration = performance.now() - start;
+        console.warn(`Error check healthz backend after ${duration} ms`);
+      },
+    });
   }
 }
