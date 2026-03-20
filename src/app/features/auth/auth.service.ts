@@ -8,10 +8,6 @@ export class AuthService {
   private http = inject(HttpClient);
   private api = `${environment.apiUrl}/auth`;
 
-  login(email: string, password: string) {
-    return this.http.post(`${this.api}/login`, { email, password });
-  }
-
   signup(payload: {
     name: string;
     lastname: string;
@@ -31,5 +27,9 @@ export class AuthService {
     return this.http.post(`${this.api}/social/google`, {
       id_token: idToken,
     });
+  }
+
+  login(email: string, password: string) {
+    return this.http.post(`${this.api}/login`, { email, password });
   }
 }
