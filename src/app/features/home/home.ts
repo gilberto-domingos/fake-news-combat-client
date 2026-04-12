@@ -17,8 +17,11 @@ export interface Tile {
   imports: [CommonModule, MatCardModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
+  standalone: true,
 })
 export class Home implements OnInit {
+  isLoading = true;
+
   constructor(private healthzService: HealthzService) {}
 
   ngOnInit(): void {
