@@ -1,0 +1,263 @@
+.wrapper {
+  --pcolor: #745dfe;
+  --color: #191b22;
+  --white: #fff;
+
+  margin: 0 auto;
+  // max-width: 1050px;
+  //background-color: var(--color-danger);
+  background-color: #ffcc00;
+
+  .flex {
+    display: flex;
+    gap: 20px;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  button {
+    background-color: var(--pcolor);
+    color: var(--white);
+    border: 1px solid var(--color);
+    padding: 10px 30px;
+    border-radius: 25px;
+    text-overflow: uppercase;
+    font-size: 13px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #4b4571;
+  }
+
+  .menu {
+    display: flex;
+    gap: 30px;
+
+    a {
+      padding: 40px 0 0;
+      border-top: 5px solid transparent;
+      @extend .pointer;
+      transition: all 0.5s;
+
+      &.active,
+      &:hover {
+        border-top: 5px solid var(--pcolor);
+      }
+    }
+  }
+
+  .logo-land-small {
+    margin-left: 2%;
+    width: 15%;
+    height: auto;
+  }
+
+  .logo-signal {
+    width: 55%;
+    height: auto;
+  }
+
+  .action {
+    margin-right: 1%;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+
+    a {
+      @extend .pointer;
+    }
+  }
+
+  .content {
+    display: flex;
+    padding: 0px 0;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .w50 {
+      margin-left: 2%;
+      width: 30%;
+      //background-color: #5dfe5d;
+    }
+
+    .grid {
+      background-color: #fff;
+    }
+
+    mat-card {
+      background: transparent !important;
+      box-shadow: none;
+    }
+
+    mat-card h1 {
+      font-size: clamp(2.7rem, 6vw, 4.1rem);
+      text-align: center;
+    }
+
+    mat-card-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mt-tl {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .under-construction {
+      width: 80%;
+      height: auto;
+    }
+
+    .p-text {
+      margin: 0;
+      color: var(--pcolor);
+      font-weight: 900;
+    }
+
+    .p-text2 {
+      text-align: justify;
+      margin: 16px 0;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 62px;
+      margin: 10px 0 20px;
+      font-weight: 900;
+      line-height: 62px;
+    }
+
+    .description {
+      width: 50%;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+  }
+}
+
+.tc {
+  text-align: center;
+  font-size: 30px;
+}
+
+// ----------------------- ------------------------------- ---------------- //
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'one two three four'
+    'five five five four';
+
+  gap: 5px;
+  padding: 0.1%;
+
+  align-items: stretch; /* IMPORTANTE */
+}
+
+.item {
+  padding: 2px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.one {
+  grid-area: one;
+}
+.two {
+  grid-area: two;
+}
+.three {
+  grid-area: three;
+}
+.four {
+  grid-area: four;
+}
+.five {
+  grid-area: five;
+}
+
+.item {
+  width: 100%;
+  height: auto;
+  display: flex;
+  background: #fff;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: justify;
+  line-height: 1.4;
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.item h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.6rem);
+  color: #3f3f3f;
+}
+
+.item p {
+  margin: 0px 2px 20px 2px;
+  font-size: clamp(0.85rem, 1.5vw + 0.4rem, 1.1rem);
+  color: #3f3f3f;
+}
+
+.four-image {
+  width: 71%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'one  one'
+      'two  three'
+      'five five'
+      'four four';
+  }
+}
+
+.construction {
+  width: 300px;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .content .w50 {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 0;
+  }
+  .content mat-card {
+    margin: 0;
+  }
+
+  .card-small-top mat-card {
+    margin-top: -130px;
+    margin-bottom: -100px;
+  }
+}
