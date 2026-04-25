@@ -5,15 +5,15 @@
     'one two three four'
     'five five five four';
 
-  gap: 10px;
-  padding: 0.5%;
+  gap: 5px;
+  padding: 0.1%;
 
   align-items: stretch; /* IMPORTANTE */
 }
 
 .item {
   background: white;
-  padding: 10px;
+  padding: 2px;
   box-sizing: border-box;
   height: 100%;
 }
@@ -59,13 +59,13 @@
 }
 
 .item p {
-  margin: 0px 10px 20px 10px;
+  margin: 0px 2px 20px 2px;
   font-size: clamp(0.85rem, 1.5vw + 0.4rem, 1.1rem);
   color: #3f3f3f;
 }
 
 .four-image {
-  width: 83%;
+  width: 80%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -80,4 +80,9 @@
       'five five'
       'four four';
   }
+}
+
+.construction {
+  width: 300px;
+  height: auto;
 }

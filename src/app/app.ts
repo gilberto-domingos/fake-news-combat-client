@@ -5,7 +5,7 @@ import { SpinnerLoading } from './shared/spinner-loading/spinner-loading';
 import { Navbar } from './shared/ui/navbar/navbar';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, FontAwesomeModule, SpinnerLoading],
+  imports: [RouterOutlet, Navbar, FontAwesomeModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

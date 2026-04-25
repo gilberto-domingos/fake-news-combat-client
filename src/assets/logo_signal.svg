@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="796.28168"
+   height="745.78296"
+   viewBox="0 0 210.68275 197.32184"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1"><linearGradient
+       id="linearGradient401"><stop
+         style="stop-color:#d40000;stop-opacity:1;"
+         offset="0"
+         id="stop400" /><stop
+         style="stop-color:#fff317;stop-opacity:1;"
+         offset="1"
+         id="stop401" /></linearGradient><radialGradient
+       xlink:href="#linearGradient401"
+       id="radialGradient27"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.86562987,0,0,0.80215244,205.29704,-273.58266)"
+       cx="63.990456"
+       cy="164.92706"
+       fx="63.990456"
+       fy="164.92706"
+       r="3.9350705" /></defs><g
+     id="g27"
+     transform="matrix(32.140512,0,0,32.140512,-8273.3399,4639.75)"><path
+       id="path18"
+       style="fill:#e51010;fill-opacity:1;stroke:none;stroke-width:0.796;stroke-dasharray:none"
+       d="m 263.95339,-138.22395 h -3.25931 -3.25931 l 1.62966,-4.38133 0.64907,-1.74503 1.95825,-0.008 0.65199,1.75287 z" /><path
+       id="path23"
+       style="fill:url(#radialGradient27);stroke:none;stroke-width:0.796;stroke-dasharray:none"
+       d="m 263.96663,-138.21896 h -3.27753 -3.27753 l 1.63876,-4.38133 0.6527,-1.74504 1.9692,-0.008 0.65564,1.75288 z" /><path
+       style="font-size:7.42207px;font-family:'Andale Mono';-inkscape-font-specification:'Andale Mono';stroke:#000000;stroke-width:0.796;stroke-dasharray:none"
+       d="m 260.99041,-142.13912 -0.13562,1.52357 h -0.24816 l -0.13562,-1.52357 v -1.32447 h 0.5194 z m -0.24816,2.08627 q 0.15294,0 0.25681,0.10387 0.10389,0.10388 0.10389,0.25682 0,0.15293 -0.10677,0.26547 -0.10388,0.11253 -0.25393,0.11253 -0.14717,0 -0.25104,-0.10965 -0.10389,-0.11253 -0.10389,-0.26835 0,-0.15583 0.101,-0.25682 0.10388,-0.10387 0.25393,-0.10387 z"
+       id="path24"
+       aria-label="!" /></g></svg>
