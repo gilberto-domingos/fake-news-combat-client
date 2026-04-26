@@ -17,14 +17,14 @@ import { MatOption, MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
-import { MonthLabels } from '../../../shared/types/month-labels.const';
-import { Month } from '../../../shared/types/months.type';
-import { Months } from './../../../shared/types/months.type';
+import { MonthLabels } from '../../../../shared/types/month-labels.const';
+import { Month } from '../../../../shared/types/months.type';
+import { Months } from './../../../../shared/types/months.type';
 
-import { RenderCaptcha } from '../../../shared/render-captcha/render-captcha';
-import { Gender, Genders } from '../../../shared/types/genders.type';
-import { Profession, Professionals } from '../../../shared/types/professions.type';
-import { AuthService } from '../auth.service';
+import { RenderCaptcha } from '../../../../shared/render-captcha/render-captcha';
+import { Gender, Genders } from '../../../../shared/types/genders.type';
+import { Profession, Professionals } from '../../../../shared/types/professions.type';
+import { AuthService } from '../services/auth.service';
 import { MyErrorStateMatcher } from '../signin/signin';
 
 @Component({

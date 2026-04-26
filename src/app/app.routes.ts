@@ -3,37 +3,30 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./features/land/land').then((m) => m.Land),
+    loadComponent: () => import('./contexts/components/land/land').then((m) => m.Land),
   },
   {
     path: 'land',
-    loadComponent: () => import('./features/land/land').then((m) => m.Land),
-  },
-  {
-    path: 'home',
-    loadComponent: () => import('./features/home/home').then((m) => m.Home),
-  },
-  {
-    path: 'recaptcha',
-    loadComponent: () =>
-      import('./shared/render-captcha/render-captcha').then((m) => m.RenderCaptcha),
+    loadComponent: () => import('./contexts/components/land/land').then((m) => m.Land),
   },
   {
     path: 'signup',
-    loadComponent: () => import('./features/auth/signup/signup').then((m) => m.Signup),
+    loadComponent: () => import('./contexts/features/auth/signup/signup').then((m) => m.Signup),
   },
   {
     path: 'signin',
-    loadComponent: () => import('./features/auth/signin/signin').then((m) => m.Signin),
+    loadComponent: () => import('./contexts/features/auth/signin/signin').then((m) => m.Signin),
   },
   {
     path: 'conditions',
     loadComponent: () =>
-      import('./features/auth/terms-conditions/terms-conditions').then((m) => m.TermsConditions),
+      import('./contexts/features/auth/terms-conditions/terms-conditions').then(
+        (m) => m.TermsConditions,
+      ),
   },
   {
     path: 'privacy',
     loadComponent: () =>
-      import('./features/auth/privacy-notice/privacy-notice').then((m) => m.PrivacyNotice),
+      import('./contexts/features/auth/privacy-notice/privacy-notice').then((m) => m.PrivacyNotice),
   },
 ];
