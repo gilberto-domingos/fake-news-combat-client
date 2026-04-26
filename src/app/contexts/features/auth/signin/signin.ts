@@ -14,8 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
-import { ExternalLogin } from '../../../shared/ui/external-login/external-login';
-import { AuthService } from '../auth.service';
+import { ExternalLogin } from '../../../../shared/ui/external-login/external-login';
+import { AuthService } from '../services/auth.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

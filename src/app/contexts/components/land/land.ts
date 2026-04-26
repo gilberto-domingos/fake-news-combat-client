@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { HealthzService } from '../home/healthz-service';
+import { HealthzService } from './services/healthz-service';
 
 @Component({
   selector: 'app-land',

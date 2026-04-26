@@ -32,7 +32,6 @@
           "configurations": {
             "production": {
               "outputPath": "dist/fake-news-combat-client",
-
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -47,7 +46,7 @@
             },
             "development": {
               "optimization": false,
-              "outputHashing": "none",
+
               "extractLicenses": false,
               "sourceMap": true
             }

@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../features/auth/auth.service';
+import { AuthService } from 'app/contexts/features/auth/services/auth.service';
 
 declare const google: any;
 

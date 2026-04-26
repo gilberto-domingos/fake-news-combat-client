@@ -11,8 +11,8 @@ import {
 
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { environment } from 'environments/environment';
-import { RecaptchaLoaderService } from '../../features/auth/recaptcha-loader-service';
-import { RecaptchaService } from '../../features/auth/recaptcha-service';
+import { RecaptchaLoaderService } from '../../contexts/features/auth/services/recaptcha-loader-service';
+import { RecaptchaService } from '../../contexts/features/auth/services/recaptcha-service';
 
 @Component({
   selector: 'app-render-captcha',
