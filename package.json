@@ -40,6 +40,7 @@
     "@fortawesome/fontawesome-free": "^7.2.0",
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@jsverse/transloco": "^8.3.0",
     "primeicons": "^7.0.0",
     "primeng": "^21.1.1",
     "recaptcha-v3": "^1.11.3",

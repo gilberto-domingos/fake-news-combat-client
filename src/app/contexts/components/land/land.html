@@ -1,19 +1,20 @@
+<!-- <ng-container *transloco="let t">
+  <h1>{{ t('transloco.title') }}</h1>
+</ng-container> -->
+
 <div class="wrapper">
   <div class="menu">
     <mat-button-toggle-group appearance="legacy" [(ngModel)]="active">
-      <mat-button-toggle value="en">🇺🇸 English</mat-button-toggle>
-      <mat-button-toggle value="fr">🇫🇷 Français</mat-button-toggle>
-      <mat-button-toggle value="es">🇪🇸 Español</mat-button-toggle>
-      <mat-button-toggle value="pt">🇧🇷 Português</mat-button-toggle>
+      <mat-button-toggle (click)="setLang('en')" value="en">🇺🇸 English</mat-button-toggle>
+      <mat-button-toggle (click)="setLang('fr')" value="fr">🇫🇷 Français</mat-button-toggle>
+      <mat-button-toggle (click)="setLang('es')" value="es">🇪🇸 Español</mat-button-toggle>
+      <mat-button-toggle (click)="setLang('pt')" value="pt">🇧🇷 Português</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
 
-  <!-- <div class="menu">
-    <button>🇺🇸 English</button>
-    <button>🇫🇷 Français</button>
-    <button>🇪🇸 Español</button>
-    <button>🇧🇷 Português</button>
-  </div> -->
+  <ng-container *transloco="let t">
+    <h1>{{ t('transloco.title') }}</h1>
+  </ng-container>
 
   <div class="content">
     <div class="w50">
