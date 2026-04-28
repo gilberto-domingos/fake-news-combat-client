@@ -1,5 +1,8 @@
 {
-  "transloco": {
-    "title": "Translating the page"
+  "land": {
+    "hero": {
+      "title": "Fake news is a crime and must be fought.",
+      "description": "Regardless of social class, profession, or position, no one deserves to be a victim of fake news. A person can be seriously harmed personally or professionally because of fake news. The Federal Constitution guarantees freedom of expression (articles 5 and 220), but this freedom is not absolute. It has limits when other rights are violated, such as: honor, image, privacy, and public safety."
+    }
   }
 }
