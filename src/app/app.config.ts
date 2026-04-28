@@ -1,10 +1,5 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
-import {
-  ApplicationConfig,
-  inject,
-  provideBrowserGlobalErrorListeners,
-  provideAppInitializer,
-} from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { errorInterceptor } from './core/error-interceptor-interceptor';
@@ -27,10 +22,13 @@ export const appConfig: ApplicationConfig = {
       loader: TranslocoLoaderService,
     }),
 
-    provideAppInitializer(() => {
-      const healthzService = inject(HealthzService);
-
-      return firstValueFrom(healthzService.healthzCheckIfNeeded()).catch(() => undefined);
-    }),
+    {
+      provide: 'APP_INIT',
+      useFactory: (healthzService: HealthzService) => {
+        return () => firstValueFrom(healthzService.healthzCheckIfNeeded()).catch(() => undefined);
+      },
+      deps: [HealthzService],
+      multi: true,
+    },
   ],
 };

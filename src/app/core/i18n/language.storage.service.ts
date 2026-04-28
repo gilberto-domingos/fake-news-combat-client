@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LanguageStorageService {
   private router = inject(Router);
-  private platformId = inject(isPlatformBrowser);
+  private platformId = inject(PLATFORM_ID);
   private translocoService = inject(TranslocoService);
 
   initLang(): void {
