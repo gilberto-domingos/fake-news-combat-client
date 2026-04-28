@@ -2,8 +2,8 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { errorInterceptor } from './core/error-interceptor-interceptor';
-import { loaderInterceptor } from './core/loader-interceptor';
+import { errorInterceptor } from './core/interceptor/error-interceptor-interceptor';
+import { loaderInterceptor } from './core/interceptor/loader-interceptor';
 import { provideTransloco } from '@jsverse/transloco';
 import { translocoConfig } from './core/i18n/transloco.config';
 import { TranslocoLoaderService } from './core/i18n/transloco.loader.service';
