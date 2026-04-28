@@ -1,12 +1,12 @@
 .wrapper {
-  --pcolor: #745dfe;
-  --color: #191b22;
-  --white: #fff;
+  --back-wrapper: #ffcc00;
+  --back-button: #f3c200;
+  --active: #0033ff;
+  // var(--color-danger);
 
   margin: 0 auto;
-  // max-width: 1050px;
-  //background-color: var(--color-danger);
-  background-color: #ffcc00;
+  position: relative;
+  background-color: var(--back-wrapper);
 
   .flex {
     display: flex;
@@ -17,38 +17,20 @@
     cursor: pointer;
   }
 
-  button {
-    background-color: var(--pcolor);
-    color: var(--white);
-    border: 1px solid var(--color);
-    padding: 10px 30px;
-    border-radius: 25px;
-    text-overflow: uppercase;
-    font-size: 13px;
-  }
-
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 12px;
-    color: #4b4571;
-  }
-
   .menu {
     display: flex;
-    gap: 30px;
+    justify-content: center;
+    padding-top: 5px;
 
-    a {
-      padding: 40px 0 0;
-      border-top: 5px solid transparent;
-      @extend .pointer;
-      transition: all 0.5s;
+    mat-button-toggle {
+      cursor: pointer;
+      background-color: transparent;
+      transition: 0.3s;
+    }
 
-      &.active,
-      &:hover {
-        border-top: 5px solid var(--pcolor);
-      }
+    .mat-button-toggle-checked {
+      background-color: var(--back-button) !important;
+      color: var(--color-danger);
     }
   }
 
@@ -63,17 +45,6 @@
     height: auto;
   }
 
-  .action {
-    margin-right: 1%;
-    display: flex;
-    gap: 40px;
-    align-items: center;
-
-    a {
-      @extend .pointer;
-    }
-  }
-
   .content {
     display: flex;
     padding: 0px 0;
@@ -84,7 +55,6 @@
     .w50 {
       margin-left: 2%;
       width: 30%;
-      //background-color: #5dfe5d;
     }
 
     .grid {
