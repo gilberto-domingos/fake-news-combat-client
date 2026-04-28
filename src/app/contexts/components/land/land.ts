@@ -1,14 +1,20 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { HealthzService } from './services/healthz-service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-land',
-  imports: [MatCardModule],
+  imports: [MatCardModule, MatButtonModule, MatButtonToggleModule, CommonModule, FormsModule],
   templateUrl: './land.html',
   styleUrl: './land.scss',
 })
 export class Land implements OnInit {
+  active = 'en';
+
   isLoading = true;
 
   healthzService = inject(HealthzService);
