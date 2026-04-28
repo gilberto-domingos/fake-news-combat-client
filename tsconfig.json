@@ -12,9 +12,13 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve",
+
     "baseUrl": "src",
+
     "paths": {
-      "@env/*": ["src/environments/*"]
+      "app/*": ["app/*"],
+      "environments/*": ["environments/*"],
+      "@env/*": ["environments/*"]
     }
   },
   "angularCompilerOptions": {
@@ -24,12 +28,5 @@
     "strictTemplates": true
   },
   "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
-  ]
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.spec.json" }]
 }

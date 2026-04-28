@@ -5,19 +5,31 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-land',
-  imports: [MatCardModule, MatButtonModule, MatButtonToggleModule, CommonModule, FormsModule],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    CommonModule,
+    FormsModule,
+    TranslocoDirective,
+  ],
   templateUrl: './land.html',
   styleUrl: './land.scss',
 })
 export class Land implements OnInit {
-  active = 'en';
+  active: string = 'en';
+  title: string = '';
+
+  private translocoService = inject(TranslocoService);
 
   isLoading = true;
 
-  healthzService = inject(HealthzService);
+  private healthzService = inject(HealthzService);
 
   ngOnInit(): void {
     const start = performance.now();
@@ -34,5 +46,10 @@ export class Land implements OnInit {
         console.warn(`Error check healthz backend after ${duration} ms`);
       },
     });
+  }
+
+  setLang(lang: string): void {
+    this.translocoService.setActiveLang(lang);
+    localStorage.setItem('lang', lang);
   }
 }
