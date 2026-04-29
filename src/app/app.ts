@@ -16,6 +16,7 @@ export class App implements OnInit {
   private langStorService = inject(LanguageStorageService);
 
   ngOnInit() {
+    this.langStorService.clearLang();
     this.langStorService.initLang();
   }
 }
