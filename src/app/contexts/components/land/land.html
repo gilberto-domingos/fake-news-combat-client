@@ -1,5 +1,5 @@
 <ng-container *transloco="let t">
-  <div class="wrapper">
+  <div class="wrapper" [ngClass]="active">
     <div class="menu">
       <mat-button-toggle-group appearance="legacy" [(ngModel)]="active">
         <mat-button-toggle (click)="setLang('en')" value="en">🇺🇸 English</mat-button-toggle>
@@ -41,98 +41,77 @@
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title
-              ><h2>{{ t('land.build.title') }}</h2></mat-card-title
+              ><h2 class="tc" [ngClass]="{ small: active === 'fr' }">
+                {{ t('land.build.title') }}
+              </h2></mat-card-title
             >
           </mat-card-header>
           <img src="assets/construction.gif" alt="under-construction" />
-          <mat-card-content [ngClass]="currentLang">
-            <h2 class="tc">{{ t('land.build.content') }}</h2>
+          <mat-card-content>
+            <h2 class="tc">
+              {{ t('land.build.cont') }}
+            </h2>
           </mat-card-content>
         </mat-card>
       </div>
     </div>
   </div>
+  <!--------------------------------------------------------------------->
   <div class="grid">
     <div class="item one">
-      <h2>Objetivo !</h2>
+      <h2>{{ t('land.objective.title') }}</h2>
       <p>
-        O sistema foi criado para ajudar a identificar informações falsas de forma rápida, verificar
-        conteúdos, analisar sua confiabilidade e acompanhar relatórios detalhados sobre notícias
-        suspeitas. Para acessar todas as funções, cadastre-se acesso seguro ao histórico de
-        verificações.
+        {{ t('land.objective.cont') }}
       </p>
     </div>
     <div class="item two">
-      <h2>O que faz ?</h2>
+      <h2>{{ t('land.feature.title') }}</h2>
       <p>
-        O sistema utiliza tecnologias avançadas com I.A e automação. Analisa textos, imagens e
-        vídeos que são compartilhados na internet, detectando padrões suspeitos, verificando fatos
-        atribuindo um Score de Confiabilidade a cada informação, usuários e organizações podem tomar
-        decisões mais seguras.
+        {{ t('land.feature.cont') }}
       </p>
     </div>
     <div class="item three">
-      <h2>Dicas para o Usuário</h2>
+      <h2>{{ t('land.tips.title') }}</h2>
       <p>
-        Aproveite ao máximo o sistema. Explore relatórios e dashboards para entender padrões de
-        notícias falsas. Use os alertas do agente de IA para se manter informado. Sempre qualquer
-        indício por menor que seja é valido. É sempre importante fazer cruzamento de pesquisa e
-        informações.
-
-        <!-- Sempre verifique todo o seu conteúdo com responsabilidade antes
-      de compartilhar. -->
+        {{ t('land.tips.cont') }}
       </p>
     </div>
     <div class="item four">
-      <h1>Engenharia 1 de 5</h1>
+      <h2>{{ t('land.tips.title') }}</h2>
       <p>
-        <img class="four-image" src="assets/engineering.svg" alt="engenharia" />
+        {{ t('land.tips.cont') }}
       </p>
     </div>
+  </div>
+  <div class="header">
+    <h2>{{ t('land.engineering.title') }}</h2>
+    <img src="assets/engineering.svg" class="engineering" alt="enginering" />
+  </div>
+  <div class="grid">
     <div class="item five">
-      <h2>Tarefas de Verificação</h2>
+      <h2>{{ t('land.verif.title') }}</h2>
       <p>
-        Como verificar uma notícia ? Insira o conteúdo suspeito (texto, link ou imagem). Clique em
-        “Verificar”. O sistema processa a informação usando IA e técnicas avançadas como OCR, NLP e
-        análise de vídeo. O sistema envia a tarefa para processamento automático. Em poucos minutos,
-        você recebe o resultado com um Score de Confiabilidade e explicações detalhadas.
+        {{ t('land.verif.cont') }}
       </p>
-      <h2>Score de Confiabilidade</h2>
+      <h2>{{ t('land.score.title') }}</h2>
       <p>
-        O Score de Confiabilidade indica o quão provável é que uma informação seja verdadeira, na
-        página score pelo menu você averiguar: Alto (verde): Provavelmente confiável Médio
-        (amarelo): Requer atenção Baixo (vermelho): Provavelmente falsa Você pode usar esse score
-        para decidir se compartilha ou ignora uma notícia. Caso você mesmo seja a vítima sendo,
-        autoridade, famoso, celebridade, ou comum decida se vai entrar com processo pedindo direito
-        a indênização ou não.
+        {{ t('land.score.cont') }}
       </p>
-      <h2>Monitoramento Inteligente</h2>
+      <h2>{{ t('land.monitor.title') }}</h2>
       <p>
-        Acompanhamento automático, nosso agente de IA monitora continuamente novas informações na
-        internet relacionadas às suas verificações. Detectamos precocemente riscos reputacionais e
-        narrativas potencialmente danosas na internet. Ele envia alertas sobre notícias suspeitas e
-        sugere análises automáticas, economizando seu tempo e aumentando sua segurança.
-        Monitoramento de menções em massa, alertas de risco, detecção de narrativas falsas,
-        relatórios automáticos.
+        {{ t('land.monitor.cont') }}
       </p>
-      <h2>Relatórios e Estatísticas</h2>
+      <h2>{{ t('land.reports.title') }}</h2>
       <p>
-        Visualize resultados detalhados, você pode acessar relatórios e dashboards que mostram:
-        Notícias verificadas Scores de confiabilidade Tendências de propagação de fake news
-        Estatísticas de confiabilidade por fontes ou tópicos Tudo organizado de forma clara e
-        visual.
+        {{ t('land.reports.cont') }}
       </p>
-      <h2>Histórico e Transparência</h2>
+      <h2>{{ t('land.history.title') }}</h2>
       <p>
-        Tudo registrado para sua confiança. Cada verificação feita no sistema é registrada,
-        permitindo que você consulte o histórico completo. Isso garante transparência e ajuda você a
-        acompanhar a evolução da verificação de notícias ao longo do tempo.
+        {{ t('land.history.cont') }}
       </p>
-      <h2>Conteúdo Enriquecido</h2>
+      <h2>{{ t('land.enriched.title') }}</h2>
       <p>
-        Mais do que apenas verdadeiro ou falso. Além do score, o sistema mostra trechos do conteúdo
-        analisado, palavras-chave e padrões, detectados evidências de verificação cruzadas, isso
-        ajuda você a entender por que uma notícia foi considerada confiável ou falsa.
+        {{ t('land.enriched.cont') }}
       </p>
     </div>
   </div>

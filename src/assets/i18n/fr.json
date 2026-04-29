@@ -2,7 +2,7 @@
   "land": {
     "hero": {
       "title": "Les fausses informations sont un crime et doivent être combattuesa",
-      "description": "Indépendamment de leur classe sociale, de leur profession ou de leur position, personne ne mérite d'être victime de fausses informations. Une personne peut subir un préjudice grave, tant personnel que professionnel, à cause de fausses informations. La Constitution fédérale garantit la liberté d'expression (articles 5 et 220), mais cette liberté n'est pas absolue. Elle connaît des limites lorsqu'elle porte atteinte à d'autres droits, tels que l'honneur, le droit à l'image, le droit à la vie privée et le droit à la sécurité publique."
+      "description": "Indépendamment de leur classe sociale, de leur profession ou de leur position, personne ne mérite d'être victime de fausses informations. Une personne peut subir un préjudice grave, tant personnel que professionnel, à cause de fausses informations. La Constitution fédérale garantit la liberté d'expression, mais cette liberté n'est pas absolue. Elle connaît des limites lorsqu'elle porte atteinte à d'autres droits, tels que l'honneur, le droit à l'image, le droit à la vie privée et le droit à la sécurité publique."
     },
     "sys": {
       "title": "Système de combat",
@@ -10,7 +10,47 @@
     },
     "build": {
       "title": "Système en cours de construction",
-      "content": "Délai de livraison: 6 mois"
+      "cont": "Délai de livraison: 12 mois"
+    },
+    "objective": {
+      "title": "Objectif !",
+      "cont": "Ce système a été créé pour aider à identifier rapidement les fausses informations, vérifier le contenu, analyser sa fiabilité et suivre les signalements détaillés d'actualités suspectes. Pour accéder à toutes les fonctionnalités, inscrivez-vous et accédez en toute sécurité à votre historique de vérification."
+    },
+    "feature": {
+      "title": "À quoi ça sert ?",
+      "cont": "Ce système utilise des technologies de pointe, l’intelligence artificielle et l’automatisation pour analyser les textes, les images et les vidéos partagés sur Internet, détecter les comportements suspects, vérifier les faits et attribuer un score de fiabilité à chaque information. Les utilisateurs et les organisations peuvent ainsi prendre des décisions plus sûres."
+    },
+
+    "tips": {
+      "title": "Conseils d'utilisation",
+      "cont": "Tirez le meilleur parti du système, explorez les rapports et les tableaux de bord pour comprendre les tendances des fausses informations, utilisez les alertes des agents IA pour rester informé et considérez que le moindre indice est précieux. Il est toujours important de recouper les recherches et les informations."
+    },
+    "engineering": {
+      "title": "Ingénierie, architecture et flux 1 sur 5"
+    },
+    "verif": {
+      "title": "Tâches de vérification",
+      "cont": "Comment vérifier une information? Saisissez le contenu suspect (texte, lien ou image), cliquez sur «Vérifier», et le système traite l'information grâce à l'IA et à des techniques avancées telles que la reconnaissance optique de caractères (OCR), le traitement automatique du langage naturel (NLP) et l'analyse vidéo, puis envoie la tâche pour un traitement automatique. En quelques minutes, vous recevez le résultat avec un score de fiabilité et des explications détaillées."
+    },
+    "score": {
+      "title": "Score de fiabilité",
+      "cont": "Le score de fiabilité indique la probabilité qu'une information soit vraie. Sur la page du score, via le menu, vous pouvez cocher: Élevée (vert) – probablement fiable, Moyenne (jaune) – nécessite une attention particulière, Faible (rouge) – probablement fausse. Vous pouvez utiliser ce score pour décider de partager ou d'ignorer une information et, si vous êtes victime, qu'il s'agisse d'une autorité, d'une personne connue, d'une célébrité ou d'un particulier, pour décider d'intenter ou non une action en justice pour obtenir réparation."
+    },
+    "monitor": {
+      "title": "Surveillance intelligente",
+      "cont": "Surveillance automatique: notre agent IA surveille en permanence les nouvelles informations sur Internet liées à vos vérifications, détectant rapidement les risques pour votre réputation et les récits potentiellement nuisibles. Il envoie des alertes concernant les actualités suspectes et suggère des analyses automatiques, vous faisant gagner du temps et renforçant votre sécurité grâce à la surveillance des mentions de masse, aux alertes de risque, à la détection des fausses informations et aux rapports automatiques."
+    },
+    "reports": {
+      "title": "Rapports et statistiques",
+      "cont": "Consultez les résultats détaillés : vous pouvez accéder à des rapports et des tableaux de bord présentant des informations vérifiées, des scores de fiabilité, les tendances de diffusion des fausses informations et des statistiques de fiabilité par source ou par sujet, le tout organisé de manière claire et visuelle."
+    },
+    "history": {
+      "title": "Historique et transparence",
+      "cont": "Tout est enregistré pour votre confiance : chaque vérification effectuée dans le système est conservée, vous permettant de consulter l'historique complet. Cela garantit la transparence et permet de suivre l'évolution de la vérification des informations au fil du temps."
+    },
+    "enriched": {
+      "title": "Contenu enrichi",
+      "cont": "Tout est enregistré pour votre confiance : chaque vérification effectuée dans le système est stockée, vous permettant de consulter l'historique complet. Cela garantit la transparence et permet de suivre l'évolution de la vérification des informations au fil du temps."
     }
   }
 }

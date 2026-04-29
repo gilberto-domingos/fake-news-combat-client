@@ -26,6 +26,7 @@
       cursor: pointer;
       background-color: transparent;
       transition: 0.3s;
+      font-size: 12px;
     }
 
     .mat-button-toggle-checked {
@@ -122,8 +123,8 @@
   font-size: 30px;
 }
 
-.fr .tc {
-  font-size: 12px;
+.small {
+  font-size: 25px;
 }
 
 // ----------------------- ------------------------------- ---------------- //
@@ -132,12 +133,10 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     'one two three four'
-    'five five five four';
+    'five five five five';
 
   gap: 5px;
-  padding: 0.1%;
-
-  align-items: stretch; /* IMPORTANTE */
+  padding: 1px;
 }
 
 .item {
@@ -166,7 +165,7 @@
   width: 100%;
   height: auto;
   display: flex;
-  background: #fff;
+  background: #ffffff;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -174,8 +173,8 @@
   line-height: 1.4;
   font-family: Arial, sans-serif;
   color: #333;
-  padding: 10px;
   box-sizing: border-box;
+  margin-bottom: -30px;
 }
 
 .item h2 {
@@ -190,6 +189,23 @@
   margin: 0px 2px 20px 2px;
   font-size: clamp(0.85rem, 1.5vw + 0.4rem, 1.1rem);
   color: #3f3f3f;
+}
+
+.header {
+  grid-area: header;
+  text-align: center;
+  color: #3f3f3f;
+}
+
+.header > h1 {
+  font-size: 40px;
+}
+
+.engineering {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
 }
 
 .four-image {

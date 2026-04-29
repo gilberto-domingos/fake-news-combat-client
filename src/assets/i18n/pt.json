@@ -2,7 +2,7 @@
   "land": {
     "hero": {
       "title": "Fake news é crime e deve ser combatido",
-      "description": "Quem quer que seja, classe social, profissão ou cargo que ocupe ninguém merece ser vítima de fake news, uma pessoa pode pessoalmente ou profissionalmente ser muito prejudicada por causa de fake news. A Constituição Federal garante a liberdade de expressão (art. 5º e art. 220), mas essa liberdade não é absoluta. Ela encontra limites quando há violação de outros direitos, como: honra, imagem, privacidade e segurança pública."
+      "description": "Quem quer que seja, classe social, profissão ou cargo que ocupe ninguém merece ser vítima de fake news, uma pessoa pode pessoalmente ou profissionalmente ser muito prejudicada por causa de fake news. A Constituição Federal garante a liberdade de expressão, mas essa liberdade não é absoluta. Ela encontra limites quando há violação de outros direitos, como: honra, imagem, privacidade e segurança pública."
     },
     "sys": {
       "title": "Sistema de combate",
@@ -10,7 +10,46 @@
     },
     "build": {
       "title": "Sistema em construção",
-      "content": "Prazo de entrega: 12 meses"
+      "cont": "Prazo de entrega: 12 meses"
+    },
+    "objective": {
+      "title": "Objetivo !",
+      "cont": "O sistema foi criado para ajudar a identificar informações falsas de forma rápida, verificar conteúdos, analisar sua confiabilidade e acompanhar relatórios detalhados sobre notícias suspeitas. Para acessar todas as funções, cadastre-se e tenha acesso seguro ao histórico de verificações."
+    },
+    "feature": {
+      "title": "O que faz ?",
+      "cont": "O sistema utiliza tecnologias avançadas com IA e automação, analisando textos, imagens e vídeos compartilhados na internet, detectando padrões suspeitos, verificando fatos e atribuindo um Score de Confiabilidade a cada informação. Usuários e organizações podem tomar decisões mais seguras."
+    },
+    "tips": {
+      "title": "Dicas para o Usuário",
+      "cont": "Aproveite ao máximo o sistema, explore relatórios e dashboards para entender padrões de notícias falsas, use os alertas do agente de IA para se manter informado e considere que qualquer indício, por menor que seja, é válido. É sempre importante realizar cruzamento de pesquisa e informações."
+    },
+    "engineering": {
+      "title": "Engenharia, arquitetura e fluxo 1 de 5"
+    },
+    "verif": {
+      "title": "Tarefas de Verificação",
+      "cont": "Como verificar uma notícia? Insira o conteúdo suspeito (texto, link ou imagem), clique em \"Verificar\" e o sistema processa a informação usando IA e técnicas avançadas como OCR, NLP e análise de vídeo, enviando a tarefa para processamento automático. Em poucos minutos, você recebe o resultado com um Score de Confiabilidade e explicações detalhadas."
+    },
+    "score": {
+      "title": "Score de Confiabilidade",
+      "cont": "O Score de Confiabilidade indica o quão provável é que uma informação seja verdadeira; na página de score pelo menu você pode averiguar: Alto (verde) - provavelmente confiável, Médio (amarelo) - requer atenção, Baixo (vermelho) - provavelmente falsa. Você pode usar esse score para decidir se compartilha ou ignora uma notícia e, caso seja vítima, sendo autoridade, famoso, celebridade ou pessoa comum, decidir se irá entrar com processo pedindo direito à indenização ou não."
+    },
+    "monitor": {
+      "title": "Monitoramento Inteligente",
+      "cont": "Acompanhamento automático: nosso agente de IA monitora continuamente novas informações na internet relacionadas às suas verificações, detectando precocemente riscos reputacionais e narrativas potencialmente danosas. Ele envia alertas sobre notícias suspeitas e sugere análises automáticas, economizando seu tempo e aumentando sua segurança, com monitoramento de menções em massa, alertas de risco, detecção de narrativas falsas e relatórios automáticos."
+    },
+    "reports": {
+      "title": "Relatórios e Estatísticas",
+      "cont": "Visualize resultados detalhados: você pode acessar relatórios e dashboards que mostram notícias verificadas, scores de confiabilidade, tendências de propagação de fake news e estatísticas de confiabilidade por fontes ou tópicos, tudo organizado de forma clara e visual."
+    },
+    "history": {
+      "title": "Histórico e Transparência",
+      "cont": "Tudo registrado para sua confiança: cada verificação feita no sistema é armazenada, permitindo que você consulte o histórico completo. Isso garante transparência e ajuda a acompanhar a evolução da verificação de notícias ao longo do tempo."
+    },
+    "enriched": {
+      "title": "Conteúdo Enriquecido",
+      "cont": "Tudo registrado para sua confiança: cada verificação feita no sistema é armazenada, permitindo que você consulte o histórico completo. Isso garante transparência e ajuda a acompanhar a evolução da verificação de notícias ao longo do tempo."
     }
   }
 }
