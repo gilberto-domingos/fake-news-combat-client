@@ -2,7 +2,7 @@
   "land": {
     "hero": {
       "title": "Las noticias falsas son un delito y deben combatirsea",
-      "description": "Sin importar la clase social, la profesión o la posición, nadie merece ser víctima de las noticias falsas. Una persona puede sufrir graves daños personales o profesionales a causa de ellas. La Constitución Federal garantiza la libertad de expresión (artículos 5 y 220), pero esta libertad no es absoluta. Tiene límites cuando se vulneran otros derechos, como el honor, la imagen, la privacidad y la seguridad pública."
+      "description": "Sin importar la clase social, la profesión o la posición, nadie merece ser víctima de las noticias falsas. Una persona puede sufrir graves daños personales o profesionales a causa de ellas. La Constitución Federal garantiza la libertad de expresión, pero esta libertad no es absoluta. Tiene límites cuando se vulneran otros derechos, como el honor, la imagen, la privacidad y la seguridad pública."
     },
     "sys": {
       "title": "Sistema de combate",
@@ -10,7 +10,48 @@
     },
     "build": {
       "title": "Sistema en construcción",
-      "content": "Plazo de entrega: 6 meses"
+      "cont": "Plazo de entrega: 12 meses"
+    },
+    "objective": {
+      "title": "Objetivo !",
+      "cont": "El sistema se creó para ayudar a identificar rápidamente información falsa, verificar el contenido, analizar su fiabilidad y realizar un seguimiento de informes detallados sobre noticias sospechosas. Para acceder a todas las funciones, regístrese y obtenga acceso seguro a su historial de verificación."
+    },
+    "feature": {
+      "title": "Qué hace?",
+      "cont": "El sistema utiliza tecnologías avanzadas con inteligencia artificial y automatización, analizando textos, imágenes y vídeos compartidos en internet, detectando patrones sospechosos, verificando la información y asignando un índice de fiabilidad a cada dato. De este modo, los usuarios y las organizaciones pueden tomar decisiones más seguras."
+    },
+    "tips": {
+      "title": "Consejos para el usuario",
+      "cont": "Aprovecha al máximo el sistema, explora los informes y paneles para comprender los patrones de las noticias falsas, usa las alertas del agente de IA para mantenerte informado y ten en cuenta que cualquier indicio, por pequeño que sea, es válido. Siempre es importante contrastar la investigación y la información."
+    },
+    "engineering": {
+      "title": "Ingeniería, arquitectura y flujo 1 de 5"
+    },
+
+    "verif": {
+      "title": "Tareas de verificación",
+      "cont": "Cómo verificar una noticia? Introduce el contenido sospechoso (texto, enlace o imagen), haz clic en \"Verificar\" y el sistema procesará la información mediante IA y técnicas avanzadas como OCR, PLN y análisis de vídeo, enviando la tarea para su procesamiento automático. En pocos minutos, recibirás el resultado con un Índice de Fiabilidad y explicaciones detalladas."
+    },
+    "score": {
+      "title": "Puntuación de fiabilidad",
+      "cont": "La puntuación de fiabilidad indica la probabilidad de que una información sea cierta. En la página de puntuación, a través del menú, puede consultar: Alta (verde): probablemente fiable; Media (amarillo): requiere atención; Baja (rojo): probablemente falsa. Puede usar esta puntuación para decidir si compartir o ignorar una noticia y, si es víctima (ya sea una autoridad, una persona famosa, una celebridad o una persona común), decidir si presentar o no una demanda para obtener una indemnización."
+    },
+    "monitor": {
+      "title": "Monitoreo inteligente",
+      "cont": "Monitoreo automático: Nuestro agente de IA monitorea continuamente la información nueva en internet relacionada con tus verificaciones, detectando riesgos para tu reputación y narrativas potencialmente dañinas de forma temprana. Envía alertas sobre noticias sospechosas y sugiere análisis automáticos, ahorrándote tiempo y aumentando tu seguridad, con monitoreo de menciones masivas, alertas de riesgo, detección de narrativas falsas e informes automáticos."
+    },
+
+    "reports": {
+      "title": "Informes y estadísticas",
+      "cont": "Consulta los resultados detallados: puedes acceder a informes y paneles que muestran noticias verificadas, puntuaciones de fiabilidad, tendencias de difusión de noticias falsas y estadísticas de fiabilidad por fuente o tema, todo organizado de forma clara y visual."
+    },
+    "history": {
+      "title": "Historial y Transparencia",
+      "cont": "Todo registrado para su confianza: cada verificación realizada en el sistema se almacena, lo que le permite consultar el historial completo. Esto garantiza la transparencia y ayuda a seguir la evolución de la verificación de noticias a lo largo del tiempo."
+    },
+    "enriched": {
+      "title": "Contenido enriquecido",
+      "cont": "Todo se registra para su confianza: cada verificación realizada en el sistema se almacena, lo que le permite consultar el historial completo. Esto garantiza la transparencia y ayuda a seguir la evolución de la verificación de noticias a lo largo del tiempo."
     }
   }
 }

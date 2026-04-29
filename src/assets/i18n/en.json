@@ -2,7 +2,7 @@
   "land": {
     "hero": {
       "title": "Fake news is a crime and must be fought.",
-      "description": "Regardless of social class, profession, or position, no one deserves to be a victim of fake news. A person can be seriously harmed personally or professionally because of fake news. The Federal Constitution guarantees freedom of expression (articles 5 and 220), but this freedom is not absolute. It has limits when other rights are violated, such as: honor, image, privacy, and public safety."
+      "description": "Regardless of social class, profession, or position, no one deserves to be a victim of fake news. A person can be seriously harmed personally or professionally because of fake news. The Federal Constitution guarantees freedom of expression, but this freedom is not absolute. It has limits when other rights are violated, such as: honor, image, privacy, and public safety."
     },
     "sys": {
       "title": "Combat system",
@@ -10,7 +10,47 @@
     },
     "build": {
       "title": "System under construction",
-      "content": "Delivery time: 12 months"
+      "cont": "Delivery time: 12 months"
+    },
+    "objective": {
+      "title": "Objective !",
+      "cont": "The system was created to help quickly identify false information, verify content, analyze its reliability, and track detailed reports on suspicious news. To access all functions, register and gain secure access to your verification history."
+    },
+    "feature": {
+      "title": "What does it do?",
+      "cont": "The system uses advanced technologies with AI and automation, analyzing texts, images, and videos shared on the internet, detecting suspicious patterns, verifying facts, and assigning a Reliability Score to each piece of information. Users and organizations can then make safer decisions."
+    },
+    "tips": {
+      "title": "User Tips",
+      "cont": "Make the most of the system, explore reports and dashboards to understand fake news patterns, use AI agent alerts to stay informed, and consider that any clue, however small, is valid. It is always important to cross-reference research and information."
+    },
+    "engineering": {
+      "title": "Engineering, architecture and flow 1 of 5"
+    },
+    "verif": {
+      "title": "Verification Tasks",
+      "cont": "How to verify a news story? Enter the suspicious content (text, link, or image), click \"Verify,\" and the system processes the information using AI and advanced techniques such as OCR, NLP, and video analysis, sending the task for automatic processing. In a few minutes, you receive the result with a Reliability Score and detailed explanations."
+    },
+
+    "score": {
+      "title": "Reliability Score",
+      "cont": "The Reliability Score indicates how likely a piece of information is to be true; on the score page, through the menu, you can check: High (green) - probably reliable, Medium (yellow) - requires attention, Low (red) - probably false. You can use this score to decide whether to share or ignore a news item and, if you are a victim, whether an authority, famous person, celebrity or ordinary person, decide whether or not to file a lawsuit seeking compensation."
+    },
+    "monitor": {
+      "title": "Intelligent Monitoring",
+      "cont": "Automatic monitoring: Our AI agent continuously monitors new information on the internet related to your verifications, detecting reputational risks and potentially harmful narratives early. It sends alerts about suspicious news and suggests automatic analyses, saving you time and increasing your security, with mass mention monitoring, risk alerts, false narrative detection, and automatic reports."
+    },
+    "reports": {
+      "title": "Reports and Statistics",
+      "cont": "View detailed results: you can access reports and dashboards that show verified news, reliability scores, fake news spread trends, and reliability statistics by source or topic, all organized in a clear and visual way."
+    },
+    "history": {
+      "title": "History and Transparency",
+      "cont": "Everything recorded for your trust: every verification done in the system is stored, allowing you to consult the complete history. This ensures transparency and helps track the evolution of news verification over time."
+    },
+    "enriched": {
+      "title": "Enriched Content",
+      "cont": "Everything recorded for your trust: every verification done in the system is stored, allowing you to consult the complete history. This ensures transparency and helps track the evolution of news verification over time."
     }
   }
 }
