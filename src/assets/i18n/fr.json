@@ -1,5 +1,16 @@
 {
-  "transloco": {
-    "title": "Traduction de la page"
+  "land": {
+    "hero": {
+      "title": "Les fausses informations sont un crime et doivent être combattuesa",
+      "description": "Indépendamment de leur classe sociale, de leur profession ou de leur position, personne ne mérite d'être victime de fausses informations. Une personne peut subir un préjudice grave, tant personnel que professionnel, à cause de fausses informations. La Constitution fédérale garantit la liberté d'expression (articles 5 et 220), mais cette liberté n'est pas absolue. Elle connaît des limites lorsqu'elle porte atteinte à d'autres droits, tels que l'honneur, le droit à l'image, le droit à la vie privée et le droit à la sécurité publique."
+    },
+    "sys": {
+      "title": "Système de combat",
+      "handle": "@fakenewscombat"
+    },
+    "build": {
+      "title": "Système en cours de construction",
+      "content": "Délai de livraison: 6 mois"
+    }
   }
 }

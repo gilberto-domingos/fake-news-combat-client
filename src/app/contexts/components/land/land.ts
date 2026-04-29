@@ -24,6 +24,7 @@ import { TranslocoService } from '@jsverse/transloco';
 export class Land implements OnInit {
   active: string = 'en';
   title: string = '';
+  currentLang: string = '';
 
   private translocoService = inject(TranslocoService);
 
@@ -46,10 +47,21 @@ export class Land implements OnInit {
         console.warn(`Error check healthz backend after ${duration} ms`);
       },
     });
+
+    this.getLang();
+    this.sum(34, 14);
   }
 
   setLang(lang: string): void {
     this.translocoService.setActiveLang(lang);
     localStorage.setItem('lang', lang);
+  }
+
+  getLang(): string {
+    return (this.currentLang = this.translocoService.getActiveLang());
+  }
+
+  sum(a: number, b: number): number {
+    return a * b;
   }
 }

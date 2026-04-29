@@ -3,6 +3,14 @@
     "hero": {
       "title": "Fake news é crime e deve ser combatido",
       "description": "Quem quer que seja, classe social, profissão ou cargo que ocupe ninguém merece ser vítima de fake news, uma pessoa pode pessoalmente ou profissionalmente ser muito prejudicada por causa de fake news. A Constituição Federal garante a liberdade de expressão (art. 5º e art. 220), mas essa liberdade não é absoluta. Ela encontra limites quando há violação de outros direitos, como: honra, imagem, privacidade e segurança pública."
+    },
+    "sys": {
+      "title": "Sistema de combate",
+      "handle": "@fakenewscombat"
+    },
+    "build": {
+      "title": "Sistema em construção",
+      "content": "Prazo de entrega: 12 meses"
     }
   }
 }

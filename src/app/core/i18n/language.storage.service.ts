@@ -28,4 +28,8 @@ export class LanguageStorageService {
     this.translocoService.setActiveLang(defaultLang);
     localStorage.setItem('lang', defaultLang);
   }
+
+  clearLang() {
+    localStorage.clear();
+  }
 }

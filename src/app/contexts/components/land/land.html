@@ -6,9 +6,10 @@
   "transloco": {
     "title": "Traduzindo a página"
   }
-}
+}-->
 
--->
+<button (click)="sum(13, 82)">value</button>
+
 <ng-container *transloco="let t">
   <div class="wrapper">
     <div class="menu">
@@ -37,11 +38,13 @@
         <mat-card class="example-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title><h2>Sistema de combate</h2></mat-card-title>
+            <mat-card-title>
+              <h2>{{ t('land.sys.title') }}</h2>
+            </mat-card-title>
           </mat-card-header>
           <img src="assets/logo_signal.svg" alt="logo_signal" />
           <mat-card-content>
-            <h2 class="tc">@fakenewscombat</h2>
+            <h2 class="tc">{{ t('land.sys.handle') }}</h2>
           </mat-card-content>
         </mat-card>
       </div>
@@ -49,11 +52,13 @@
         <mat-card class="example-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title><h2>Sistema em construção</h2></mat-card-title>
+            <mat-card-title
+              ><h2>{{ t('land.build.title') }}</h2></mat-card-title
+            >
           </mat-card-header>
           <img src="assets/construction.gif" alt="under-construction" />
-          <mat-card-content>
-            <h2 class="tc">Prazo de entrega 6 meses</h2>
+          <mat-card-content [ngClass]="currentLang">
+            <h2 class="tc">{{ t('land.build.content') }}</h2>
           </mat-card-content>
         </mat-card>
       </div>

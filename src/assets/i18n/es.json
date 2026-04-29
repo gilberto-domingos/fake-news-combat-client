@@ -1,5 +1,16 @@
 {
-  "transloco": {
-    "title": "Traduciendo la pagina"
+  "land": {
+    "hero": {
+      "title": "Las noticias falsas son un delito y deben combatirsea",
+      "description": "Sin importar la clase social, la profesión o la posición, nadie merece ser víctima de las noticias falsas. Una persona puede sufrir graves daños personales o profesionales a causa de ellas. La Constitución Federal garantiza la libertad de expresión (artículos 5 y 220), pero esta libertad no es absoluta. Tiene límites cuando se vulneran otros derechos, como el honor, la imagen, la privacidad y la seguridad pública."
+    },
+    "sys": {
+      "title": "Sistema de combate",
+      "handle": "@fakenewscombat"
+    },
+    "build": {
+      "title": "Sistema en construcción",
+      "content": "Plazo de entrega: 6 meses"
+    }
   }
 }
