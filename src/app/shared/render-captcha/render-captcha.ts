@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { environment } from 'environments/environment';
+import { environment } from 'src/environments/environment';
 import { RecaptchaLoaderService } from '../../contexts/features/auth/services/recaptcha-loader-service';
 import { RecaptchaService } from '../../contexts/features/auth/services/recaptcha-service';
 

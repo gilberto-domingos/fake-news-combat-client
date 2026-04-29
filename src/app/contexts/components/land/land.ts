@@ -32,6 +32,15 @@ export class Land implements OnInit {
 
   private healthzService = inject(HealthzService);
 
+  setLang(lang: string): void {
+    this.translocoService.setActiveLang(lang);
+    localStorage.setItem('lang', lang);
+  }
+
+  getLang(): string {
+    return (this.currentLang = this.translocoService.getActiveLang());
+  }
+
   ngOnInit(): void {
     const start = performance.now();
 
@@ -49,19 +58,5 @@ export class Land implements OnInit {
     });
 
     this.getLang();
-    this.sum(34, 14);
-  }
-
-  setLang(lang: string): void {
-    this.translocoService.setActiveLang(lang);
-    localStorage.setItem('lang', lang);
-  }
-
-  getLang(): string {
-    return (this.currentLang = this.translocoService.getActiveLang());
-  }
-
-  sum(a: number, b: number): number {
-    return a * b;
   }
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { API_ROUTES } from 'app/shared/constants/api-routes';
-import { environment } from 'environments/environment';
+import { API_ROUTES } from '../../../../shared/constants/api-routes';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
