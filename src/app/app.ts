@@ -4,9 +4,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SpinnerLoading } from './shared/spinner-loading/spinner-loading';
 import { Navbar } from './shared/ui/navbar/navbar';
 import { LanguageStorageService } from './core/i18n/language.storage.service';
+import { Footer } from './shared/ui/footer/footer';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, FontAwesomeModule],
+  imports: [RouterOutlet, Navbar, Footer, FontAwesomeModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
