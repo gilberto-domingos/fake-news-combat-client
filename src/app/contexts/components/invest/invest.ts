@@ -31,7 +31,7 @@ export class Invest {
   protected form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     proposal: ['', [Validators.required, Validators.minLength(10)]],
-    contact: ['', [Validators.required]],
+    email: ['', [Validators.required]],
   });
 
   protected submit(): void {
@@ -49,13 +49,15 @@ export class Invest {
       this.dialogRef?.close(payload);
     }, 1000);
 
-    this.investApiService.createProposal(this.form.getRawValue()).subscribe({
+    debugger;
+    this.investApiService.create(this.form.getRawValue()).subscribe({
       next: (response) => {
         this.loading.set(false);
         this.dialogRef?.close(response);
       },
       error: () => {
         this.loading.set(false);
+        2;
       },
     });
   }

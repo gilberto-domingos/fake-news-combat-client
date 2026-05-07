@@ -55,14 +55,14 @@ export class UserService {
   private handleError(error: any) {
     console.error('User API Error:', error);
 
-    let message = 'Erro inesperado';
+    let message = 'Unexpected error';
 
     if (error.error?.detail) {
       message = error.error.detail;
     } else if (error.status === 0) {
-      message = 'Servidor indisponível';
+      message = 'Server unavailablel';
     } else if (error.status === 404) {
-      message = 'Usuário não encontrado';
+      message = 'User not Found';
     }
 
     return throwError(() => new Error(message));
