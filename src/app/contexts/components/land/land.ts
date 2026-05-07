@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { HealthzService } from './services/healthz-service';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { TranslocoService } from '@jsverse/transloco';
+import { InvestService } from '../invest/invest-service';
 
 @Component({
   selector: 'app-land',
@@ -27,6 +28,7 @@ export class Land implements OnInit {
   currentLang: string = '';
 
   private translocoService = inject(TranslocoService);
+  private investService = inject(InvestService);
 
   isLoading = true;
 
@@ -58,5 +60,16 @@ export class Land implements OnInit {
     });
 
     this.getLang();
+  }
+
+  openInvestDialog(): void {
+    this.investService
+      .open()
+      .afterClosed()
+      .subscribe((result) => {
+        if (!result) {
+          return;
+        }
+      });
   }
 }

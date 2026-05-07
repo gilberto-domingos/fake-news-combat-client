@@ -1,0 +1,40 @@
+<div class="invest-dialog">
+  <h2 class="title">Investment Proposal</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" type="text" />
+      @if (form.controls.name.hasError('required')) {
+        <mat-error>Name is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>What is your proposal?</mat-label>
+      <textarea matInput rows="6" formControlName="proposal"></textarea>
+      @if (form.controls.proposal.hasError('required')) {
+        <mat-error>Proposal is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="contact" />
+      @if (form.controls.contact.hasError('required')) {
+        <mat-error>Contact is required</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="actions">
+      <button type="button" (click)="close()" class="btc">Cancel</button>
+      <button type="submit" [disabled]="loading()" class="bts">
+        @if (!loading()) {
+          <span>Send</span>
+        }
+
+        @if (loading()) {
+          <span>Sending...</span>
+        }
+      </button>
+    </div>
+  </form>
+</div>
