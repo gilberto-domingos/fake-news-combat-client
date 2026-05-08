@@ -49,7 +49,6 @@ export class Invest {
       this.dialogRef?.close(payload);
     }, 1000);
 
-    debugger;
     this.investApiService.create(this.form.getRawValue()).subscribe({
       next: (response) => {
         this.loading.set(false);

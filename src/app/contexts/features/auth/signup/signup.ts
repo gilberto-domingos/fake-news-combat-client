@@ -51,14 +51,15 @@ import { MyErrorStateMatcher } from '../signin/signin';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Signup implements OnInit {
-  isLoading = false;
-  errorMessage = '';
+  isLoading: boolean = false;
+  errorMessage: string = '';
+  successMessage: string = '';
   private router = inject(Router);
   private authService = inject(AuthService);
   private fb = inject(NonNullableFormBuilder);
 
-  hidePassword = true;
-  hideConfirmPassword = true;
+  hidePassword: boolean = true;
+  hideConfirmPassword: boolean = true;
   matcher = new MyErrorStateMatcher();
 
   protected readonly AllGenders = Object.values(Genders) as Gender[];
@@ -124,13 +125,15 @@ export class Signup implements OnInit {
 
     this.authService.signup(payload).subscribe({
       next: () => {
+        this.isLoading = false;
+        this.successMessage = 'Registration created successfully !!!';
         this.router.navigate(['/signin']);
       },
       error: (err) => {
         console.error('Erro no signup:', err);
 
         this.errorMessage =
-          err?.error?.detail || 'Não foi possível criar sua conta. Tente novamente.';
+          err?.error?.detail || 'We were unable to create your account. Please try again.';
 
         this.form.enable();
         this.isLoading = false;
