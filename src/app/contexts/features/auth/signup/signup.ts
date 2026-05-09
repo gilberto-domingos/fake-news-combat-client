@@ -187,7 +187,9 @@ export class Signup implements OnInit {
     };
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.successMessage = history.state?.successMessage ?? '';
+  }
 
   fillMockData(): void {
     this.form.patchValue({
