@@ -56,7 +56,7 @@ export class Signup implements OnInit {
       const navigation = this.router.currentNavigation();
 
       if (navigation?.extras?.state) {
-        this.successMessage = navigation.extras.state['sucessMessage'] ?? '';
+        this.successMessage = navigation.extras.state['successMessage'] ?? '';
       }
     });
   }
