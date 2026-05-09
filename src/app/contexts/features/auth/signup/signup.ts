@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormsModule,
@@ -51,6 +51,16 @@ import { MyErrorStateMatcher } from '../signin/signin';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Signup implements OnInit {
+  constructor() {
+    effect(() => {
+      const navigation = this.router.currentNavigation();
+
+      if (navigation?.extras?.state) {
+        this.successMessage = navigation.extras.state['sucessMessage'] ?? '';
+      }
+    });
+  }
+
   isLoading: boolean = false;
   errorMessage: string = '';
   successMessage: string = '';
@@ -126,8 +136,9 @@ export class Signup implements OnInit {
     this.authService.signup(payload).subscribe({
       next: () => {
         this.isLoading = false;
-        this.successMessage = 'Registration created successfully !!!';
-        this.router.navigate(['/signin']);
+        this.router.navigate(['/signin'], {
+          state: { successMessage: 'Registration created successfully !!!' },
+        });
       },
       error: (err) => {
         console.error('Erro no signup:', err);

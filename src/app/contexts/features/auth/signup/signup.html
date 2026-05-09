@@ -146,12 +146,12 @@
       @if (
         form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')
       ) {
-        <mat-error> Confirmação obrigatória </mat-error>
+        <mat-error> Confirmation required </mat-error>
       }
     </mat-form-field>
 
     @if (form.touched && form.hasError('mismatch')) {
-      <mat-error> As senhas não coincidem </mat-error>
+      <mat-error> The passwords do not match. </mat-error>
     }
 
     <mat-checkbox formControlName="termsAccepted">
@@ -163,7 +163,7 @@
     @if (
       form.get('termsAccepted')?.touched && form.get('termsAccepted')?.hasError('requiredTrue')
     ) {
-      <mat-error> Você deve aceitar os termos </mat-error>
+      <mat-error> You must accept the terms. </mat-error>
     }
 
     <!-- <div
@@ -176,7 +176,7 @@
     <app-render-captcha formControlName="captchaToken"></app-render-captcha>
 
     @if (f.captchaToken.touched && f.captchaToken.invalid) {
-      <mat-error>Confirme que você não é um robô</mat-error>
+      <mat-error>Confirm that you are not a robot.</mat-error>
     }
 
     <mat-card-footer>
@@ -207,4 +207,8 @@
   </button>
 
   <p class="has-account" (click)="goToSignin()">Já tenho conta</p>
+
+  @if (successMessage) {
+    <div class="successMessage">{{ successMessage }}</div>
+  }
 </mat-card>
