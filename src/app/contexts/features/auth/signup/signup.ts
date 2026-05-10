@@ -25,6 +25,7 @@ import { RenderCaptcha } from '../../../../shared/render-captcha/render-captcha'
 import { Gender, Genders } from '../../../../shared/types/genders.type';
 import { Profession, Professionals } from '../../../../shared/types/professions.type';
 import { AuthService } from '../services/auth.service';
+import { NotificationService } from './notification-service';
 import { MyErrorStateMatcher } from '../signin/signin';
 
 @Component({
@@ -51,22 +52,12 @@ import { MyErrorStateMatcher } from '../signin/signin';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Signup implements OnInit {
-  constructor() {
-    effect(() => {
-      const navigation = this.router.currentNavigation();
-
-      if (navigation?.extras?.state) {
-        this.successMessage = navigation.extras.state['successMessage'] ?? '';
-      }
-    });
-  }
-
   isLoading: boolean = false;
   errorMessage: string = '';
-  successMessage: string = '';
   private router = inject(Router);
   private authService = inject(AuthService);
   private fb = inject(NonNullableFormBuilder);
+  private notificationService = inject(NotificationService);
 
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;
@@ -136,9 +127,10 @@ export class Signup implements OnInit {
     this.authService.signup(payload).subscribe({
       next: () => {
         this.isLoading = false;
-        this.router.navigate(['/signin'], {
-          state: { successMessage: 'Registration created successfully !!!' },
-        });
+        this.notificationService.successMessage.set(
+          'Registration created successfuly !!! Now you can "sign in"',
+        );
+        this.router.navigate(['/signin']);
       },
       error: (err) => {
         console.error('Erro no signup:', err);
@@ -187,9 +179,7 @@ export class Signup implements OnInit {
     };
   }
 
-  ngOnInit(): void {
-    this.successMessage = history.state?.successMessage ?? '';
-  }
+  ngOnInit(): void {}
 
   fillMockData(): void {
     this.form.patchValue({

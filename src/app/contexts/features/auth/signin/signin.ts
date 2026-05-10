@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroupDirective,
@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { ExternalLogin } from '../../../../shared/ui/external-login/external-login';
 import { AuthService } from '../services/auth.service';
-
+import { NotificationService } from '../signup/notification-service';
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -40,9 +40,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./signin.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Signin implements ErrorStateMatcher {
+export class Signin implements ErrorStateMatcher, OnInit {
   private router = inject(Router);
   private authService = inject(AuthService);
+  private notificationService = inject(NotificationService);
+  protected successMessage: string = '';
 
   hidePassword = true;
   matcher = new MyErrorStateMatcher();
@@ -79,5 +81,10 @@ export class Signin implements ErrorStateMatcher {
 
   goSignUp() {
     this.router.navigate(['/signup']);
+  }
+
+  ngOnInit(): void {
+    this.successMessage = this.notificationService.successMessage();
+    this.notificationService.successMessage.set('');
   }
 }

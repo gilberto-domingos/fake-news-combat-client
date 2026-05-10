@@ -1,5 +1,13 @@
 @use '../../../../../styles' as *;
 
+.successMessage {
+  color: #fff;
+  background-color: green;
+  padding: 10px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+}
+
 .sigin-card {
   max-width: 80%;
   height: auto;

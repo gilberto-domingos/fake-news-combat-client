@@ -1,4 +1,7 @@
 <mat-card class="sigin-card" appearance="outlined">
+  @if (successMessage) {
+    <h2 class="successMessage">{{ successMessage }}</h2>
+  }
   <mat-card-header>
     <mat-card-title>Entrar na sua conta </mat-card-title>
   </mat-card-header>
