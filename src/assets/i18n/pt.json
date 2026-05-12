@@ -55,5 +55,19 @@
       "title": "Conteúdo Enriquecido",
       "cont": "Tudo registrado para sua confiança: cada verificação feita no sistema é armazenada, permitindo que você consulte o histórico completo. Isso garante transparência e ajuda a acompanhar a evolução da verificação de notícias ao longo do tempo."
     }
+  },
+  "navbar": {
+    "sign": {
+      "signin": "Entrar"
+    },
+    "shr": {
+      "share": "Compartilhar"
+    },
+    "home": {
+      "hm": "Inicio"
+    },
+    "signup": {
+      "su": "Casdastre-se"
+    }
   }
 }

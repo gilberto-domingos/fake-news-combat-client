@@ -1,64 +1,62 @@
-<mat-toolbar>
-  <div class="left">
-    <img src="assets/logo.svg" alt="logo" class="logo" />
-  </div>
+<ng-container *transloco="let t">
+  <!-- [ngClass]="active" -->
+  <mat-toolbar class="wrapper">
+    <div class="left">
+      <img src="assets/logo.svg" alt="logo" class="logo" />
+    </div>
 
-  <span class="spacer"></span>
+    <span class="spacer"></span>
 
-  <div class="right">
-    <button mat-button [matMenuTriggerFor]="menu" aria-label="Menu">
-      <mat-icon>menu</mat-icon>
-      <span class="menu-text">Menu</span>
-    </button>
-
-    <!-- Desktop -->
-    @if (!isMobile) {
-      <button mat-button (click)="goToSignin()" aria-label="Login">
-        <mat-icon>account_circle</mat-icon>
-        <span class="menu-text">Entrar</span>
+    <div class="right">
+      <button mat-button [matMenuTriggerFor]="menu" aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+        <span class="menu-text">Menu</span>
       </button>
 
-      <button mat-button (click)="goToShare()" aria-label="Share">
-        <mat-icon>share</mat-icon>
-        <span class="menu-text">Share</span>
-      </button>
-    }
-  </div>
+      <!-- Desktop -->
+      @if (!isMobile) {
+        <button mat-button (click)="goToSignin()" aria-label="Login">
+          <mat-icon>account_circle</mat-icon>
+          <span class="menu-text"> {{ t('navbar.sign.signin') }}</span>
+        </button>
+        <!-- {{ t('land.hero.title') }} -->
+        <button mat-button (click)="goToShare()" aria-label="Share">
+          <mat-icon>share</mat-icon>
+          <span class="menu-text">{{ t('navbar.shr.share') }}</span>
+        </button>
+      }
+    </div>
 
-  <mat-menu #menu="matMenu">
-    <!-- Mobile -->
-    @if (isMobile) {
-      <button mat-menu-item (click)="goToSignin()" aria-label="Signin">
-        <mat-icon>account_circle</mat-icon>
-        <span>Entrar</span>
-      </button>
+    <mat-menu #menu="matMenu">
+      <!-- Mobile -->
+      @if (isMobile) {
+        <button mat-menu-item (click)="goToHome()">
+          <mat-icon>home</mat-icon>
+          <span>{{ t('navbar.home.hm') }}</span>
+        </button>
 
-      <button mat-menu-item (click)="goToHome()">
-        <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </button>
+        <button mat-menu-item (click)="goToSignin()" aria-label="Signin">
+          <mat-icon>account_circle</mat-icon>
+          <span class="menu-text"> {{ t('navbar.sign.signin') }}</span>
+        </button>
 
-      <button mat-menu-item (click)="goToSignUp()">
-        <mat-icon>assignment ind</mat-icon>
-        <span>Cadastre-se</span>
-      </button>
+        <button mat-menu-item (click)="goToShare()" aria-label="Share">
+          <mat-icon>share</mat-icon>
+          <span>{{ t('navbar.shr.share') }}</span>
+        </button>
+      }
 
-      <button mat-menu-item (click)="goToShare()" aria-label="Share">
-        <mat-icon>share</mat-icon>
-        <span>Compartilhar</span>
-      </button>
-    }
-
-    <!-- Desktop Popup-->
-    @if (!isMobile) {
-      <button mat-menu-item (click)="goToHome()">
-        <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </button>
-      <button mat-menu-item (click)="goToSignUp()">
-        <mat-icon>assignment ind</mat-icon>
-        <span>Cadastre-se</span>
-      </button>
-    }
-  </mat-menu>
-</mat-toolbar>
+      <!-- Desktop Popup-->
+      @if (!isMobile) {
+        <button mat-menu-item (click)="goToHome()">
+          <mat-icon>home</mat-icon>
+          <span>{{ t('navbar.home.hm') }}</span>
+        </button>
+        <button mat-menu-item (click)="goToSignin()" aria-label="Signin">
+          <mat-icon>account_circle</mat-icon>
+          <span class="menu-text"> {{ t('navbar.sign.signin') }}</span>
+        </button>
+      }
+    </mat-menu>
+  </mat-toolbar>
+</ng-container>

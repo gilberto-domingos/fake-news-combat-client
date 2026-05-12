@@ -56,5 +56,19 @@
       "title": "Enriched Content",
       "cont": "Everything recorded for your trust: every verification done in the system is stored, allowing you to consult the complete history. This ensures transparency and helps track the evolution of news verification over time."
     }
+  },
+  "navbar": {
+    "sign": {
+      "signin": "Login"
+    },
+    "shr": {
+      "share": "Share"
+    },
+    "home": {
+      "hm": "Home"
+    },
+    "signup": {
+      "su": "Signup"
+    }
   }
 }

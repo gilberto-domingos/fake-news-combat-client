@@ -29,4 +29,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./contexts/features/auth/privacy-notice/privacy-notice').then((m) => m.PrivacyNotice),
   },
+  // {
+  //   path: 'navbar',
+  //   loadComponent: () => import('./shared/ui/navbar/navbar').then((m) => m.Navbar),
+  // },
 ];

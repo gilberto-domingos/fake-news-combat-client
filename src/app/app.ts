@@ -3,8 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SpinnerLoading } from './shared/spinner-loading/spinner-loading';
 import { Navbar } from './shared/ui/navbar/navbar';
-import { LanguageStorageService } from './core/i18n/language.storage.service';
 import { Footer } from './shared/ui/footer/footer';
+import { TranslocoService } from '@jsverse/transloco';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Navbar, Footer, FontAwesomeModule],
@@ -14,10 +14,11 @@ import { Footer } from './shared/ui/footer/footer';
 export class App implements OnInit {
   protected readonly title = signal('Fake News Combat');
 
-  private langStorService = inject(LanguageStorageService);
+  private translocoService = inject(TranslocoService);
+  savedLanguage: string = localStorage.getItem('lang') || 'en';
 
   ngOnInit() {
-    this.langStorService.clearLang();
-    this.langStorService.initLang();
+    this.translocoService.setActiveLang(this.savedLanguage);
+    console.log('PANSSANDO NO APP', this.savedLanguage);
   }
 }

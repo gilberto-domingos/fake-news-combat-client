@@ -57,5 +57,19 @@
       "title": "Contenido enriquecido",
       "cont": "Todo se registra para su confianza: cada verificación realizada en el sistema se almacena, lo que le permite consultar el historial completo. Esto garantiza la transparencia y ayuda a seguir la evolución de la verificación de noticias a lo largo del tiempo."
     }
+  },
+  "navbar": {
+    "sign": {
+      "signin": "Iniciar"
+    },
+    "shr": {
+      "share": "Compartir"
+    },
+    "home": {
+      "hm": "Inicio"
+    },
+    "signup": {
+      "su": "Registrarse"
+    }
   }
 }

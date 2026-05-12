@@ -46,15 +46,29 @@
     },
     "reports": {
       "title": "Rapports et statistiques",
-      "cont": "Consultez les résultats détaillés : vous pouvez accéder à des rapports et des tableaux de bord présentant des informations vérifiées, des scores de fiabilité, les tendances de diffusion des fausses informations et des statistiques de fiabilité par source ou par sujet, le tout organisé de manière claire et visuelle."
+      "cont": "Consultez les résultats détaillés: vous pouvez accéder à des rapports et des tableaux de bord présentant des informations vérifiées, des scores de fiabilité, les tendances de diffusion des fausses informations et des statistiques de fiabilité par source ou par sujet, le tout organisé de manière claire et visuelle."
     },
     "history": {
       "title": "Historique et transparence",
-      "cont": "Tout est enregistré pour votre confiance : chaque vérification effectuée dans le système est conservée, vous permettant de consulter l'historique complet. Cela garantit la transparence et permet de suivre l'évolution de la vérification des informations au fil du temps."
+      "cont": "Tout est enregistré pour votre confiance: chaque vérification effectuée dans le système est conservée, vous permettant de consulter l'historique complet. Cela garantit la transparence et permet de suivre l'évolution de la vérification des informations au fil du temps."
     },
     "enriched": {
       "title": "Contenu enrichi",
-      "cont": "Tout est enregistré pour votre confiance : chaque vérification effectuée dans le système est stockée, vous permettant de consulter l'historique complet. Cela garantit la transparence et permet de suivre l'évolution de la vérification des informations au fil du temps."
+      "cont": "Tout est enregistré pour votre confiance: chaque vérification effectuée dans le système est stockée, vous permettant de consulter l'historique complet. Cela garantit la transparence et permet de suivre l'évolution de la vérification des informations au fil du temps."
+    }
+  },
+  "navbar": {
+    "sign": {
+      "signin": "Connexion"
+    },
+    "shr": {
+      "share": "Partager"
+    },
+    "home": {
+      "hm": "Accueil"
+    },
+    "signup": {
+      "su": "S’inscrire"
     }
   }
 }
