@@ -69,5 +69,24 @@
     "signup": {
       "su": "Casdastre-se"
     }
+  },
+  "signin-form": {
+    "title": "Entrar na sua conta",
+    "hint-email": "Se houver algum erro o sistema avisa",
+    "label-email": "Email",
+    "error-email": "Por favor, insira um endereço de e-mail válido",
+    "required-email": "Email é obrigatório",
+    "passwd-label": "Senha",
+    "hint-passwd": "Mínimo de 8 caracteres",
+    "error-passwd": "A senha deve ter pelo menos 8 caracteres",
+    "required-passwd": "Senha é obrigatória",
+    "forget-passwd": "Esqueceu sua senha ?",
+    "btn-login": "Login",
+    "new-user": "Novo usuario ?",
+    "new-reg": "Cadastre-se",
+    "or-log": "Ou entre com",
+    "check-terms": "Confira nossos",
+    "our-terms": "Termos e Condições",
+    "privacy": "Privacy Notice"
   }
 }

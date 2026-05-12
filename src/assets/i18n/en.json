@@ -70,5 +70,24 @@
     "signup": {
       "su": "Signup"
     }
+  },
+  "signin-form": {
+    "title": "Log in to your account",
+    "hint-email": "If there is an error, the system will notify you",
+    "label-email": "Email",
+    "error-email": "Please enter a valid email address",
+    "required-email": "Email is required",
+    "passwd-label": "Password",
+    "hint-passwd": "Minimum of 8 characters",
+    "error-passwd": "The password must be at least 8 characters long",
+    "required-passwd": "A password is required",
+    "forget-passwd": "Forgot your password ?",
+    "btn-login": "Login",
+    "new-user": "New user ?",
+    "new-reg": "Register",
+    "or-log": "Or enter with",
+    "check-terms": "Check out our",
+    "our-terms": "Terms and Conditions",
+    "privacy": "Privacy Notice"
   }
 }

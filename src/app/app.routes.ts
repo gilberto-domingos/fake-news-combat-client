@@ -20,14 +20,14 @@ export const routes: Routes = [
   {
     path: 'conditions',
     loadComponent: () =>
-      import('./contexts/features/auth/terms-conditions/terms-conditions').then(
+      import('./contexts/components/terms-conditions/terms-conditions').then(
         (m) => m.TermsConditions,
       ),
   },
   {
     path: 'privacy',
     loadComponent: () =>
-      import('./contexts/features/auth/privacy-notice/privacy-notice').then((m) => m.PrivacyNotice),
+      import('./contexts/components/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
   },
   // {
   //   path: 'navbar',

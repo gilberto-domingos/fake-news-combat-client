@@ -1,81 +1,86 @@
-<mat-card class="sigin-card" appearance="outlined">
-  @if (successMessage) {
-    <h2 class="successMessage">{{ successMessage }}</h2>
-  }
-  <mat-card-header>
-    <mat-card-title>Entrar na sua conta </mat-card-title>
-  </mat-card-header>
+<ng-container *transloco="let t">
+  <mat-card class="sigin-card" appearance="outlined">
+    @if (successMessage) {
+      <h2 class="successMessage">{{ successMessage }}</h2>
+    }
+    <mat-card-header>
+      <mat-card-title>{{ t('signin-form.title') }} </mat-card-title>
+    </mat-card-header>
 
-  <mat-card-content>
-    <form class="sigin-form">
-      <mat-form-field class="input-full">
-        <mat-label>Email</mat-label>
-        <input
-          type="email"
-          matInput
-          [formControl]="emailFormControl"
-          [errorStateMatcher]="matcher"
-        />
-        <mat-hint>Se houver erro o sistema avisa</mat-hint>
+    <mat-card-content>
+      <form class="sigin-form">
+        <mat-form-field class="input-full">
+          <mat-label>{{ t('signin-form.label-email') }}</mat-label>
+          <input
+            type="email"
+            matInput
+            [formControl]="emailFormControl"
+            [errorStateMatcher]="matcher"
+          />
+          <mat-hint>{{ t('signin-form.hint-email') }}</mat-hint>
 
-        @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-          <mat-error>Please enter a valid email address</mat-error>
-        }
+          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <mat-error>{{ t('signin-form.error-email') }}</mat-error>
+          }
 
-        @if (emailFormControl.hasError('required')) {
-          <mat-error>Email is <strong>required</strong></mat-error>
-        }
-      </mat-form-field>
+          @if (emailFormControl.hasError('required')) {
+            <mat-error>{{ t('signin-form.required-email') }}</mat-error>
+          }
+        </mat-form-field>
 
-      <mat-form-field class="input-full">
-        <mat-label>Senha</mat-label>
+        <mat-form-field class="input-full">
+          <mat-label>{{ t('signin-form.passwd-label') }}</mat-label>
 
-        <input
-          [type]="hidePassword ? 'password' : 'text'"
-          matInput
-          [formControl]="passwordFormControl"
-          [errorStateMatcher]="matcher"
-        />
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            matInput
+            [formControl]="passwordFormControl"
+            [errorStateMatcher]="matcher"
+          />
 
-        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
-          <mat-icon>
-            {{ hidePassword ? 'visibility_off' : 'visibility' }}
-          </mat-icon>
-        </button>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>
+              {{ hidePassword ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
 
-        <mat-hint>Mínimo de 8 caracteres</mat-hint>
+          <mat-hint>{{ t('signin-form.hint-passwd') }}</mat-hint>
 
-        @if (
-          passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')
-        ) {
-          <mat-error>A senha deve ter pelo menos 8 caracteres</mat-error>
-        }
+          @if (
+            passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')
+          ) {
+            <mat-error>{{ t('signin-form.error-passwd') }}</mat-error>
+          }
 
-        @if (passwordFormControl.hasError('required')) {
-          <mat-error>Senha é <strong>obrigatória</strong></mat-error>
-        }
-      </mat-form-field>
-    </form>
-    <p class="forget">Esqueceu sua senha ?</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button class="login" matButton="filled">Fazer login</button>
-  </mat-card-actions>
-  <mat-card-actions>
-    <p class="privacy">novo usuario? <span (click)="goSignUp()">Cadastre-se</span></p>
-  </mat-card-actions>
-  <mat-card-actions>
-    <p class="orcame">Ou entre com</p>
-  </mat-card-actions>
-  <mat-card-actions>
-    <app-external-login class="google-btn"></app-external-login>
-  </mat-card-actions>
-  <mat-card-actions>
-    <p class="privacy">
-      Confira nossos
-      <span (click)="goToConditions()">Termos e Condições</span>
-      e
-      <span (click)="goToPrivacy()">Aviso de Privacidade</span>
-    </p>
-  </mat-card-actions>
-</mat-card>
+          @if (passwordFormControl.hasError('required')) {
+            <mat-error>{{ t('signin-form.required-passwd') }}</mat-error>
+          }
+        </mat-form-field>
+      </form>
+      <p class="forget">{{ t('signin-form.forget-passwd') }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="login" matButton="filled">{{ t('signin-form.btn-login') }}</button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <p class="privacy">
+        {{ t('signin-form.new-user') }}
+        <span (click)="goSignUp()">{{ t('signin-form.new-reg') }}</span>
+      </p>
+    </mat-card-actions>
+    <mat-card-actions>
+      <p class="orcame">{{ t('signin-form.or-log') }}</p>
+    </mat-card-actions>
+    <mat-card-actions>
+      <app-external-login class="google-btn"></app-external-login>
+    </mat-card-actions>
+    <mat-card-actions>
+      <p class="privacy">
+        {{ t('signin-form.check-terms') }}
+        <span (click)="goToConditions()">{{ t('signin-form.our-terms') }}</span>
+        e
+        <span (click)="goToPrivacy()">{{ t('signin-form.privacy') }}</span>
+      </p>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +18,8 @@ import { Router } from '@angular/router';
 import { ExternalLogin } from '../../../../shared/ui/external-login/external-login';
 import { AuthService } from '../services/auth.service';
 import { NotificationService } from '../signup/notification-service';
+import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoService } from '@jsverse/transloco';
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -35,6 +38,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     ReactiveFormsModule,
     MatIconModule,
     ExternalLogin,
+    CommonModule,
+    TranslocoDirective,
   ],
   templateUrl: './signin.html',
   styleUrls: ['./signin.scss'],
@@ -44,6 +49,7 @@ export class Signin implements ErrorStateMatcher, OnInit {
   private router = inject(Router);
   private authService = inject(AuthService);
   private notificationService = inject(NotificationService);
+  private translocoService = inject(TranslocoService);
   protected successMessage: string = '';
 
   hidePassword = true;

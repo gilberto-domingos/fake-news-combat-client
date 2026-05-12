@@ -71,5 +71,24 @@
     "signup": {
       "su": "Registrarse"
     }
+  },
+  "signin-form": {
+    "title": "Inicia sesión en tu cuenta",
+    "hint-email": "Si se produce un error, el sistema le notificará",
+    "label-email": "Correo electrónico",
+    "error-email": "Por favor, introduce una dirección de correo electrónico válida",
+    "required-email": "Se requiere correo electrónico",
+    "passwd-label": "Contraseña",
+    "hint-passwd": "Mínimo de 8 caracteres",
+    "error-passwd": "La contraseña debe tener al menos 8 caracteres",
+    "required-passwd": "Se requiere una contraseña",
+    "forget-passwd": "Olvidaste tu contraseña?",
+    "btn-login": "Acceso",
+    "new-user": "Nuevo usuario?",
+    "new-reg": "Registro",
+    "or-log": "O ingrese con",
+    "check-terms": "Consulta nuestros",
+    "our-terms": "Términos y condiciones",
+    "privacy": "Aviso de privacidad"
   }
 }

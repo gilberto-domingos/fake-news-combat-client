@@ -70,5 +70,24 @@
     "signup": {
       "su": "S’inscrire"
     }
+  },
+  "signin-form": {
+    "title": "Connectez-vous à votre compte",
+    "hint-email": "En cas d'erreur, le système vous en informera",
+    "label-email": "Email",
+    "error-email": "S'il vous plaît, mettez une adresse email valide",
+    "required-email": "Une adresse e-mail est requise",
+    "passwd-label": "Mot de passe",
+    "hint-passwd": "Minimum de 8 caractères",
+    "error-passwd": "Le mot de passe doit comporter au moins 8 caractères",
+    "required-passwd": "Un mot de passe est requis",
+    "forget-passwd": "Mot de passe oublié ?",
+    "btn-login": "Connecter",
+    "new-user": "Nouvel utilisateur ?",
+    "new-reg": "Registre",
+    "or-log": "Ou entrez avec",
+    "check-terms": "Consultez nos",
+    "our-terms": "Conditions générales d'utilisation",
+    "privacy": "Politique de confidentialité"
   }
 }
