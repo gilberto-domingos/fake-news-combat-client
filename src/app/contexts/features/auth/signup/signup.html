@@ -1,193 +1,195 @@
-<mat-card class="signup-card">
-  <mat-card-header>
-    <mat-card-title>Registre-se</mat-card-title>
-  </mat-card-header>
+<ng-container *transloco="let t">
+  <mat-card class="signup-card">
+    <mat-card-header>
+      <mat-card-title>{{ t('signup-form.title') }}</mat-card-title>
+    </mat-card-header>
 
-  <form class="signup-form" [formGroup]="form" (ngSubmit)="submit()">
-    <mat-form-field class="input-full">
-      <mat-label>Nome </mat-label>
-      <input matInput formControlName="name" />
-      @if (form.get('name')?.touched && form.get('name')?.hasError('required')) {
-        <mat-error> Nome é obrigatório </mat-error>
-      }
-    </mat-form-field>
-
-    <mat-form-field class="input-full">
-      <mat-label>Sobrenome</mat-label>
-      <input matInput formControlName="lastname" />
-      @if (form.get('lastname')?.touched && form.get('lastname')?.hasError('required')) {
-        <mat-error> Sobrenome é obrigatório </mat-error>
-      }
-    </mat-form-field>
-
-    <mat-form-field class="input-full">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email" [errorStateMatcher]="matcher" />
-      <mat-hint>Digite um email válido</mat-hint>
-
-      @if (form.get('email')?.touched && form.get('email')?.hasError('required')) {
-        <mat-error> Email é obrigatório </mat-error>
-      }
-      @if (form.get('email')?.touched && form.get('email')?.hasError('email')) {
-        <mat-error> Email inválido </mat-error>
-      }
-    </mat-form-field>
-
-    <mat-label id="date">Data de nascimento</mat-label>
-    <div class="row">
-      <mat-form-field class="date-field" appearance="fill">
-        <mat-label>Dia</mat-label>
-        <mat-select formControlName="day">
-          @for (day of days; track day) {
-            <mat-option [value]="day">{{ day }}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field class="date-field" appearance="fill">
-        <mat-label>Mês</mat-label>
-        <mat-select formControlName="month">
-          @for (month of AllMonths; track month.value) {
-            <mat-option [value]="month.value">
-              {{ month.label }}
-            </mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field class="date-field" appearance="fill">
-        <mat-label>Ano</mat-label>
-        <mat-select formControlName="year">
-          @for (year of years; track year) {
-            <mat-option [value]="year">{{ year }}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <mat-form-field class="input-full" appearance="fill">
-      <mat-label>Gênero</mat-label>
-      <mat-select formControlName="gender">
-        @for (gender of AllGenders; track gender) {
-          <mat-option [value]="gender">{{ gender | titlecase }}</mat-option>
+    <form class="signup-form" [formGroup]="form" (ngSubmit)="submit()">
+      <mat-form-field class="input-full">
+        <mat-label>{{ t('signup-form.label') }} </mat-label>
+        <input matInput formControlName="name" />
+        @if (form.get('name')?.touched && form.get('name')?.hasError('required')) {
+          <mat-error> {{ t('signup-form.error') }} </mat-error>
         }
-      </mat-select>
-    </mat-form-field>
+      </mat-form-field>
 
-    <mat-form-field class="input-full" appearance="fill">
-      <mat-label>Profissão</mat-label>
-
-      <mat-select formControlName="profession">
-        @for (prof of AllProfessionals; track prof) {
-          <mat-option [value]="prof">{{ prof | titlecase }}</mat-option>
+      <mat-form-field class="input-full">
+        <mat-label>{{ t('signup-form.lastname-label') }}</mat-label>
+        <input matInput formControlName="lastname" />
+        @if (form.get('lastname')?.touched && form.get('lastname')?.hasError('required')) {
+          <mat-error>{{ t('signup-form.lastname-error') }}</mat-error>
         }
-      </mat-select>
+      </mat-form-field>
 
-      @if (form.get('profession')?.invalid && form.get('profession')?.touched) {
-        <mat-error>Selecione uma profissão</mat-error>
+      <mat-form-field class="input-full">
+        <mat-label>{{ t('signup-form.email-label') }}</mat-label>
+        <input matInput type="email" formControlName="email" [errorStateMatcher]="matcher" />
+        <mat-hint>{{ t('signup-form.email-hint') }}</mat-hint>
+
+        @if (form.get('email')?.touched && form.get('email')?.hasError('required')) {
+          <mat-error>{{ t('signup-form.email-error') }}</mat-error>
+        }
+        @if (form.get('email')?.touched && form.get('email')?.hasError('email')) {
+          <mat-error> {{ t('signup-form.email-inv') }} </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-label id="date">{{ t('signup-form.birthday') }}</mat-label>
+      <div class="row">
+        <mat-form-field class="date-field" appearance="fill">
+          <mat-label>{{ t('signup-form.birth-day') }}</mat-label>
+          <mat-select formControlName="day">
+            @for (day of days; track day) {
+              <mat-option [value]="day">{{ day }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="date-field" appearance="fill">
+          <mat-label>{{ t('signup-form.birth-month') }}</mat-label>
+          <mat-select formControlName="month">
+            @for (month of AllMonths; track month.value) {
+              <mat-option [value]="month.value">
+                {{ month.label }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="date-field" appearance="fill">
+          <mat-label>{{ t('signup-form.birth-year') }}</mat-label>
+          <mat-select formControlName="year">
+            @for (year of years; track year) {
+              <mat-option [value]="year">{{ year }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="input-full" appearance="fill">
+        <mat-label>{{ t('signup-form.gender') }}</mat-label>
+        <mat-select formControlName="gender">
+          @for (gender of AllGenders; track gender) {
+            <mat-option [value]="gender">{{ gender | titlecase }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="input-full" appearance="fill">
+        <mat-label>{{ t('signup-form.occupation') }}</mat-label>
+
+        <mat-select formControlName="profession">
+          @for (prof of AllProfessionals; track prof) {
+            <mat-option [value]="prof">{{ prof | titlecase }}</mat-option>
+          }
+        </mat-select>
+
+        @if (form.get('profession')?.invalid && form.get('profession')?.touched) {
+          <mat-error>Selecione uma profissão</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="input-full" appearance="fill">
+        <mat-label>{{ t('signup-form.phone') }}</mat-label>
+        <input
+          pInputText
+          type="tel"
+          matInput
+          formControlName="phone"
+          pInputMask="(99) 99999-9999"
+          placeholder="(11) 91234-5678"
+        />
+
+        <mat-icon matSuffix>mode_edit</mat-icon>
+
+        @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
+          <mat-error> Informe um celular válido </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="input-full">
+        <mat-label>{{ t('signup-form.passwd') }}</mat-label>
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+          [errorStateMatcher]="matcher"
+        />
+        <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-hint>{{ t('signup-form.passwd-hint') }}</mat-hint>
+
+        @if (form.get('password')?.touched && form.get('password')?.hasError('required')) {
+          <mat-error> {{ t('signup-form.passwd-required') }} </mat-error>
+        }
+        @if (form.get('password')?.touched && form.get('password')?.hasError('minlength')) {
+          <mat-error> {{ t('signup-form.passwd-error') }} </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field id="confirm" class="input-full">
+        <mat-label>{{ t('signup-form.passwd-confirm') }}</mat-label>
+        <input
+          matInput
+          [type]="hideConfirmPassword ? 'password' : 'text'"
+          formControlName="confirmPassword"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="hideConfirmPassword = !hideConfirmPassword"
+        >
+          <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+
+        @if (
+          form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')
+        ) {
+          <mat-error> {{ t('signup-form.passwd-confirm') }} </mat-error>
+        }
+      </mat-form-field>
+
+      @if (form.touched && form.hasError('mismatch')) {
+        <mat-error> {{ t('signup-form.passwd-nomatch') }} </mat-error>
       }
-    </mat-form-field>
 
-    <mat-form-field class="input-full" appearance="fill">
-      <mat-label>Celular</mat-label>
-      <input
-        pInputText
-        type="tel"
-        matInput
-        formControlName="phone"
-        pInputMask="(99) 99999-9999"
-        placeholder="(11) 91234-5678"
-      />
-
-      <mat-icon matSuffix>mode_edit</mat-icon>
-
-      @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
-        <mat-error> Informe um celular válido </mat-error>
-      }
-    </mat-form-field>
-
-    <mat-form-field class="input-full">
-      <mat-label>Senha</mat-label>
-      <input
-        matInput
-        [type]="hidePassword ? 'password' : 'text'"
-        formControlName="password"
-        [errorStateMatcher]="matcher"
-      />
-      <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
-        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
-      <mat-hint>Mínimo de 8 caracteres</mat-hint>
-
-      @if (form.get('password')?.touched && form.get('password')?.hasError('required')) {
-        <mat-error> Senha é obrigatória </mat-error>
-      }
-      @if (form.get('password')?.touched && form.get('password')?.hasError('minlength')) {
-        <mat-error> A senha deve ter pelo menos 8 caracteres </mat-error>
-      }
-    </mat-form-field>
-
-    <mat-form-field id="confirm" class="input-full">
-      <mat-label>Confirmar senha</mat-label>
-      <input
-        matInput
-        [type]="hideConfirmPassword ? 'password' : 'text'"
-        formControlName="confirmPassword"
-      />
-      <button
-        mat-icon-button
-        matSuffix
-        type="button"
-        (click)="hideConfirmPassword = !hideConfirmPassword"
-      >
-        <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
-
+      <mat-checkbox formControlName="termsAccepted">
+        {{ t('signup-form.accept') }}
+        <span class="privacy" (click)="goConditions()">{{ t('signup-form.privacy-pol') }}</span>
+        {{ t('signup-form.ea') }}
+        <span class="privacy" (click)="goPrivacy()">{{ t('signup-form.accept') }}</span>
+      </mat-checkbox>
       @if (
-        form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')
+        form.get('termsAccepted')?.touched && form.get('termsAccepted')?.hasError('requiredTrue')
       ) {
-        <mat-error> Confirmation required </mat-error>
+        <mat-error> {{ t('signup-form.must-acc-terms') }} </mat-error>
       }
-    </mat-form-field>
 
-    @if (form.touched && form.hasError('mismatch')) {
-      <mat-error> The passwords do not match. </mat-error>
-    }
-
-    <mat-checkbox formControlName="termsAccepted">
-      Aceito os
-      <span class="privacy" (click)="goConditions()">Termos</span>
-      e a
-      <span class="privacy" (click)="goPrivacy()">Política de Privacidade</span>
-    </mat-checkbox>
-    @if (
-      form.get('termsAccepted')?.touched && form.get('termsAccepted')?.hasError('requiredTrue')
-    ) {
-      <mat-error> You must accept the terms. </mat-error>
-    }
-
-    <!-- <div
+      <!-- <div
   #captchaContainer
   [style.pointer-events]="isDisabled ? 'none' : 'auto'"
   [style.opacity]="isDisabled ? 0.5 : 1"
 ></div> -->
 
-    <!-- [class.disabled]="isDisabled" -->
-    <app-render-captcha formControlName="captchaToken"></app-render-captcha>
+      <!-- [class.disabled]="isDisabled" -->
+      <app-render-captcha formControlName="captchaToken"></app-render-captcha>
 
-    @if (f.captchaToken.touched && f.captchaToken.invalid) {
-      <mat-error>Confirm that you are not a robot.</mat-error>
-    }
+      @if (f.captchaToken.touched && f.captchaToken.invalid) {
+        <mat-error>{{ t('signup-form.confirm-not-rob') }}</mat-error>
+      }
 
-    <mat-card-footer>
-      <p>
-        Este site é protegido pelo reCAPTCHA e o Google onde se aplicam sua
-        <span class="privacy" (click)="googlePrivacy()">Privacidade</span> e
-        <span class="privacy" (click)="googleTerms()">Termos de Uso</span>.
-      </p>
-    </mat-card-footer>
+      <mat-card-footer>
+        <p>
+          {{ t('signup-form.site-protected') }}
+          <span class="privacy" (click)="googlePrivacy()">{{ t('signup-form.privacy') }}</span> e
+          <span class="privacy" (click)="googleTerms()">{{ t('signup-form.termsuse') }}</span
+          >.
+        </p>
+      </mat-card-footer>
 
-    <!-- <button
+      <!-- <button
   mat-raised-button
   color="primary"
   type="submit"
@@ -196,15 +198,19 @@
   {{ isLoading ? 'Creating an account...' : 'Create account' }}
 </button> add propeties on button-->
 
-    <mat-card-actions>
-      <!-- [disabled]="form.invalid" -->
-      <button mat-raised-button color="primary" type="submit">Criar conta</button>
-    </mat-card-actions>
-  </form>
+      <mat-card-actions>
+        <!-- [disabled]="form.invalid" -->
+        <button mat-raised-button color="primary" type="submit">
+          {{ t('signup-form.crtcount') }}
+        </button>
+      </mat-card-actions>
+    </form>
 
-  <button mat-stroked-button color="accent" type="button" (click)="fillMockData()">
-    Preencher automático
-  </button>
+    <!-- ATENÇÃO APAGAR ISSO ANTES DA PRODUÇÃO -->
+    <button mat-stroked-button color="accent" type="button" (click)="fillMockData()">
+      Preencher automático
+    </button>
 
-  <p class="has-account" (click)="goToSignin()">Já tenho conta</p>
-</mat-card>
+    <p class="has-account" (click)="goToSignin()">{{ t('signup-form.havecount') }}</p>
+  </mat-card>
+</ng-container>

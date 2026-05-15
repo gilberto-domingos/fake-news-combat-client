@@ -27,6 +27,8 @@ import { Profession, Professionals } from '../../../../shared/types/professions.
 import { AuthService } from '../services/auth.service';
 import { NotificationService } from './notification-service';
 import { MyErrorStateMatcher } from '../signin/signin';
+import { TranslocoService } from '@jsverse/transloco';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-signup',
@@ -46,6 +48,7 @@ import { MyErrorStateMatcher } from '../signin/signin';
     InputMaskModule,
     InputTextModule,
     RenderCaptcha,
+    TranslocoDirective,
   ],
   templateUrl: './signup.html',
   styleUrls: ['./signup.scss'],
@@ -58,6 +61,7 @@ export class Signup implements OnInit {
   private authService = inject(AuthService);
   private fb = inject(NonNullableFormBuilder);
   private notificationService = inject(NotificationService);
+  private translocoService = inject(TranslocoService);
 
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;

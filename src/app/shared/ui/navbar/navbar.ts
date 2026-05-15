@@ -46,7 +46,7 @@ export class Navbar implements OnInit {
   }
 
   goToHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/land']);
   }
 
   goToSignin() {
