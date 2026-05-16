@@ -1,6 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { HealthzService } from './services/healthz-service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { CommonModule } from '@angular/common';
@@ -32,8 +31,6 @@ export class Land implements OnInit {
 
   isLoading = true;
 
-  private healthzService = inject(HealthzService);
-
   setLang(lang: string): void {
     this.translocoService.setActiveLang(lang);
     localStorage.setItem('lang', lang);
@@ -44,21 +41,6 @@ export class Land implements OnInit {
   }
 
   ngOnInit(): void {
-    const start = performance.now();
-
-    this.healthzService.checkHealthz().subscribe({
-      next: () => {
-        console.log('Healthz backend :');
-        const duration = performance.now() - start;
-        console.log(`Time to check healthz OK :', ${duration}ms`);
-      },
-      error: () => {
-        console.warn('Check healthz backend is no wakeup, Warning !');
-        const duration = performance.now() - start;
-        console.warn(`Error check healthz backend after ${duration} ms`);
-      },
-    });
-
     this.getLang();
   }
 
