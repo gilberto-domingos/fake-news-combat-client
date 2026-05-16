@@ -39,15 +39,24 @@ export class HealthzService {
 
     console.log('[HealthzCheck] Triggering wakeup from the backend...');
 
-    return this.http.get(this.healthzUrl).pipe(
-      tap(() => {
-        localStorage.setItem(this.STORAGE_KEY, now.toString());
-        console.log('[HealthzCheck] Triggering wakeup from the backend...');
-      }),
-      catchError((err) => {
-        console.error('[HealthzCheck] Error: waking up HealthzCheck:', err);
-        return of(null);
-      }),
-    );
+    return this.http
+      .get(this.healthzUrl, {
+        observe: 'response',
+      })
+      .pipe(
+        tap((response) => {
+          localStorage.setItem(this.STORAGE_KEY, now.toString());
+          console.log('[HealthzCheck] Triggering wakeup from the backend...');
+          console.log('Http Status:', response.status);
+
+          if (response.status === 200) {
+            console.log('Backend server successfully');
+          }
+        }),
+        catchError((err) => {
+          console.error('[HealthzCheck] Error: waking up HealthzCheck:', err);
+          return of(null);
+        }),
+      );
   }
 }
