@@ -1,87 +1,163 @@
-<mat-card>
-  <h1 class="mat-headline-3 mb-4">Privacy Policy</h1>
+<ng-container *transloco="let t">
+  <mat-card>
+    <h1 class="mat-headline-3 mb-4">
+      {{ t('privacy.title') }}
+    </h1>
 
-  <p><strong>Last updated:</strong> July 31, 2025</p>
-  <p>
-    <strong>AI-Text-Expander</strong> is a Chrome extension developed by
-    <strong>Gilberto Domingos</strong> and designed to enhance productivity by expanding
-    user-defined shortcuts into full text.
-  </p>
+    <p>
+      <strong>{{ t('privacy.lastUpdatedLabel') }}</strong>
+      {{ t('privacy.lastUpdated') }}
+    </p>
 
-  <mat-divider class="my-3"></mat-divider>
+    <p>
+      <strong>fakenewscombat.com</strong>
+      {{ t('privacy.introduction') }}
+    </p>
 
-  <h2 class="mat-headline-5 mt-4">🔐 Data Collection</h2>
-  <p>
-    This extension
-    <strong>does not collect, store, or transmit any personal data</strong>. Specifically:
-  </p>
-  <ul>
-    <li>No personally identifiable information is collected (e.g. name, email, age, etc.)</li>
-    <li>No health, financial, or authentication data is collected.</li>
-    <li>No geolocation or IP address is tracked.</li>
-    <li>
-      No browsing history, communication content, or keystrokes are stored or sent to servers.
-    </li>
-  </ul>
+    <mat-divider class="my-3"></mat-divider>
 
-  <mat-divider class="my-3"></mat-divider>
+    <!-- Quem Somos -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.company.title') }}
+    </h2>
 
-  <h2 class="mat-headline-5 mt-4">Local Storage</h2>
-  <p>
-    All shortcut data is stored
-    <strong>locally on the user's device</strong> using <code>chrome.storage.local</code>. This
-    means:
-  </p>
-  <ul>
-    <li>Your data never leaves your computer.</li>
-    <li>No external servers are involved.</li>
-    <li>Only you have access to your data.</li>
-  </ul>
+    <p>
+      {{ t('privacy.sections.company.description') }}
+    </p>
 
-  <mat-divider class="my-3"></mat-divider>
+    <ul>
+      <li>{{ t('privacy.sections.company.items.item1') }}</li>
+      <li>{{ t('privacy.sections.company.items.item2') }}</li>
+      <li>{{ t('privacy.sections.company.items.item3') }}</li>
+      <li>{{ t('privacy.sections.company.items.item4') }}</li>
+      <li>{{ t('privacy.sections.company.items.item5') }}</li>
+    </ul>
 
-  <h2 class="mat-headline-5 mt-4">Permissions</h2>
-  <p>
-    The extension only interacts with text fields (<code>input</code>,
-    <code>textarea</code>, <code>contenteditable</code>) to replace user-defined shortcuts. It does
-    not modify any other parts of the visited websites.
-  </p>
+    <mat-divider class="my-3"></mat-divider>
 
-  <mat-divider class="my-3"></mat-divider>
+    <!-- Coleta -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.collection.title') }}
+    </h2>
 
-  <h2 class="mat-headline-5 mt-4">Third-Party Services</h2>
-  <p>
-    This extension <strong>does not use</strong> any third-party analytics, advertising, or external
-    scripts.
-  </p>
+    <p>
+      {{ t('privacy.sections.collection.description') }}
+    </p>
 
-  <mat-divider class="my-3"></mat-divider>
+    <ul>
+      <li>{{ t('privacy.sections.collection.items.item1') }}</li>
+      <li>{{ t('privacy.sections.collection.items.item2') }}</li>
+      <li>{{ t('privacy.sections.collection.items.item3') }}</li>
+      <li>{{ t('privacy.sections.collection.items.item4') }}</li>
+      <li>{{ t('privacy.sections.collection.items.item5') }}</li>
+      <li>{{ t('privacy.sections.collection.items.item6') }}</li>
+    </ul>
 
-  <h2 class="mat-headline-5 mt-4">User Control</h2>
-  <p>You can view, edit, or delete your shortcuts at any time through the extension’s interface.</p>
+    <mat-divider class="my-3"></mat-divider>
 
-  <mat-divider class="my-3"></mat-divider>
+    <!-- Uso -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.usage.title') }}
+    </h2>
 
-  <h2 class="mat-headline-5 mt-4">Contact</h2>
-  <p>If you have questions about this privacy policy or the extension itself, please contact:</p>
-  <p>
-    <strong>Gilberto Domingos</strong><br />
-    <a href="https://www.linkedin.com/in/gilberto-domingos/" target="_blank" rel="noopener"
-      >Linked-in</a
-    >
-  </p>
+    <p>
+      {{ t('privacy.sections.usage.description') }}
+    </p>
 
-  <mat-divider class="my-3"></mat-divider>
+    <ul>
+      <li>{{ t('privacy.sections.usage.items.item1') }}</li>
+      <li>{{ t('privacy.sections.usage.items.item2') }}</li>
+      <li>{{ t('privacy.sections.usage.items.item3') }}</li>
+      <li>{{ t('privacy.sections.usage.items.item4') }}</li>
+      <li>{{ t('privacy.sections.usage.items.item5') }}</li>
+    </ul>
 
-  <h2 class="mat-headline-5 mt-4">Compliance</h2>
-  <p>
-    This extension complies with the
-    <a
-      href="https://developer.chrome.com/docs/webstore/program_policies/"
-      target="_blank"
-      rel="noopener"
-    >
-      Chrome Web Store Developer Program Policies </a
-    >.
-  </p>
-</mat-card>
+    <mat-divider class="my-3"></mat-divider>
+
+    <!-- Segurança -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.security.title') }}
+    </h2>
+
+    <p>
+      {{ t('privacy.sections.security.description') }}
+    </p>
+
+    <ul>
+      <li>{{ t('privacy.sections.security.items.item1') }}</li>
+      <li>{{ t('privacy.sections.security.items.item2') }}</li>
+      <li>{{ t('privacy.sections.security.items.item3') }}</li>
+      <li>{{ t('privacy.sections.security.items.item4') }}</li>
+    </ul>
+
+    <mat-divider class="my-3"></mat-divider>
+
+    <!-- Compartilhamento -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.sharing.title') }}
+    </h2>
+
+    <p>
+      {{ t('privacy.sections.sharing.description') }}
+    </p>
+
+    <mat-divider class="my-3"></mat-divider>
+
+    <!-- Cookies -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.cookies.title') }}
+    </h2>
+
+    <p>
+      {{ t('privacy.sections.cookies.description') }}
+    </p>
+
+    <mat-divider class="my-3"></mat-divider>
+
+    <!-- Direitos -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.rights.title') }}
+    </h2>
+
+    <p>
+      {{ t('privacy.sections.rights.description') }}
+    </p>
+
+    <ul>
+      <li>{{ t('privacy.sections.rights.items.item1') }}</li>
+      <li>{{ t('privacy.sections.rights.items.item2') }}</li>
+      <li>{{ t('privacy.sections.rights.items.item3') }}</li>
+      <li>{{ t('privacy.sections.rights.items.item4') }}</li>
+    </ul>
+
+    <mat-divider class="my-3"></mat-divider>
+
+    <!-- Contato -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.contact.title') }}
+    </h2>
+
+    <p>
+      {{ t('privacy.sections.contact.description') }}
+    </p>
+
+    <p>
+      <strong>fakenewscombat.com</strong><br />
+
+      <a href="https://fakenewscombat.com" target="_blank" rel="noopener">
+        https://fakenewscombat.com
+      </a>
+    </p>
+
+    <mat-divider class="my-3"></mat-divider>
+
+    <!-- Compliance -->
+    <h2 class="mat-headline-5 mt-4">
+      {{ t('privacy.sections.compliance.title') }}
+    </h2>
+
+    <p>
+      {{ t('privacy.sections.compliance.description') }}
+    </p>
+  </mat-card>
+</ng-container>

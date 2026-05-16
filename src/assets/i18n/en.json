@@ -125,5 +125,236 @@
     "termsuse": "Terms of Use",
     "crtcount": "Create account",
     "havecount": "I already have an account"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdatedLabel": "Last updated:",
+    "lastUpdated": "May 15, 2026",
+    "introduction": "is a platform specialized in combating misinformation, automated content analysis, and fake news detection.",
+
+    "sections": {
+      "company": {
+        "title": "Who We Are",
+        "description": "The platform uses modern technologies to ensure performance, security, and scalability.",
+        "items": {
+          "item1": "Distributed architecture",
+          "item2": "Artificial Intelligence",
+          "item3": "Asynchronous processing",
+          "item4": "Docker containers",
+          "item5": "Cloud infrastructure"
+        }
+      },
+
+      "collection": {
+        "title": "Data Collection",
+        "description": "We may collect certain technical and operational data to ensure the security and proper functioning of the platform.",
+        "items": {
+          "item1": "IP address",
+          "item2": "Browser information",
+          "item3": "Access logs",
+          "item4": "Authentication data",
+          "item5": "Cookies",
+          "item6": "Session information"
+        }
+      },
+
+      "usage": {
+        "title": "Use of Information",
+        "description": "Data may be used to improve our services and protect the platform.",
+        "items": {
+          "item1": "Fraud prevention",
+          "item2": "Detection of suspicious activities",
+          "item3": "Performance improvement",
+          "item4": "Account protection",
+          "item5": "Automated content analysis"
+        }
+      },
+
+      "security": {
+        "title": "Information Security",
+        "description": "We adopt modern security measures to protect user data.",
+        "items": {
+          "item1": "HTTPS/TLS encryption",
+          "item2": "Access control",
+          "item3": "Continuous monitoring",
+          "item4": "Protection against attacks"
+        }
+      },
+
+      "sharing": {
+        "title": "Data Sharing",
+        "description": "fakenewscombat.com does not sell personal data. Data sharing will only occur when required by law or necessary for the secure operation of the platform."
+      },
+
+      "cookies": {
+        "title": "Cookies",
+        "description": "We use cookies and similar technologies to improve user experience, security, and performance."
+      },
+
+      "rights": {
+        "title": "User Rights",
+        "description": "You may exercise your rights under applicable data protection laws.",
+        "items": {
+          "item1": "Request access to data",
+          "item2": "Request correction of data",
+          "item3": "Request deletion of data",
+          "item4": "Withdraw consent"
+        }
+      },
+
+      "contact": {
+        "title": "Contact",
+        "description": "If you have any questions about this Privacy Policy, please contact us through the official website."
+      },
+
+      "compliance": {
+        "title": "Compliance",
+        "description": "This platform seeks compliance with LGPD, GDPR, and international data protection regulations."
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "lastUpdatedLabel": "Last updated:",
+    "lastUpdated": "May 15, 2026",
+
+    "introduction": "These Terms of Use govern the access and use of the fakenewscombat.com platform, including websites, APIs, applications, systems, services, technologies, software, and functionalities provided by the platform.",
+
+    "sections": {
+      "objective": {
+        "title": "1. Platform Purpose",
+        "description": "fakenewscombat.com is a technology platform specialized in:",
+
+        "items": {
+          "item1": "combating misinformation",
+          "item2": "fake news detection",
+          "item3": "automated content analysis",
+          "item4": "digital integrity monitoring",
+          "item5": "artificial intelligence applied to information verification",
+          "item6": "information security",
+          "item7": "digital reputation analysis",
+          "item8": "identification of automated malicious behavior"
+        },
+
+        "footer": "Our goal is to promote a safer, more transparent, and trustworthy digital environment."
+      },
+
+      "eligibility": {
+        "title": "2. Eligibility of Use",
+
+        "description": "By using the platform, you declare that:",
+
+        "items": {
+          "item1": "you have the legal capacity to accept these terms",
+          "item2": "you will use the services lawfully",
+          "item3": "you will provide truthful information",
+          "item4": "you will not use the platform for illegal or abusive purposes"
+        },
+
+        "footer": "We may restrict access to users who violate these terms or pose a risk to the platform's security."
+      },
+
+      "prohibited": {
+        "title": "3. Prohibited Conduct",
+
+        "description": "You agree not to use the platform to:",
+
+        "items": {
+          "item1": "publish illegal content",
+          "item2": "spread malicious misinformation",
+          "item3": "promote fraud",
+          "item4": "distribute malware",
+          "item5": "perform unauthorized abusive scraping",
+          "item6": "compromise system security",
+          "item7": "attempt to access restricted areas",
+          "item8": "collect data without authorization",
+          "item9": "use malicious bots",
+          "item10": "perform reverse engineering",
+          "item11": "circumvent technical limitations",
+          "item12": "publish offensive, discriminatory, or fraudulent content",
+          "item13": "violate third-party intellectual property"
+        },
+
+        "footer": "The platform may remove content, limit functionalities, suspend, or terminate accounts that violate these terms."
+      },
+
+      "accounts": {
+        "title": "4. Accounts and Security",
+
+        "description": "You are responsible for:",
+
+        "items": {
+          "item1": "maintaining the confidentiality of your credentials",
+          "item2": "protecting your account",
+          "item3": "monitoring activities carried out through your access",
+          "item4": "reporting suspicious activities"
+        },
+
+        "suspensionTitle": "fakenewscombat.com may suspend or terminate accounts in cases of:",
+
+        "reasons": {
+          "item1": "violation of these terms",
+          "item2": "suspicious activity",
+          "item3": "fraud",
+          "item4": "attempted intrusion",
+          "item5": "platform abuse",
+          "item6": "prolonged inactivity",
+          "item7": "legal or judicial determination"
+        }
+      },
+
+      "content": {
+        "title": "5. User Content",
+
+        "description": "You retain rights over content submitted to the platform.",
+
+        "items": {
+          "item1": "store",
+          "item2": "process",
+          "item3": "analyze",
+          "item4": "index",
+          "item5": "display",
+          "item6": "technically use the content for service operation"
+        },
+
+        "footer1": "This authorization exists exclusively for the operation, security, improvement, and functioning of the platform.",
+
+        "footer2": "You declare that you possess the necessary rights over any submitted content."
+      },
+
+      "ai": {
+        "title": "6. Artificial Intelligence and Automation",
+
+        "description": "The platform may use:",
+
+        "items": {
+          "item1": "artificial intelligence",
+          "item2": "machine learning",
+          "item3": "automated analysis",
+          "item4": "classification systems",
+          "item5": "asynchronous processing",
+          "item6": "behavioral analysis",
+          "item7": "anti-fraud systems"
+        },
+
+        "footer": "Certain analyses, recommendations, or decisions may occur partially through automated processes."
+      },
+
+      "availability": {
+        "title": "7. Service Availability",
+
+        "items": {
+          "item1": "modify functionalities",
+          "item2": "interrupt services",
+          "item3": "update systems",
+          "item4": "perform maintenance",
+          "item5": "add or remove features",
+          "item6": "limit functionalities",
+          "item7": "change technological infrastructure"
+        },
+
+        "footer": "We do not guarantee continuous availability free from failures or interruptions, according to internet fluctuations or outages."
+      }
+    }
   }
 }

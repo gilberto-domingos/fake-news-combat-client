@@ -1,1 +1,156 @@
-<p>terms-conditions works!</p>
+<mat-card class="terms-container" *transloco="let t">
+  <h1 class="mat-headline-3 mb-4">
+    {{ t('terms.title') }}
+  </h1>
+
+  <p class="last-updated">
+    <strong>{{ t('terms.lastUpdatedLabel') }}</strong>
+    {{ t('terms.lastUpdated') }}
+  </p>
+
+  <p class="intro">
+    {{ t('terms.introduction') }}
+  </p>
+
+  <!-- SECTION 1 -->
+  <section>
+    <h2>{{ t('terms.sections.objective.title') }}</h2>
+
+    <p>{{ t('terms.sections.objective.description') }}</p>
+
+    <ul>
+      <li>{{ t('terms.sections.objective.items.item1') }}</li>
+      <li>{{ t('terms.sections.objective.items.item2') }}</li>
+      <li>{{ t('terms.sections.objective.items.item3') }}</li>
+      <li>{{ t('terms.sections.objective.items.item4') }}</li>
+      <li>{{ t('terms.sections.objective.items.item5') }}</li>
+      <li>{{ t('terms.sections.objective.items.item6') }}</li>
+      <li>{{ t('terms.sections.objective.items.item7') }}</li>
+      <li>{{ t('terms.sections.objective.items.item8') }}</li>
+    </ul>
+
+    <p>{{ t('terms.sections.objective.footer') }}</p>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section>
+    <h2>{{ t('terms.sections.eligibility.title') }}</h2>
+
+    <p>{{ t('terms.sections.eligibility.description') }}</p>
+
+    <ul>
+      <li>{{ t('terms.sections.eligibility.items.item1') }}</li>
+      <li>{{ t('terms.sections.eligibility.items.item2') }}</li>
+      <li>{{ t('terms.sections.eligibility.items.item3') }}</li>
+      <li>{{ t('terms.sections.eligibility.items.item4') }}</li>
+    </ul>
+
+    <p>{{ t('terms.sections.eligibility.footer') }}</p>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section>
+    <h2>{{ t('terms.sections.prohibited.title') }}</h2>
+
+    <p>{{ t('terms.sections.prohibited.description') }}</p>
+
+    <ul>
+      <li>{{ t('terms.sections.prohibited.items.item1') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item2') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item3') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item4') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item5') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item6') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item7') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item8') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item9') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item10') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item11') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item12') }}</li>
+      <li>{{ t('terms.sections.prohibited.items.item13') }}</li>
+    </ul>
+
+    <p>{{ t('terms.sections.prohibited.footer') }}</p>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section>
+    <h2>{{ t('terms.sections.accounts.title') }}</h2>
+
+    <p>{{ t('terms.sections.accounts.description') }}</p>
+
+    <ul>
+      <li>{{ t('terms.sections.accounts.items.item1') }}</li>
+      <li>{{ t('terms.sections.accounts.items.item2') }}</li>
+      <li>{{ t('terms.sections.accounts.items.item3') }}</li>
+      <li>{{ t('terms.sections.accounts.items.item4') }}</li>
+    </ul>
+
+    <p>{{ t('terms.sections.accounts.suspensionTitle') }}</p>
+
+    <ul>
+      <li>{{ t('terms.sections.accounts.reasons.item1') }}</li>
+      <li>{{ t('terms.sections.accounts.reasons.item2') }}</li>
+      <li>{{ t('terms.sections.accounts.reasons.item3') }}</li>
+      <li>{{ t('terms.sections.accounts.reasons.item4') }}</li>
+      <li>{{ t('terms.sections.accounts.reasons.item5') }}</li>
+      <li>{{ t('terms.sections.accounts.reasons.item6') }}</li>
+      <li>{{ t('terms.sections.accounts.reasons.item7') }}</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section>
+    <h2>{{ t('terms.sections.content.title') }}</h2>
+
+    <p>{{ t('terms.sections.content.description') }}</p>
+
+    <ul>
+      <li>{{ t('terms.sections.content.items.item1') }}</li>
+      <li>{{ t('terms.sections.content.items.item2') }}</li>
+      <li>{{ t('terms.sections.content.items.item3') }}</li>
+      <li>{{ t('terms.sections.content.items.item4') }}</li>
+      <li>{{ t('terms.sections.content.items.item5') }}</li>
+      <li>{{ t('terms.sections.content.items.item6') }}</li>
+    </ul>
+
+    <p>{{ t('terms.sections.content.footer1') }}</p>
+    <p>{{ t('terms.sections.content.footer2') }}</p>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section>
+    <h2>{{ t('terms.sections.ai.title') }}</h2>
+
+    <p>{{ t('terms.sections.ai.description') }}</p>
+
+    <ul>
+      <li>{{ t('terms.sections.ai.items.item1') }}</li>
+      <li>{{ t('terms.sections.ai.items.item2') }}</li>
+      <li>{{ t('terms.sections.ai.items.item3') }}</li>
+      <li>{{ t('terms.sections.ai.items.item4') }}</li>
+      <li>{{ t('terms.sections.ai.items.item5') }}</li>
+      <li>{{ t('terms.sections.ai.items.item6') }}</li>
+      <li>{{ t('terms.sections.ai.items.item7') }}</li>
+    </ul>
+
+    <p>{{ t('terms.sections.ai.footer') }}</p>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section>
+    <h2>{{ t('terms.sections.availability.title') }}</h2>
+
+    <ul>
+      <li>{{ t('terms.sections.availability.items.item1') }}</li>
+      <li>{{ t('terms.sections.availability.items.item2') }}</li>
+      <li>{{ t('terms.sections.availability.items.item3') }}</li>
+      <li>{{ t('terms.sections.availability.items.item4') }}</li>
+      <li>{{ t('terms.sections.availability.items.item5') }}</li>
+      <li>{{ t('terms.sections.availability.items.item6') }}</li>
+      <li>{{ t('terms.sections.availability.items.item7') }}</li>
+    </ul>
+
+    <p>{{ t('terms.sections.availability.footer') }}</p>
+  </section>
+</mat-card>

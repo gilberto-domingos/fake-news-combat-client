@@ -126,5 +126,236 @@
     "termsuse": "Términos de uso",
     "crtcount": "Crear cuenta",
     "havecount": "Ya tengo una cuenta"
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "lastUpdatedLabel": "Última actualización:",
+    "lastUpdated": "15 de mayo de 2026",
+    "introduction": "es una plataforma especializada en la lucha contra la desinformación, el análisis automatizado de contenido y la detección de noticias falsas.",
+
+    "sections": {
+      "company": {
+        "title": "Quiénes Somos",
+        "description": "La plataforma utiliza tecnologías modernas para garantizar rendimiento, seguridad y escalabilidad.",
+        "items": {
+          "item1": "Arquitectura distribuida",
+          "item2": "Inteligencia Artificial",
+          "item3": "Procesamiento asíncrono",
+          "item4": "Contenedores Docker",
+          "item5": "Infraestructura en la nube"
+        }
+      },
+
+      "collection": {
+        "title": "Recopilación de Datos",
+        "description": "Podemos recopilar ciertos datos técnicos y operativos para garantizar la seguridad y el correcto funcionamiento de la plataforma.",
+        "items": {
+          "item1": "Dirección IP",
+          "item2": "Información del navegador",
+          "item3": "Registros de acceso",
+          "item4": "Datos de autenticación",
+          "item5": "Cookies",
+          "item6": "Información de sesión"
+        }
+      },
+
+      "usage": {
+        "title": "Uso de la Información",
+        "description": "Los datos podrán utilizarse para mejorar nuestros servicios y proteger la plataforma.",
+        "items": {
+          "item1": "Prevención contra fraudes",
+          "item2": "Detección de actividades sospechosas",
+          "item3": "Mejora del rendimiento",
+          "item4": "Protección de cuentas",
+          "item5": "Análisis automatizado de contenido"
+        }
+      },
+
+      "security": {
+        "title": "Seguridad de la Información",
+        "description": "Adoptamos medidas modernas de seguridad para proteger los datos de los usuarios.",
+        "items": {
+          "item1": "Cifrado HTTPS/TLS",
+          "item2": "Control de acceso",
+          "item3": "Monitoreo continuo",
+          "item4": "Protección contra ataques"
+        }
+      },
+
+      "sharing": {
+        "title": "Compartición de Datos",
+        "description": "fakenewscombat.com no vende datos personales. El intercambio de datos solo ocurrirá cuando sea requerido por la ley o necesario para el funcionamiento seguro de la plataforma."
+      },
+
+      "cookies": {
+        "title": "Cookies",
+        "description": "Utilizamos cookies y tecnologías similares para mejorar la experiencia, la seguridad y el rendimiento."
+      },
+
+      "rights": {
+        "title": "Derechos del Usuario",
+        "description": "Usted podrá ejercer sus derechos conforme a la legislación aplicable.",
+        "items": {
+          "item1": "Solicitar acceso a los datos",
+          "item2": "Solicitar corrección de datos",
+          "item3": "Solicitar eliminación de datos",
+          "item4": "Revocar el consentimiento"
+        }
+      },
+
+      "contact": {
+        "title": "Contacto",
+        "description": "Si tiene dudas sobre esta Política de Privacidad, comuníquese con nosotros a través del sitio web oficial."
+      },
+
+      "compliance": {
+        "title": "Cumplimiento",
+        "description": "Esta plataforma busca cumplir con la LGPD, GDPR y las normativas internacionales de protección de datos."
+      }
+    }
+  },
+  "terms": {
+    "title": "Términos de Uso",
+    "lastUpdatedLabel": "Última actualización:",
+    "lastUpdated": "15 de mayo de 2026",
+
+    "introduction": "Los presentes Términos de Uso regulan el acceso y uso de la plataforma fakenewscombat.com, incluyendo sitios web, APIs, aplicaciones, sistemas, servicios, tecnologías, software y funcionalidades proporcionadas por la plataforma.",
+
+    "sections": {
+      "objective": {
+        "title": "1. Objetivo de la Plataforma",
+        "description": "fakenewscombat.com es una plataforma tecnológica especializada en:",
+
+        "items": {
+          "item1": "combatir la desinformación",
+          "item2": "detección de noticias falsas",
+          "item3": "análisis automatizado de contenido",
+          "item4": "monitoreo de integridad digital",
+          "item5": "inteligencia artificial aplicada a la verificación de información",
+          "item6": "seguridad de la información",
+          "item7": "análisis de reputación digital",
+          "item8": "identificación de comportamiento malicioso automatizado"
+        },
+
+        "footer": "Nuestro objetivo es promover un entorno digital más seguro, transparente y confiable."
+      },
+
+      "eligibility": {
+        "title": "2. Elegibilidad de Uso",
+
+        "description": "Al utilizar la plataforma, usted declara que:",
+
+        "items": {
+          "item1": "posee capacidad legal para aceptar estos términos",
+          "item2": "utilizará los servicios de manera lícita",
+          "item3": "proporcionará información veraz",
+          "item4": "no utilizará la plataforma con fines ilegales o abusivos"
+        },
+
+        "footer": "Podremos restringir el acceso a usuarios que violen estos términos o representen un riesgo para la seguridad de la plataforma."
+      },
+
+      "prohibited": {
+        "title": "3. Conductas Prohibidas",
+
+        "description": "Usted acepta no utilizar la plataforma para:",
+
+        "items": {
+          "item1": "publicar contenido ilegal",
+          "item2": "difundir desinformación maliciosa",
+          "item3": "promover fraudes",
+          "item4": "distribuir malware",
+          "item5": "realizar scraping abusivo no autorizado",
+          "item6": "comprometer la seguridad de los sistemas",
+          "item7": "intentar acceder a áreas restringidas",
+          "item8": "recopilar datos sin autorización",
+          "item9": "utilizar bots maliciosos",
+          "item10": "realizar ingeniería inversa",
+          "item11": "eludir limitaciones técnicas",
+          "item12": "publicar contenido ofensivo, discriminatorio o fraudulento",
+          "item13": "violar la propiedad intelectual de terceros"
+        },
+
+        "footer": "La plataforma podrá eliminar contenidos, limitar funcionalidades, suspender o cerrar cuentas que violen estos términos."
+      },
+
+      "accounts": {
+        "title": "4. Cuentas y Seguridad",
+
+        "description": "Usted es responsable de:",
+
+        "items": {
+          "item1": "mantener la confidencialidad de sus credenciales",
+          "item2": "proteger su cuenta",
+          "item3": "supervisar las actividades realizadas desde su acceso",
+          "item4": "notificar actividades sospechosas"
+        },
+
+        "suspensionTitle": "fakenewscombat.com podrá suspender o cerrar cuentas en casos de:",
+
+        "reasons": {
+          "item1": "violación de estos términos",
+          "item2": "actividad sospechosa",
+          "item3": "fraude",
+          "item4": "intento de intrusión",
+          "item5": "abuso de la plataforma",
+          "item6": "inactividad prolongada",
+          "item7": "determinación legal o judicial"
+        }
+      },
+
+      "content": {
+        "title": "5. Contenido del Usuario",
+
+        "description": "Usted mantiene los derechos sobre el contenido enviado a la plataforma.",
+
+        "items": {
+          "item1": "almacenar",
+          "item2": "procesar",
+          "item3": "analizar",
+          "item4": "indexar",
+          "item5": "mostrar",
+          "item6": "utilizar técnicamente el contenido para el funcionamiento de los servicios"
+        },
+
+        "footer1": "Esta autorización existe exclusivamente para la operación, seguridad, mejora y funcionamiento de la plataforma.",
+
+        "footer2": "Usted declara poseer los derechos necesarios sobre cualquier contenido enviado."
+      },
+
+      "ai": {
+        "title": "6. Inteligencia Artificial y Automatización",
+
+        "description": "La plataforma podrá utilizar:",
+
+        "items": {
+          "item1": "inteligencia artificial",
+          "item2": "machine learning",
+          "item3": "análisis automatizado",
+          "item4": "sistemas de clasificación",
+          "item5": "procesamiento asíncrono",
+          "item6": "análisis de comportamiento",
+          "item7": "sistemas antifraude"
+        },
+
+        "footer": "Determinados análisis, recomendaciones o decisiones podrán ocurrir parcialmente de forma automatizada."
+      },
+
+      "availability": {
+        "title": "7. Disponibilidad de los Servicios",
+
+        "items": {
+          "item1": "modificar funcionalidades",
+          "item2": "interrumpir servicios",
+          "item3": "actualizar sistemas",
+          "item4": "realizar mantenimientos",
+          "item5": "agregar o eliminar recursos",
+          "item6": "limitar funcionalidades",
+          "item7": "modificar la infraestructura tecnológica"
+        },
+
+        "footer": "No garantizamos disponibilidad continua, libre de fallos o interrupciones, según fluctuaciones o interrupciones de internet."
+      }
+    }
   }
 }
