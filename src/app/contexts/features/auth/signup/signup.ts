@@ -29,6 +29,7 @@ import { NotificationService } from './notification-service';
 import { MyErrorStateMatcher } from '../signin/signin';
 import { TranslocoService } from '@jsverse/transloco';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { HealthzService } from 'app/contexts/components/land/services/healthz-service';
 
 @Component({
   selector: 'app-signup',
@@ -59,6 +60,7 @@ export class Signup implements OnInit {
   errorMessage: string = '';
   private router = inject(Router);
   private authService = inject(AuthService);
+  private healthzService = inject(HealthzService);
   private fb = inject(NonNullableFormBuilder);
   private notificationService = inject(NotificationService);
   private translocoService = inject(TranslocoService);
@@ -77,6 +79,10 @@ export class Signup implements OnInit {
   days = Array.from({ length: 31 }, (_, i) => i + 1);
   currentYear = new Date().getFullYear();
   years = Array.from({ length: 100 }, (_, i) => this.currentYear - i);
+
+  ngOnInit(): void {
+    this.healthzService.checkHealthz().subscribe();
+  }
 
   form = this.fb.group(
     {
@@ -182,8 +188,6 @@ export class Signup implements OnInit {
       captchaToken,
     };
   }
-
-  ngOnInit(): void {}
 
   fillMockData(): void {
     this.form.patchValue({

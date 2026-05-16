@@ -15,6 +15,9 @@ export class HealthzService {
 
   checkHealthz() {
     return this.http.get(this.healthzUrl).pipe(
+      tap(() => {
+        console.log('[HealthzCheck] Triggering wakeup from the backend...');
+      }),
       catchError((err) => {
         console.error('Error wakeup server', err);
         return of(null);

@@ -20,6 +20,7 @@ import { AuthService } from '../services/auth.service';
 import { NotificationService } from '../signup/notification-service';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { TranslocoService } from '@jsverse/transloco';
+import { HealthzService } from 'app/contexts/components/land/services/healthz-service';
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -48,6 +49,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class Signin implements ErrorStateMatcher, OnInit {
   private router = inject(Router);
   private authService = inject(AuthService);
+  private healthzService = inject(HealthzService);
   private notificationService = inject(NotificationService);
   private translocoService = inject(TranslocoService);
   protected successMessage: string = '';
@@ -61,6 +63,12 @@ export class Signin implements ErrorStateMatcher, OnInit {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = !!(form && form.submitted);
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+
+  ngOnInit(): void {
+    this.healthzService.checkHealthz().subscribe();
+    this.successMessage = this.notificationService.successMessage();
+    this.notificationService.successMessage.set('');
   }
 
   submit() {
@@ -87,10 +95,5 @@ export class Signin implements ErrorStateMatcher, OnInit {
 
   goSignUp() {
     this.router.navigate(['/signup']);
-  }
-
-  ngOnInit(): void {
-    this.successMessage = this.notificationService.successMessage();
-    this.notificationService.successMessage.set('');
   }
 }
