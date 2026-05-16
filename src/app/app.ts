@@ -22,16 +22,28 @@ export class App implements OnInit {
   ngOnInit(): void {
     const start = performance.now();
 
+    // this.healthzService.checkHealthz().subscribe({
+    //   next: () => {
+    //     console.log('Healthz backend :');
+    //     const duration = performance.now() - start;
+    //     console.log(`Time to check healthz OK :', ${duration}ms`);
+    //   },
+    //   error: () => {
+    //     console.warn('Check healthz backend is no wakeup, Warning !');
+    //     const duration = performance.now() - start;
+    //     console.warn(`Error check healthz backend after ${duration} ms`);
+    //   },
+    // });
+
     this.healthzService.checkHealthz().subscribe({
-      next: () => {
-        console.log('Healthz backend :');
-        const duration = performance.now() - start;
-        console.log(`Time to check healthz OK :', ${duration}ms`);
+      next: (response) => {
+        if (response?.status === 200) {
+          console.log('Http Status:', response.status);
+          console.log('Backend server successfully !');
+        }
       },
-      error: () => {
-        console.warn('Check healthz backend is no wakeup, Warning !');
-        const duration = performance.now() - start;
-        console.warn(`Error check healthz backend after ${duration} ms`);
+      error: (err) => {
+        console.log(err);
       },
     });
 
