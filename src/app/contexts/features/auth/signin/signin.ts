@@ -81,12 +81,6 @@ export class Signin implements ErrorStateMatcher, OnInit {
     this.notificationService.successMessage.set('');
   }
 
-  // console.log('Response received');
-  //         console.log('Http Status:', response.status);
-  //         if (response.status === 200) {
-  //           console.log('Backend server successfully');
-  //         }
-
   submit() {
     if (this.emailFormControl.invalid || this.passwordFormControl.invalid) return;
 
