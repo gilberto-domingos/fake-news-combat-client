@@ -81,7 +81,17 @@ export class Signup implements OnInit {
   years = Array.from({ length: 100 }, (_, i) => this.currentYear - i);
 
   ngOnInit(): void {
-    this.healthzService.checkHealthz().subscribe();
+    this.healthzService.checkHealthz().subscribe({
+      next: (response) => {
+        if (response?.status === 200) {
+          console.log('Http Status', response.status);
+          console.log('Backend server successfully !');
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   form = this.fb.group(

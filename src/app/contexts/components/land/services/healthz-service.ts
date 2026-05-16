@@ -14,10 +14,7 @@ export class HealthzService {
   constructor(private http: HttpClient) {}
 
   checkHealthz() {
-    return this.http.get(this.healthzUrl).pipe(
-      tap(() => {
-        console.log('[HealthzCheck] Triggering wakeup from the backend...');
-      }),
+    return this.http.get(this.healthzUrl, { observe: 'response' }).pipe(
       catchError((err) => {
         console.error('Error wakeup server', err);
         return of(null);
@@ -42,11 +39,6 @@ export class HealthzService {
     return this.http.get(this.healthzUrl, { observe: 'response' }).pipe(
       tap((response) => {
         localStorage.setItem(this.STORAGE_KEY, now.toString());
-        console.log('Response received');
-        console.log('Http Status:', response.status);
-        if (response.status === 200) {
-          console.log('Backend server successfully');
-        }
       }),
       catchError((err) => {
         console.error('[HealthzCheck] Error: waking up HealthzCheck:', err);

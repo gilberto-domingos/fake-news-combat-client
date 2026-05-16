@@ -66,10 +66,26 @@ export class Signin implements ErrorStateMatcher, OnInit {
   }
 
   ngOnInit(): void {
-    this.healthzService.checkHealthz().subscribe();
+    this.healthzService.checkHealthz().subscribe({
+      next: (response) => {
+        if (response?.status === 200) {
+          console.log('Http Status:', response.status);
+          console.log('Backend server successfully !');
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
     this.successMessage = this.notificationService.successMessage();
     this.notificationService.successMessage.set('');
   }
+
+  // console.log('Response received');
+  //         console.log('Http Status:', response.status);
+  //         if (response.status === 200) {
+  //           console.log('Backend server successfully');
+  //         }
 
   submit() {
     if (this.emailFormControl.invalid || this.passwordFormControl.invalid) return;
