@@ -3,6 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'land',
+  },
+  {
+    path: '',
     loadComponent: () => import('./contexts/components/land/land').then((m) => m.Land),
   },
   {
@@ -28,6 +33,10 @@ export const routes: Routes = [
     path: 'privacy',
     loadComponent: () =>
       import('./contexts/components/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
+  },
+  {
+    path: '**',
+    redirectTo: 'land',
   },
   // {
   //   path: 'navbar',
