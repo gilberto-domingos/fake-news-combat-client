@@ -89,7 +89,8 @@
     "or-log": "O ingrese con",
     "check-terms": "Consulta nuestros",
     "our-terms": "Términos y condiciones",
-    "privacy": "Aviso de privacidad"
+    "privacy": "Aviso de privacidad",
+    "dev_message": "El sistema está en desarrollo. Esta área aún no es válida. Será la última en finalizarse."
   },
   "signup-form": {
     "title": "Registro",

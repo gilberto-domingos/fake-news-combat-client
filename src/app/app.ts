@@ -1,7 +1,7 @@
 import { Component, signal, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SpinnerLoading } from './shared/spinner-loading/spinner-loading';
+// import { SpinnerLoading } from './shared/spinner-loading/spinner-loading';
 import { Navbar } from './shared/ui/navbar/navbar';
 import { Footer } from './shared/ui/footer/footer';
 import { TranslocoService } from '@jsverse/transloco';

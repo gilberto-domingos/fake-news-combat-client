@@ -88,7 +88,8 @@
     "or-log": "Or enter with",
     "check-terms": "Check out our",
     "our-terms": "Terms and Conditions",
-    "privacy": "Privacy Notice"
+    "privacy": "Privacy Notice",
+    "dev_message": "The system is under development. This area is still invalid. It will be the last one to be finalized."
   },
   "signup-form": {
     "title": "Register",

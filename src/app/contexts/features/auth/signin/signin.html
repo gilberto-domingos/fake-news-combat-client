@@ -60,7 +60,9 @@
       <p class="forget">{{ t('signin-form.forget-passwd') }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button class="login" matButton="filled">{{ t('signin-form.btn-login') }}</button>
+      <button (click)="onInputFocus()" class="login" matButton="filled">
+        {{ t('signin-form.btn-login') }}
+      </button>
     </mat-card-actions>
     <mat-card-actions>
       <p class="privacy">
@@ -83,4 +85,5 @@
       </p>
     </mat-card-actions>
   </mat-card>
+  <app-spinner-loading></app-spinner-loading>
 </ng-container>

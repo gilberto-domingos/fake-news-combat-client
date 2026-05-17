@@ -21,6 +21,8 @@ import { NotificationService } from '../signup/notification-service';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { TranslocoService } from '@jsverse/transloco';
 import { HealthzService } from 'app/contexts/components/land/services/healthz-service';
+import { SpinnerLoading } from 'app/shared/spinner-loading/spinner-loading';
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -31,6 +33,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-signin',
   imports: [
+    SpinnerLoading,
     MatButtonModule,
     MatCardModule,
     FormsModule,
@@ -79,6 +82,10 @@ export class Signin implements ErrorStateMatcher, OnInit {
     });
     this.successMessage = this.notificationService.successMessage();
     this.notificationService.successMessage.set('');
+  }
+
+  onInputFocus(): void {
+    alert(this.translocoService.translate('signin-form.dev_message'));
   }
 
   submit() {

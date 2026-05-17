@@ -87,7 +87,8 @@
     "or-log": "Ou entre com",
     "check-terms": "Confira nossos",
     "our-terms": "Termos e Condições",
-    "privacy": "Política de privacidade"
+    "privacy": "Política de privacidade",
+    "dev_message": "O sistema está sendo desenvolvido. Essa área ainda está inválida. Será a ultima a ser finalizada."
   },
   "signup-form": {
     "title": "Registre-se",

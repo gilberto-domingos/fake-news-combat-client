@@ -30,11 +30,13 @@ import { MyErrorStateMatcher } from '../signin/signin';
 import { TranslocoService } from '@jsverse/transloco';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { HealthzService } from 'app/contexts/components/land/services/healthz-service';
+import { SpinnerLoading } from 'app/shared/spinner-loading/spinner-loading';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [
+    SpinnerLoading,
     CommonModule,
     ReactiveFormsModule,
     MatCardModule,

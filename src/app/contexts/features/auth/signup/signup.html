@@ -189,28 +189,19 @@
         </p>
       </mat-card-footer>
 
-      <!-- <button
-  mat-raised-button
-  color="primary"
-  type="submit"
-  [disabled]="form.invalid || isLoading"
->
-  {{ isLoading ? 'Creating an account...' : 'Create account' }}
-</button> add propeties on button-->
-
       <mat-card-actions>
-        <!-- [disabled]="form.invalid" -->
-        <button mat-raised-button color="primary" type="submit">
+        <button [disabled]="form.invalid" mat-raised-button color="primary" type="submit">
           {{ t('signup-form.crtcount') }}
         </button>
       </mat-card-actions>
     </form>
 
-    <!-- ATENÇÃO APAGAR ISSO ANTES DA PRODUÇÃO -->
+    <!--  
     <button mat-stroked-button color="accent" type="button" (click)="fillMockData()">
       Preencher automático
-    </button>
+    </button> -->
 
     <p class="has-account" (click)="goToSignin()">{{ t('signup-form.havecount') }}</p>
   </mat-card>
+  <app-spinner-loading></app-spinner-loading>
 </ng-container>

@@ -88,7 +88,8 @@
     "or-log": "Ou entrez avec",
     "check-terms": "Consultez nos",
     "our-terms": "Conditions générales d'utilisation",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "dev_message": "Le système est en cours de développement. Cette zone est encore invalide. Elle sera la dernière à être finalisée."
   },
   "signup-form": {
     "title": "Registre",
