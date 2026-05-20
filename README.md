@@ -12,26 +12,56 @@ The application is built with **Angular** and follows a modular component-based 
 Example structure of the Angular application:
 
 ```
-├── public
-└── src
-    ├── app
-    │   ├── features
-    │   │   ├── auth
-    │   │   │   ├── privacy-notice
-    │   │   │   ├── signin
-    │   │   │   ├── signup
-    │   │   │   └── terms-conditions
-    │   │   ├── home
-    │   │   └── user
-    │   └── shared
-    │       ├── types
-    │       └── ui
-    │           ├── external-login
-    │           ├── footer
-    │           └── navbar
-    ├── assets
-    ├── environments
-    └── types
+├── src
+│   ├── app
+│   │   ├── contexts
+│   │   │   ├── components
+│   │   │   │   ├── invest
+│   │   │   │   ├── land
+│   │   │   │   ├── privacy-policy
+│   │   │   │   └── terms-conditions
+│   │   │   └── features
+│   │   │   ├── analytics-access
+│   │   │   ├── auth
+│   │   │   └── user
+│   │   ├── core
+│   │   │   ├── i18n
+│   │   │   └── interceptor
+│   │   │   ├── error-interceptor-interceptor.spec.ts
+│   │   │   ├── error-interceptor-interceptor.ts
+│   │   │   ├── loader-interceptor.spec.ts
+│   │   │   └── loader-interceptor.ts
+│   │   └── shared
+│   │   ├── constants
+│   │   │   └── api-routes.ts
+│   │   ├── initializers
+│   │   │   └── healthz.initializer.ts
+│   │   ├── render-captcha
+│   │   ├── spinner-loading
+│   │   ├── types
+│   │   │   ├── genders.type.ts
+│   │   │   ├── globals.d.ts
+│   │   │   ├── month-labels.const.ts
+│   │   │   ├── months.type.ts
+│   │   │   └── professions.type.ts
+│   │   └── ui
+│   │   ├── external-login
+│   │   ├── footer
+│   │   └── navbar
+│   ├── assets
+│   ├── environments
+│   │   ├── environment.model.ts
+│   │   ├── environment.prod.ts
+│   │   └── environment.ts
+│   ├── index.html
+│   ├── main.ts
+│   ├── styles.scss
+│   └── types
+│   └── grecaptcha.d.ts
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+
 ```
 
 ---
@@ -165,19 +195,25 @@ Enhancements include:
 Install dependencies:
 
 ```
+
 npm install
+
 ```
 
 Run the development server:
 
 ```
+
 ng serve
+
 ```
 
 Open in browser:
 
 ```
+
 http://localhost:4200
+
 ```
 
 ---
@@ -200,3 +236,7 @@ Planned next steps for the client application may include:
 # Contribution
 
 This project is part of the **Fake News Combat Agency** platform and is under active development.
+
+```
+
+```
