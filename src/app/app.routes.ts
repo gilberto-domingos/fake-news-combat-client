@@ -35,6 +35,11 @@ export const routes: Routes = [
       import('./contexts/components/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
   },
   {
+    path: 'analytics',
+    loadComponent: () =>
+      import('./core/analytics-access/analytics-access').then((m) => m.AnalyticsAccess),
+  },
+  {
     path: '**',
     redirectTo: 'land',
   },

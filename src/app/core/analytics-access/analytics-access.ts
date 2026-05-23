@@ -1,0 +1,27 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { AnalyticsService } from './analytics-service';
+
+@Component({
+  selector: 'app-analytics-access',
+  imports: [],
+  templateUrl: './analytics-access.html',
+  styleUrl: './analytics-access.scss',
+})
+export class AnalyticsAccess implements OnInit {
+  ngOnInit(): void {
+    console.log('teste');
+  }
+  analyticsService = inject(AnalyticsService);
+
+  testAnalytics(): void {
+    this.analyticsService.registerAccess().subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.error(error);
+        console.log('PASSANDO NO ERROR COMPONENT');
+      },
+    });
+  }
+}
