@@ -42,11 +42,11 @@
                 { "type": "initial", "maximumWarning": "1MB", "maximumError": "2MB" },
                 { "type": "anyComponentStyle", "maximumWarning": "100kB", "maximumError": "150kB" }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "sourceMap": true
             },
             "development": {
               "optimization": false,
-
               "extractLicenses": false,
               "sourceMap": true
             }

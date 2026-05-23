@@ -2,13 +2,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "chrome",
+      "name": "Angular Vite",
+      "type": "pwa-chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
       "url": "http://localhost:4200",
+      "cwd": "${workspaceFolder}",
       "webRoot": "${workspaceFolder}",
       "sourceMaps": true,
-      "trace": true
+
+      "sourceMapPathOverrides": {
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/src/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///*": "*",
+        "vite:///*": "*",
+        "/@fs/*": "*"
+      }
     }
   ]
 }
