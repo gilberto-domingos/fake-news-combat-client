@@ -6,6 +6,8 @@ import { Navbar } from './shared/ui/navbar/navbar';
 import { Footer } from './shared/ui/footer/footer';
 import { TranslocoService } from '@jsverse/transloco';
 import { HealthzService } from './contexts/components/land/services/healthz-service';
+import { AnalyticsService } from './core/analytics-access/analytics-service';
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Navbar, Footer, FontAwesomeModule],
@@ -17,6 +19,7 @@ export class App implements OnInit {
 
   private healthzService = inject(HealthzService);
   private translocoService = inject(TranslocoService);
+  private analyticsService = inject(AnalyticsService);
   savedLanguage: string = localStorage.getItem('lang') || 'en';
 
   ngOnInit(): void {
@@ -25,7 +28,7 @@ export class App implements OnInit {
     this.healthzService.checkHealthz().subscribe({
       next: (response) => {
         if (response?.status === 200) {
-          console.log('Http Status:', response.status);
+          console.log('Backend server - Http Status:', response.status);
           console.log('Backend server successfully !');
         }
       },
@@ -35,5 +38,20 @@ export class App implements OnInit {
     });
 
     this.translocoService.setActiveLang(this.savedLanguage);
+
+    setTimeout(() => {
+      this.analyticsAccess();
+    }, 60000);
+  }
+
+  analyticsAccess(): void {
+    this.analyticsService.registerAccess().subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 }

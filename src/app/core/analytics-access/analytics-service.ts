@@ -27,7 +27,6 @@ export class AnalyticsService {
       fingerprint: this.generateFingerprint(),
       authenticate_user_id: undefined,
     };
-    console.log('ESSA É A ROTA', this.apiUrl);
     return this.http.post<AnalyticsCrtDto>(this.apiUrl, payload).pipe(catchError(this.handleError));
   }
 

@@ -34,15 +34,16 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./contexts/components/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
   },
-  {
-    path: 'analytics_access',
-    loadComponent: () =>
-      import('./core/analytics-access/analytics-access').then((m) => m.AnalyticsAccess),
-  },
+
   {
     path: '**',
     redirectTo: 'land',
   },
+  // {
+  //   path: 'analytics_access',
+  //   loadComponent: () =>
+  //     import('./core/analytics-access/analytics-access').then((m) => m.AnalyticsAccess),
+  // },
   // {
   //   path: 'navbar',
   //   loadComponent: () => import('./shared/ui/navbar/navbar').then((m) => m.Navbar),
