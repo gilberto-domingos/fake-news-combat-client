@@ -35,7 +35,7 @@ export const routes: Routes = [
       import('./contexts/components/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
   },
   {
-    path: 'analytics',
+    path: 'analytics_access',
     loadComponent: () =>
       import('./core/analytics-access/analytics-access').then((m) => m.AnalyticsAccess),
   },

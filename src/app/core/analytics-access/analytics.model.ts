@@ -1,13 +1,13 @@
 export interface AnalyticsCrtDto {
   route: string;
   timestamp: string;
-  userAgent: string;
+  user_agent: string;
   language: string;
   platform: string;
-  screenWidth: number;
-  screenHeight: number;
+  screen_width: number;
+  screen_height: number;
   timezone: string;
   sessionId: string;
   fingerprint: string;
-  authenticateUserId?: string;
+  authenticate_user_id?: string;
 }

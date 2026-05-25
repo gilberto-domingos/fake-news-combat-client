@@ -7,20 +7,16 @@ import { AnalyticsService } from './analytics-service';
   templateUrl: './analytics-access.html',
   styleUrl: './analytics-access.scss',
 })
-export class AnalyticsAccess implements OnInit {
-  ngOnInit(): void {
-    console.log('teste');
-  }
+export class AnalyticsAccess {
   analyticsService = inject(AnalyticsService);
 
-  testAnalytics(): void {
+  analyticsAccess(): void {
     this.analyticsService.registerAccess().subscribe({
       next: (response) => {
         console.log(response);
       },
       error: (error) => {
         console.error(error);
-        console.log('PASSANDO NO ERROR COMPONENT');
       },
     });
   }

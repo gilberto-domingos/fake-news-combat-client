@@ -11,23 +11,23 @@ import { AnalyticsCrtDto } from './analytics.model';
 export class AnalyticsService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  private apiUrl = `${environment.apiUrl}/analytics`;
+  private apiUrl = `${environment.apiUrl}/analytics_access/`;
 
   registerAccess(): Observable<AnalyticsCrtDto> {
     const payload: AnalyticsCrtDto = {
       route: this.router.url,
       timestamp: new Date().toISOString(),
-      userAgent: navigator.userAgent,
+      user_agent: navigator.userAgent,
       language: navigator.language,
       platform: navigator.platform,
-      screenWidth: window.screen.width,
-      screenHeight: window.screen.height,
+      screen_width: window.screen.width,
+      screen_height: window.screen.height,
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       sessionId: this.getSessionId(),
       fingerprint: this.generateFingerprint(),
-      authenticateUserId: undefined,
+      authenticate_user_id: undefined,
     };
-
+    console.log('ESSA É A ROTA', this.apiUrl);
     return this.http.post<AnalyticsCrtDto>(this.apiUrl, payload).pipe(catchError(this.handleError));
   }
 
