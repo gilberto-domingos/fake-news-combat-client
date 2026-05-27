@@ -34,7 +34,15 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./contexts/components/privacy-policy/privacy-policy').then((m) => m.PrivacyPolicy),
   },
-
+  {
+    path: 'dashboard-owner',
+    loadComponent: () => import('./contexts/features/dashboard/dashboard').then((m) => m.Dashboard),
+  },
+  {
+    path: 'dashboard-main',
+    loadComponent: () =>
+      import('./contexts/features/dashboard-main/dashboard-main').then((m) => m.DashboardMain),
+  },
   {
     path: '**',
     redirectTo: 'land',

@@ -1,0 +1,214 @@
+<div class="dashboard-container">
+  <!-- HEADER -->
+  <mat-toolbar class="topbar">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <mat-icon>flutter_dash</mat-icon>
+      </div>
+
+      <span class="logo-text">BERRY</span>
+    </div>
+
+    <button mat-icon-button class="menu-btn">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="search-box">
+      <mat-icon>search</mat-icon>
+
+      <input matInput placeholder="Search here..." />
+
+      <button mat-icon-button>
+        <mat-icon>tune</mat-icon>
+      </button>
+    </div>
+
+    <div class="toolbar-actions">
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+      <button mat-icon-button>
+        <mat-icon>settings</mat-icon>
+      </button>
+
+      <div class="avatar">
+        <img src="https://i.pravatar.cc/100" alt="" />
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <!-- CONTENT -->
+  <div class="content-grid">
+    <!-- LEFT -->
+    <div class="left-content">
+      <!-- TOP CARDS -->
+      <div class="cards-row">
+        <mat-card class="income-card purple">
+          <div class="card-top">
+            <div class="icon-box">
+              <mat-icon>account_balance_wallet</mat-icon>
+            </div>
+
+            <button mat-icon-button>
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+          </div>
+
+          <div class="card-value">
+            $500.00
+            <mat-icon>north_east</mat-icon>
+          </div>
+
+          <div class="card-label">Total Earning</div>
+        </mat-card>
+
+        <mat-card class="income-card blue">
+          <div class="card-top">
+            <div class="icon-box">
+              <mat-icon>credit_card</mat-icon>
+            </div>
+
+            <div class="switch-buttons">
+              <button class="active">Year</button>
+            </div>
+          </div>
+
+          <div class="card-value">
+            $961
+            <mat-icon>north_east</mat-icon>
+          </div>
+
+          <div class="card-label">C/W Last Year</div>
+
+          <div class="line-chart">
+            <div class="line"></div>
+          </div>
+        </mat-card>
+      </div>
+
+      <!-- CHART -->
+      <mat-card class="chart-card">
+        <div class="chart-header">
+          <div>
+            <h3>Total Growth</h3>
+            <h2>$2,324.00</h2>
+          </div>
+
+          <mat-form-field appearance="outline">
+            <mat-select value="month">
+              <mat-option value="month">Month</mat-option>
+              <mat-option value="year">Year</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="chart-container">
+          <div class="bar-group" *ngFor="let item of chartData">
+            <div class="bars" [style.height.px]="getTotalHeight(item)">
+              <div class="bar investment" [style.height.px]="item.investment"></div>
+
+              <div class="bar loss" [style.height.px]="item.loss"></div>
+
+              <div class="bar profit" [style.height.px]="item.profit"></div>
+
+              <div class="bar maintenance" [style.height.px]="item.maintenance"></div>
+            </div>
+
+            <span>{{ months[$index] }}</span>
+          </div>
+        </div>
+
+        <div class="chart-legend">
+          <div>
+            <span class="legend-color investment"></span>
+            Investment
+          </div>
+
+          <div>
+            <span class="legend-color loss"></span>
+            Loss
+          </div>
+
+          <div>
+            <span class="legend-color profit"></span>
+            Profit
+          </div>
+
+          <div>
+            <span class="legend-color maintenance"></span>
+            Maintenance
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-content">
+      <!-- SMALL CARDS -->
+      <mat-card class="mini-card blue-mini">
+        <div class="mini-left">
+          <div class="mini-icon">
+            <mat-icon>grid_view</mat-icon>
+          </div>
+
+          <div>
+            <h4>$203k</h4>
+            <p>Total Income</p>
+          </div>
+        </div>
+      </mat-card>
+
+      <mat-card class="mini-card white-mini">
+        <div class="mini-left">
+          <div class="mini-icon yellow">
+            <mat-icon>widgets</mat-icon>
+          </div>
+
+          <div>
+            <h4>$203k</h4>
+            <p>Total Income</p>
+          </div>
+        </div>
+      </mat-card>
+
+      <!-- STOCKS -->
+      <mat-card class="stocks-card">
+        <h3>Popular Stocks</h3>
+
+        <div class="stock-highlight">
+          <div class="stock-header">
+            <div>
+              <h4>Bajaj Finery</h4>
+              <p>10% Profit</p>
+            </div>
+
+            <span>$1839.00</span>
+          </div>
+
+          <div class="fake-chart"></div>
+        </div>
+
+        <div class="stock-item" *ngFor="let stock of stocks">
+          <div>
+            <h4>{{ stock.name }}</h4>
+            <p>{{ stock.status }}</p>
+          </div>
+
+          <div class="stock-price">
+            {{ stock.price }}
+
+            <mat-icon [class.up]="stock.up" [class.down]="!stock.up">
+              {{ stock.up ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+            </mat-icon>
+          </div>
+        </div>
+
+        <div class="view-all">
+          View all
+          <mat-icon>chevron_right</mat-icon>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
