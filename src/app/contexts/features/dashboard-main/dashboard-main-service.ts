@@ -1,7 +1,9 @@
-import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
+
 import { AnalyticsResDto } from 'app/core/analytics-access/analytics.res.dto';
 
 @Injectable({
@@ -9,22 +11,11 @@ import { AnalyticsResDto } from 'app/core/analytics-access/analytics.res.dto';
 })
 export class DashboardMainService {
   private http = inject(HttpClient);
+
   private apiUrl = `${environment.apiUrl}/analytics_access/find_all`;
 
-  getAll(params?: {
-    page?: number;
-    pageSize?: number;
-    search?: string;
-  }): Observable<AnalyticsResDto[]> {
-    let httpParams = new HttpParams();
-
-    if (params?.page) httpParams = httpParams.set('page', params.page);
-    if (params?.pageSize) httpParams = httpParams.set('pageSize', params.pageSize);
-    if (params?.search) httpParams = httpParams.set('search', params.search);
-
-    return this.http
-      .get<AnalyticsResDto[]>(this.apiUrl, { params: httpParams })
-      .pipe(catchError(this.handleError));
+  getAll(): Observable<AnalyticsResDto[]> {
+    return this.http.get<AnalyticsResDto[]>(this.apiUrl).pipe(catchError(this.handleError));
   }
 
   private handleError(error: any) {
@@ -35,9 +26,9 @@ export class DashboardMainService {
     if (error.error?.detail) {
       message = error.error.detail;
     } else if (error.status === 0) {
-      message = 'Server unavailablel';
+      message = 'Server unavailable';
     } else if (error.status === 404) {
-      message = 'User not Found';
+      message = 'User not found';
     }
 
     return throwError(() => new Error(message));

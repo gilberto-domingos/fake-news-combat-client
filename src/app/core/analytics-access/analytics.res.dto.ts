@@ -15,15 +15,3 @@ export interface AnalyticsResDto {
   bot_detection: boolean;
   authenticate_user_id?: string;
 }
-
-export interface AnalyticsPaginationResDto {
-  data: AnalyticsResDto[];
-
-  total: number;
-
-  page: number;
-
-  pageSize: number;
-
-  totalPages: number;
-}
