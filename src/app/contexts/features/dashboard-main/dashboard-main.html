@@ -12,147 +12,104 @@
   }
 
   @if (!loading() && analytics().length > 0) {
-    <table mat-table [dataSource]="analytics()" class="mat-elevation-z8">
-      <!-- ID -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
+    <div class="table-container">
+      <table mat-table [dataSource]="analytics()" class="mat-elevation-z8">
+        <!-- SESSION ID -->
+        <ng-container matColumnDef="sessionId">
+          <th mat-header-cell *matHeaderCellDef>Session ID</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.id }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.sessionId }}
+          </td>
+        </ng-container>
 
-      <!-- SESSION ID -->
-      <ng-container matColumnDef="sessionId">
-        <th mat-header-cell *matHeaderCellDef>Session ID</th>
+        <!-- ROUTE -->
+        <ng-container matColumnDef="route">
+          <th mat-header-cell *matHeaderCellDef>Route</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.sessionId }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.route }}
+          </td>
+        </ng-container>
 
-      <!-- ROUTE -->
-      <ng-container matColumnDef="route">
-        <th mat-header-cell *matHeaderCellDef>Route</th>
+        <!-- TIMESTAMP -->
+        <ng-container matColumnDef="timestamp">
+          <th mat-header-cell *matHeaderCellDef>Timestamp</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.route }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.timestamp | date: 'dd/MM/yyyy HH:mm:ss' }}
+          </td>
+        </ng-container>
 
-      <!-- TIMESTAMP -->
-      <ng-container matColumnDef="timestamp">
-        <th mat-header-cell *matHeaderCellDef>Timestamp</th>
+        <!-- LANGUAGE -->
+        <ng-container matColumnDef="language">
+          <th mat-header-cell *matHeaderCellDef>Language</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.timestamp | date: 'dd/MM/yyyy HH:mm:ss' }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.language }}
+          </td>
+        </ng-container>
 
-      <!-- USER AGENT -->
-      <ng-container matColumnDef="user_agent">
-        <th mat-header-cell *matHeaderCellDef>User Agent</th>
+        <!-- TIMEZONE -->
+        <ng-container matColumnDef="timezone">
+          <th mat-header-cell *matHeaderCellDef>Timezone</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.user_agent }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.timezone }}
+          </td>
+        </ng-container>
 
-      <!-- LANGUAGE -->
-      <ng-container matColumnDef="language">
-        <th mat-header-cell *matHeaderCellDef>Language</th>
+        <!-- IP ADDRESS -->
+        <ng-container matColumnDef="ip_address">
+          <th mat-header-cell *matHeaderCellDef>IP Address</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.language }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.ip_address }}
+          </td>
+        </ng-container>
 
-      <!-- PLATFORM -->
-      <ng-container matColumnDef="platform">
-        <th mat-header-cell *matHeaderCellDef>Platform</th>
+        <!-- COUNTRY -->
+        <ng-container matColumnDef="country">
+          <th mat-header-cell *matHeaderCellDef>Country</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.platform }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.country }}
+          </td>
+        </ng-container>
 
-      <!-- SCREEN WIDTH -->
-      <ng-container matColumnDef="screen_width">
-        <th mat-header-cell *matHeaderCellDef>Screen Width</th>
+        <!-- BOT -->
+        <ng-container matColumnDef="bot_detection">
+          <th mat-header-cell *matHeaderCellDef>Bot</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.screen_width }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.bot_detection ? 'YES' : 'NO' }}
+          </td>
+        </ng-container>
 
-      <!-- SCREEN HEIGHT -->
-      <ng-container matColumnDef="screen_height">
-        <th mat-header-cell *matHeaderCellDef>Screen Height</th>
+        <!-- AUTH USER -->
+        <ng-container matColumnDef="authenticate_user_id">
+          <th mat-header-cell *matHeaderCellDef>Auth User</th>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.screen_height }}
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let item">
+            {{ item.authenticate_user_id || '-' }}
+          </td>
+        </ng-container>
 
-      <!-- TIMEZONE -->
-      <ng-container matColumnDef="timezone">
-        <th mat-header-cell *matHeaderCellDef>Timezone</th>
+        <!-- HEADER -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
-        <td mat-cell *matCellDef="let item">
-          {{ item.timezone }}
-        </td>
-      </ng-container>
+        <!-- ROW -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
 
-      <!-- FINGERPRINT -->
-      <ng-container matColumnDef="fingerprint">
-        <th mat-header-cell *matHeaderCellDef>Fingerprint</th>
-
-        <td mat-cell *matCellDef="let item">
-          {{ item.fingerprint }}
-        </td>
-      </ng-container>
-
-      <!-- IP ADDRESS -->
-      <ng-container matColumnDef="ip_address">
-        <th mat-header-cell *matHeaderCellDef>IP Address</th>
-
-        <td mat-cell *matCellDef="let item">
-          {{ item.ip_address }}
-        </td>
-      </ng-container>
-
-      <!-- COUNTRY -->
-      <ng-container matColumnDef="country">
-        <th mat-header-cell *matHeaderCellDef>Country</th>
-
-        <td mat-cell *matCellDef="let item">
-          {{ item.country }}
-        </td>
-      </ng-container>
-
-      <!-- BOT DETECTION -->
-      <ng-container matColumnDef="bot_detection">
-        <th mat-header-cell *matHeaderCellDef>Bot Detection</th>
-
-        <td mat-cell *matCellDef="let item">
-          {{ item.bot_detection ? 'YES' : 'NO' }}
-        </td>
-      </ng-container>
-
-      <!-- AUTHENTICATED USER -->
-      <ng-container matColumnDef="authenticate_user_id">
-        <th mat-header-cell *matHeaderCellDef>Auth User ID</th>
-
-        <td mat-cell *matCellDef="let item">
-          {{ item.authenticate_user_id || '-' }}
-        </td>
-      </ng-container>
-
-      <!-- HEADER -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-      <!-- ROW -->
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
+    <mat-paginator
+      [length]="totalItems()"
+      [pageSize]="pageSize()"
+      [pageSizeOptions]="[5]"
+      (page)="onPageChange($event)"
+      aria-label="Select page"
+    >
+    </mat-paginator>
   }
 </div>

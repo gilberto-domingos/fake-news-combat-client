@@ -469,15 +469,19 @@ svg {
     gap: 14px;
   }
 }
-/////////////////--------------------////////////////////////////
-.table-card {
-  margin: 24px;
+/////////////////-------------------- table paginator ////////////////////////////
+.container {
+  padding: 20px;
 }
 
 .table-container {
   overflow-x: auto;
 }
 
-.full-width-table {
+table {
   width: 100%;
+}
+
+mat-paginator {
+  margin-top: 16px;
 }
