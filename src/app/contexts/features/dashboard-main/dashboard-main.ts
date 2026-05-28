@@ -37,7 +37,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './dashboard-main.html',
   styleUrl: './dashboard-main.scss',
 })
-export class DashboardMain implements OnInit {
+export class DashboardMain implements AfterViewInit {
   private dashboardService = inject(DashboardMainService);
   private destroyRef = inject(DestroyRef);
 
@@ -60,16 +60,11 @@ export class DashboardMain implements OnInit {
   analytics = signal<AnalyticsResDto[]>([]);
   loading = signal(false);
   errorMessage = signal<string | null>(null);
+  paginatorReady: boolean = false;
 
-  ngOnInit(): void {
-    this.loadAnalytics();
-  }
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   loadAnalytics(): void {
-    this.loading.set(true);
-
-    this.errorMessage.set(null);
-
     this.dashboardService
       .getAll({
         page: this.page(),
@@ -78,26 +73,26 @@ export class DashboardMain implements OnInit {
       })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
-        next: (response: AnalyticsResDto[]) => {
-          console.log('INFORMAÇÕES DO BANCO', response);
+        next: (response) => {
           this.analytics.set(response);
           this.totalItems.set(100);
-          this.loading.set(false);
-        },
-
-        error: (error: Error) => {
-          this.errorMessage.set(error.message);
-
-          this.loading.set(false);
+          console.log('INFORMACOES DA TABELA', response);
         },
       });
   }
 
   onPageChange(event: PageEvent): void {
     this.page.set(event.pageIndex + 1);
-
     this.pageSize.set(event.pageSize);
 
+    this.loadAnalytics();
+
+    console.log('NUMERO DA PAGINA:', event.pageIndex);
+    console.log('ENVIANDO PARA BACKEND:', event.pageSize);
+  }
+
+  ngAfterViewInit(): void {
+    this.paginatorReady = true;
     this.loadAnalytics();
   }
 }
