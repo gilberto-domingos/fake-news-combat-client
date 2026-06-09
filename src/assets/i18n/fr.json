@@ -23,7 +23,7 @@
 
     "tips": {
       "title": "Conseils d'utilisation",
-      "cont": "Tirez le meilleur parti du système, explorez les rapports et les tableaux de bord pour comprendre les tendances des fausses informations, utilisez les alertes des agents IA pour rester informé et considérez que le moindre indice est précieux. Il est toujours important de recouper les recherches et les informations."
+      "cont": "Non seulement il détecte les fausses informations, mais le système surveille également la réputation numérique des particuliers et des entreprises, recueille des preuves recevables légalement et génère des rapports pour appuyer les actions en justice. Services exclusifs pour les cabinets d’avocats et les directions juridiques. Rapports, normes et tableaux de bord."
     },
     "collaborate": {
       "title": "Investissement ou partenariat",
@@ -31,6 +31,10 @@
     },
     "engineering": {
       "title": "Ingénierie, architecture et flux 1 sur 5"
+    },
+    "notjustfake": {
+      "title": "Pas seulement des fausses nouvelles",
+      "cont": "Notre plateforme surveille la réputation numérique des particuliers et des entreprises, collecte des preuves organisées légalement et génère des rapports pour appuyer les actions en justice.\n\n• Surveillance des mentions de personnes et de marques.\n• Collecte automatisée de preuves.\n• Capture de pages et de publications.\n• Tableau de bord analytique.\n• Chronologie des événements.\n• Rapports exportables pour les avocats.\n• Rapports pour l'assistance juridique.\n• Alertes en temps réel.\n• Historique de diffusion du contenu.\n• Surveillance de la réputation numérique.\n• Tableau de bord de la réputation numérique. Services exclusifs pour les cabinets d'avocats et les directions juridiques. Moteur de preuves numériques. Rechercher → Capturer → Conserver → Organiser → Chronologie → Exporter. Si l'un de mes clients subit une cyberattaque aujourd'hui, je peux utiliser cette plateforme pour localiser, conserver et organiser les preuves en quelques heures. Les cabinets d'avocats y trouveront également leur compte, car ils ont déjà des clients confrontés à des problèmes de réputation. • Les politiciens locaux, pendant les campagnes électorales, font l'objet de rumeurs, attaques, accusations, etc...Contactez-nous en prenant rendez-vous."
     },
     "verif": {
       "title": "Tâches de vérification",
@@ -54,7 +58,7 @@
     },
     "enriched": {
       "title": "Contenu enrichi",
-      "cont": "Tout est enregistré pour votre confiance: chaque vérification effectuée dans le système est stockée, vous permettant de consulter l'historique complet. Cela garantit la transparence et permet de suivre l'évolution de la vérification des informations au fil du temps."
+      "cont": "Bien plus qu'un simple résultat vrai ou faux. Outre le score, le système affiche des extraits du contenu analysé, les mots-clés et les tendances, ainsi que les preuves de recoupement détectées. Cela vous aide à comprendre pourquoi une information a été jugée fiable ou fausse."
     }
   },
   "navbar": {

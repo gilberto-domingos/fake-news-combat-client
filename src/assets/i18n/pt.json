@@ -22,7 +22,7 @@
     },
     "tips": {
       "title": "Dicas para o Usuário",
-      "cont": "Aproveite ao máximo o sistema, explore relatórios e dashboards para entender padrões de notícias falsas, use os alertas do agente de IA para se manter informado e considere que qualquer indício, por menor que seja, é válido. É sempre importante realizar cruzamento de pesquisa e informações."
+      "cont": "Não apenas detectar fake news, sistema monitora a reputação digital de pessoas e empresas, coleta evidências juridicamente organizadas e gerando relatórios para suporte a ações judiciais. Serviços exclusivos para escritórios de advocacia e departamentos jurídicos. Relatórios, padrões e dashboards."
     },
     "collaborate": {
       "title": "Investimento vs Parceria",
@@ -31,6 +31,11 @@
     "engineering": {
       "title": "Engenharia, arquitetura e fluxo 1 de 5"
     },
+    "notjustfake": {
+      "title": "Não só fake news",
+      "cont": "Nossa plataforma monitora a reputação digital de pessoas e empresas, coletando evidências juridicamente organizadas e gerando relatórios para suporte a ações judiciais.\n\n• Monitoramento de menções a pessoas e marcas.\n• Coleta automatizada de evidências.\n• Captura de páginas e publicações.\n• Dashboard analítico.\n• Linha do tempo dos acontecimentos.\n• Relatórios exportáveis para advogados.\n• Relatórios para suporte jurídico.\n• Alertas em tempo real.\n• Histórico de disseminação de conteúdo.\n• Monitoramento de reputação digital.\n• Dashboard de reputação digital. Serviço exclusivos para escritórios de advocacia e departamentos jurídicos. Motor de Evidências Digitais. Encontrar → Capturar → Preservar → Organizar → Cronologizar → Exportar. Se um cliente sofrer um ataque online hoje, consigo usar essa plataforma para localizar, preservar e organizar as provas em poucas horas. Escritórios de advocacia porque já possuem clientes com problemas reputacionais. • Políticos locais durante campanhas surgem boatos, ataques e acusações, etc...Consulte-nos agendando uma consulta."
+    },
+
     "verif": {
       "title": "Tarefas de Verificação",
       "cont": "Como verificar uma notícia? Insira o conteúdo suspeito (texto, link ou imagem), clique em \"Verificar\" e o sistema processa a informação usando IA e técnicas avançadas como OCR, NLP e análise de vídeo, enviando a tarefa para processamento automático. Em poucos minutos, você recebe o resultado com um Score de Confiabilidade e explicações detalhadas."
@@ -53,7 +58,7 @@
     },
     "enriched": {
       "title": "Conteúdo Enriquecido",
-      "cont": "Tudo registrado para sua confiança: cada verificação feita no sistema é armazenada, permitindo que você consulte o histórico completo. Isso garante transparência e ajuda a acompanhar a evolução da verificação de notícias ao longo do tempo."
+      "cont": "Mais do que apenas verdadeiro ou falso. Além do score, o sistema mostra trechos do conteúdo analisado, palavras-chave e padrões, detectados evidências de verificação cruzadas, isso ajuda você a entender por que uma notícia foi considerada confiável ou falsa."
     }
   },
   "navbar": {

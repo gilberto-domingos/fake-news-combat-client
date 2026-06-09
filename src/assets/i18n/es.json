@@ -22,7 +22,7 @@
     },
     "tips": {
       "title": "Consejos para el usuario",
-      "cont": "Aprovecha al máximo el sistema, explora los informes y paneles para comprender los patrones de las noticias falsas, usa las alertas del agente de IA para mantenerte informado y ten en cuenta que cualquier indicio, por pequeño que sea, es válido. Siempre es importante contrastar la investigación y la información."
+      "cont": "No solo detecta noticias falsas, sino que el sistema monitorea la reputación digital de personas y empresas, recopila evidencia organizada legalmente y genera informes para respaldar acciones legales. Servicios exclusivos para bufetes de abogados y departamentos legales. Informes, estándares y paneles de control."
     },
     "collaborate": {
       "title": "Inversión vs. Asociación",
@@ -30,6 +30,10 @@
     },
     "engineering": {
       "title": "Ingeniería, arquitectura y flujo 1 de 5"
+    },
+    "notjustfake": {
+      "title": "No solo noticias falsas",
+      "cont": "Nuestra plataforma monitorea la reputación digital de individuos y empresas, recopilando evidencia organizada legalmente y generando informes para respaldar acciones legales.\n\n• Monitoreo de menciones de personas y marcas.\n• Recopilación automatizada de evidencia.\n• Captura de páginas y publicaciones.\n• Panel analítico.\n• Cronología de eventos.\n• Informes exportables para abogados.\n• Informes para apoyo legal.\n• Alertas en tiempo real.\n• Historial de difusión de contenido.\n• Monitoreo de reputación digital.\n• Panel de reputación digital. Servicios exclusivos para bufetes de abogados y departamentos legales. Motor de evidencia digital. Buscar → Capturar → Preservar → Organizar → Cronología → Exportar. Si uno de clientes sufre un ataque en línea hoy, puedo usar esta plataforma para localizar, preservar y organizar la evidencia en pocas horas. Bufetes de abogados porque ya tienen clientes con problemas de reputación. • Los políticos locales durante las campañas son objeto de rumores, ataques, acusaciones, etc... Contáctanos programando una cita."
     },
 
     "verif": {
@@ -55,7 +59,7 @@
     },
     "enriched": {
       "title": "Contenido enriquecido",
-      "cont": "Todo se registra para su confianza: cada verificación realizada en el sistema se almacena, lo que le permite consultar el historial completo. Esto garantiza la transparencia y ayuda a seguir la evolución de la verificación de noticias a lo largo del tiempo."
+      "cont": "Más allá de ser verdadero o falso. Además de la puntuación, el sistema muestra extractos del contenido analizado, palabras clave y patrones, así como evidencia de verificación cruzada. Esto ayuda a comprender por qué una noticia se consideró fiable o falsa."
     }
   },
   "navbar": {

@@ -22,7 +22,7 @@
     },
     "tips": {
       "title": "User Tips",
-      "cont": "Make the most of the system, explore reports and dashboards to understand fake news patterns, use AI agent alerts to stay informed, and consider that any clue, however small, is valid. It is always important to cross-reference research and information."
+      "cont": "Not only does it detect fake news, the system monitors the digital reputation of individuals and companies, collects legally organized evidence, and generates reports to support legal actions. Exclusive services for law firms and legal departments. Reports, standards, and dashboards."
     },
     "collaborate": {
       "title": "Investment vs. Partnership",
@@ -31,6 +31,11 @@
     "engineering": {
       "title": "Engineering, architecture and flow 1 of 5"
     },
+    "notjustfake": {
+      "title": "Not just fake news",
+      "cont": "Our platform monitors the digital reputation of individuals and companies, collecting legally organized evidence and generating reports to support legal actions.\n\n• Monitoring of mentions of people and brands.\n• Automated evidence collection.\n• Capture of pages and publications.\n• Analytical dashboard.\n• Timeline of events.\n• Exportable reports for lawyers.\n• Reports for legal support.\n• Real-time alerts.\n• History of content dissemination.\n• Digital reputation monitoring.\n• Digital reputation dashboard. Exclusive services for law firms and legal departments. Digital Evidence Engine. Find → Capture → Preserve → Organize → Timeline → Export. If one of clients suffers an online attack today, I can use this platform to locate, preserve, and organize the evidence in a few hours. Law firms because they already have clients with reputational problems. • Local politicians during campaigns are the subject of rumors, attacks, accusations, etc...Contact us by scheduling an appointment."
+    },
+
     "verif": {
       "title": "Verification Tasks",
       "cont": "How to verify a news story? Enter the suspicious content (text, link, or image), click \"Verify,\" and the system processes the information using AI and advanced techniques such as OCR, NLP, and video analysis, sending the task for automatic processing. In a few minutes, you receive the result with a Reliability Score and detailed explanations."
@@ -54,7 +59,7 @@
     },
     "enriched": {
       "title": "Enriched Content",
-      "cont": "Everything recorded for your trust: every verification done in the system is stored, allowing you to consult the complete history. This ensures transparency and helps track the evolution of news verification over time."
+      "cont": "More than just true or false. In addition to the score, the system shows excerpts from the analyzed content, keywords and patterns, detected evidence of cross-checking, this helps you understand why a news item was considered reliable or false."
     }
   },
   "navbar": {
