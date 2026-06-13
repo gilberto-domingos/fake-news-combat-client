@@ -2,6 +2,7 @@ export interface AnalyticsResDto {
   id: string;
   route: string;
   timestamp: string;
+  city: string;
   user_agent: string;
   language: string;
   platform: string;

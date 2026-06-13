@@ -45,6 +45,7 @@ export class DashboardMain implements AfterViewInit {
     'sessionId',
     'route',
     'timestamp',
+    'city',
     'language',
     'timezone',
     'ip_address',
@@ -87,8 +88,8 @@ export class DashboardMain implements AfterViewInit {
 
     this.loadAnalytics();
 
-    console.log('NUMERO DA PAGINA:', event.pageIndex);
-    console.log('ENVIANDO PARA BACKEND:', event.pageSize);
+    // console.log('NUMERO DA PAGINA:', event.pageIndex);
+    // console.log('ENVIANDO PARA BACKEND:', event.pageSize);
   }
 
   ngAfterViewInit(): void {
