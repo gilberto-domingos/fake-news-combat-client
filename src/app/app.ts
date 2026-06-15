@@ -38,20 +38,5 @@ export class App implements OnInit {
     });
 
     this.translocoService.setActiveLang(this.savedLanguage);
-
-    setTimeout(() => {
-      this.analyticsAccess();
-    }, 60000);
-  }
-
-  analyticsAccess(): void {
-    this.analyticsService.registerAccess().subscribe({
-      next: (response) => {
-        console.log(response);
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
   }
 }
